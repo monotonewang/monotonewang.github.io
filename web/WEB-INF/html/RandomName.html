@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1. COMPLETE VARIABLE AND FUNCTION DEFINITIONS</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+        }
+    </style>
+    <style type="text/css">
+        html {
+            background-color: #00539F;
+        }
+
+        body {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: #FF9500;
+            padding: 0 20px 20px 20px;
+            border: 5px solid black;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0 auto;
+            text-shadow: 3px 3px 1px black;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<form>
+    Enter custom name:<input id="name" type="text" name="fname"/>
+</form>
+<input id="man" type="radio" name="gender" checked="checked">man</input>
+<input id='woman' type="radio" name="gender">woman</input>
+<button id="generate">Generate random story</button>
+
+<p class="editor-note" id="note"></p>
+
+<label for="weather">Select the weather type today: </label>
+<select id="weather">
+    <option value="">--Make a choice--</option>
+    <option value="sunny">Sunny</option>
+    <option value="rainy">Rainy</option>
+    <option value="snowing">Snowing</option>
+    <option value="overcast">Overcast</option>
+</select>
+
+<p id="weatherP"></p>
+</body>
+<script src="../scripts/execise/RandomName.js"></script>
+</html>

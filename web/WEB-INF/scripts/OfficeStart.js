@@ -8,6 +8,54 @@ myHeading.textContent = 'Hello Baidu!' + multiply(4, 2);
 myHeading.onclick = function () {
     myHeading.textContent = 'Hello world!';
     appendChristmas();
+    testArray();
+    createPanel();
+}
+
+/**
+ * change color
+ * @type {HTMLElement}
+ */
+let changeColorLet = document.getElementById('changeColor');
+changeColorLet.addEventListener('click', changeColor)
+
+/**
+ * create div
+ *         --p
+ *         --button dynamic
+ */
+function createPanel() {
+    var html = document.querySelector('html');
+
+    var panel = document.createElement('div');
+    panel.setAttribute('class', 'msgBox');
+    html.appendChild(panel);
+
+    var msg = document.createElement('p');
+    msg.textContent = 'This is a message box';
+    panel.appendChild(msg);
+
+    var closeBtn = document.createElement('button');
+    closeBtn.textContent = 'x';
+    panel.appendChild(closeBtn);
+
+    closeBtn.onclick = function () {
+        panel.parentNode.removeChild(panel);
+    }
+
+}
+
+function testArray() {
+    let random = ['tree', 795, [0, 1, 2]];
+    random.push("tree", 'test');
+    for (let i = 0; i < random.length; i++) {
+        let temp = random[i];
+        // alert(temp);
+    }
+    var myArray = ['I', 'love', 'chocolate', 'frogs'];
+    var madeAString = myArray.join(' ');
+    console.log(madeAString);
+    alert(madeAString);
 }
 
 function appendChristmas() {
@@ -27,8 +75,18 @@ function appendChristmas() {
             list.appendChild(listItem);
         }
     }
+}
 
+function changeColor() {
 
+    function random(number) {
+        return Math.floor(Math.random() * (number + 1));
+    }
+
+    // btn.onclick = function () {
+    let rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
+    document.body.style.backgroundColor = rndCol;
+    // }
 }
 
 var index = 0;
