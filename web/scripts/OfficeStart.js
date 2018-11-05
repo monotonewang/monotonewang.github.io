@@ -16,8 +16,13 @@ myHeading.onclick = function () {
  * change color
  * @type {HTMLElement}
  */
+let letGuessGame = document.getElementById('GuessGame');
 let changeColorLet = document.getElementById('changeColor');
 changeColorLet.addEventListener('click', changeColor)
+
+letGuessGame.onclick = function () {
+    window.location.href = 'web/html/GuessGame.html';
+}
 
 /**
  * create div
