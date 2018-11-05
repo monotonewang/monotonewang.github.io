@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="890d9852-537f-42a6-8afa-50623ee97484" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/html/GuessGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/html/GuessGame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/scripts/GuessGame.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/scripts/GuessGame.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -70,7 +69,7 @@
           <entry key="html" value="4" />
           <entry key="js" value="5" />
           <entry key="jsp" value="1" />
-          <entry key="ts" value="1" />
+          <entry key="ts" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -78,20 +77,20 @@
           <entry key="HTML" value="4" />
           <entry key="JSP" value="1" />
           <entry key="JavaScript" value="5" />
-          <entry key="TypeScript" value="1" />
+          <entry key="TypeScript" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="html" value="251" />
-          <entry key="js" value="747" />
+          <entry key="js" value="941" />
           <entry key="txt" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="251" />
-          <entry key="JavaScript" value="747" />
+          <entry key="JavaScript" value="941" />
           <entry key="PLAIN_TEXT" value="27" />
         </counts>
       </usages-collector>
@@ -102,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+            <state relative-caret-position="70">
+              <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -133,20 +132,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/html/GuessGame.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+            <state relative-caret-position="30">
+              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/scripts/GuessGame.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="489">
+              <caret line="92" selection-start-line="92" selection-end-line="92" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/scripts/GuessGame.js">
+        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-157">
-              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+            <state relative-caret-position="240">
+              <caret line="10304" column="4" selection-start-line="10304" selection-start-column="4" selection-end-line="10304" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -181,8 +189,8 @@
         <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/web/scripts/OfficeStart.js" />
-        <option value="$PROJECT_DIR$/web/scripts/GuessGame.js" />
         <option value="$PROJECT_DIR$/web/html/GuessGame.html" />
+        <option value="$PROJECT_DIR$/web/scripts/GuessGame.js" />
       </list>
     </option>
   </component>
@@ -193,10 +201,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="302" />
-    <option name="y" value="60" />
-    <option name="width" value="1120" />
-    <option name="height" value="792" />
+    <option name="x" value="-7" />
+    <option name="y" value="23" />
+    <option name="width" value="959" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -296,13 +304,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12262000" />
+    <option name="totallyTimeSpent" value="14263000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="302" y="60" width="1120" height="792" extended-state="0" />
+    <frame x="27" y="23" width="1404" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0018198362" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14244397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Messages" />
@@ -315,7 +323,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.40571427" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.07714286" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -332,6 +340,18 @@
     <MESSAGE value="move index.html" />
     <MESSAGE value="guessNumber" />
     <option name="LAST_COMMIT_MESSAGE" value="guessNumber" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/web/scripts/GuessGame.js</url>
+          <line>81</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/web/html/01-排版标签.html">
@@ -380,13 +400,6 @@
     <entry file="file://$PROJECT_DIR$/web/css/div.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154170">
-          <caret line="10291" column="4" selection-start-line="10291" selection-start-column="4" selection-end-line="10291" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/scripts/afirst/01-js与HTML的结合.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -421,13 +434,6 @@
     <entry file="file://$PROJECT_DIR$/web/css/span.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="60" column="30" lean-forward="true" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/html/RandomName.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -454,17 +460,31 @@
         <state relative-caret-position="-19" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/scripts/GuessGame.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-157">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+        <state relative-caret-position="70">
+          <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10304" column="4" selection-start-line="10304" selection-start-column="4" selection-end-line="10304" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/html/GuessGame.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
+        <state relative-caret-position="30">
+          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scripts/GuessGame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="92" selection-start-line="92" selection-end-line="92" />
         </state>
       </provider>
     </entry>
