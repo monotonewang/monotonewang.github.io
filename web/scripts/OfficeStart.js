@@ -165,6 +165,9 @@ if (1 == 1) {
 //     alert('Awwww, but chocolate is my favorite...');
 // }
 
+function TestJson() {
+    window.location.href = 'web/html/TestJson.html';
+}
 
 function createParagraph() {
     let para = document.createElement('p');
