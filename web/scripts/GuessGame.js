@@ -3,31 +3,33 @@ let mNumber = document.getElementById('number');
 let mContent = document.getElementById('content');
 let mTrueValue = document.getElementById('trueValue');
 let mNoGuess = document.getElementById('noGuess');
+let mResetButton;
 
 let mBig = "你猜的数据大了";
 let mSmall = "你猜的数据小了";
 let mOk = "恭喜你猜对了";
-let count = 0;
+let mCount = 0;
 
 let mRandomNumber;
 
 let isShowTrueNumber = false;
 
 mNoGuess.onclick = function () {
-    if (count > 0)
-        mTrueValue.textContent = "正确答案："+mRandomNumber.toString();
-    else {
-        mTrueValue.textContent="兄弟。你还是猜吧！";
+    if (mCount > 0) {
+        fShowResetButton();
+        mTrueValue.textContent = "正确答案：" + mRandomNumber.toString();
+    } else {
+        mTrueValue.textContent = "兄弟。你还是猜吧！";
     }
 }
 /**
  * 猜数字
  */
 mGenerate.onclick = function () {
-    if (count == 0) {
+    if (mCount == 0) {
         mRandomNumber = Math.random();
         mRandomNumber = Math.floor(mRandomNumber * 100);
-        count++;
+        mCount++;
         if (isShowTrueNumber)
             mTrueValue.textContent = mRandomNumber.toString();
     }
@@ -71,7 +73,33 @@ mGenerate.onclick = function () {
             mTrueValue.textContent = mOk;
         }
         mContent.textContent = mContent.value;
-    }
 
+        fShowResetButton();
+    }
+}
+
+function fShowResetButton() {
+    mGenerate.disabled = true;
+    mNumber.disabled = true;
+    if(mResetButton==null) {
+        mResetButton = document.createElement('button');
+        mResetButton.textContent = 'Start new game';
+        document.body.appendChild(mResetButton);
+        mResetButton.addEventListener('click', fResetGame);
+    }
+}
+
+function fResetGame() {
+    setTimeout(function () {
+        mTrueValue.textContent = "";
+        mContent.textContent = "";
+    }, 500);
+    mCount = 0;
+    mResetButton.parentNode.removeChild(mResetButton);
+    mResetButton=null;
+    mGenerate.disabled = false;
+    mNumber.disabled = false;
+    mNumber.value = '';
+    mNumber.focus();
 
 }
