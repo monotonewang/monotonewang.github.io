@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stroage</title>
+</head>
+<body>
+
+<!--localStorage - 没有时间限制的数据存储-->
+<!--sessionStorage - 针对一个 session 的数据存储-->
+</body>
+<script type="text/javascript">
+    
+    window.onload=function(){
+        testLocalStorage();
+        testSessionStorage();
+    }
+
+    function testLocalStorage(){
+        localStorage.lastname = "smith";
+        document.write(localStorage.lastname)
+        if (localStorage.pageCount) {
+            localStorage.pageCount = Number(localStorage.pageCount) + 1;
+        } else {
+            localStorage.pageCount = 1;
+        }
+        document.write("Visits===" + localStorage.pageCount + "times(s).\n");
+    }
+
+    function testSessionStorage() {
+        if(sessionStorage.pageCount){
+            sessionStorage.pageCount=Number(sessionStorage.pageCount)+1;
+        }else{
+            sessionStorage.pageCount=1;
+        }
+        document.write("Visits sessionStorage===" + sessionStorage.pageCount + "times(s).");
+    }
+</script>
+
+</html>

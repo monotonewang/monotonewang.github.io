@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video</title>
+</head>
+<body>
+
+<!--
+Ogg = 带有 Theora 视频编码和 Vorbis 音频编码的 Ogg 文件
+MPEG4 = 带有 H.264 视频编码和 AAC 音频编码的 MPEG 4 文件
+WebM = 带有 VP8 视频编码和 Vorbis 音频编码的 WebM 文件
+-->
+
+
+<video id="video1" width="320" height="240" controls="controls">
+    <source src="../imgs/marry.mp4" type="video/mp4">
+</video>
+
+<div>
+    <button onclick="playPause()">暂停</button>
+    <button onclick="rePlay()">播放</button>
+    <button onclick="makeBig()">大</button>
+    <button onclick="makeNormal()">中</button>
+    <button onclick="makeSmall()">小</button>
+</div>
+
+
+<audio width="320" height="240" controls="controls">
+    <source src="../imgs/1.mp3" type="audio/mp3">
+</audio>
+
+</body>
+<script>
+    var player = document.getElementById("video1");
+
+    function playPause() {
+        if (player.play()) {
+            player.pause();
+        }
+    }
+
+    function rePlay() {
+        if (player.paused) {
+            player.play();
+        }
+    }
+
+    function makeBig() {
+        player.width = 560;
+    }
+
+    function makeSmall() {
+        player.width = 320;
+    }
+
+    function makeNormal() {
+        player.width = 420;
+    }
+
+</script>
+</html>

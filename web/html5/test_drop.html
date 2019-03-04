@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drop</title>
+</head>
+<!--拖拽示例-->
+<style type="text/css">
+    #div1 {
+        width: 198px;
+        height: 66px;
+        border: 1px solid #00539F;
+    }
+</style>
+<script type="text/javascript">
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("Text", ev.target.id);
+    }
+
+    //规定阻止哪个事件的默认动作
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(data))
+    }
+</script>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+</div>
+
+<img id="drag1" src="../imgs/gwc.png" draggable="true" ondragstart="drag(event)"/>
+
+</body>
+</html>
