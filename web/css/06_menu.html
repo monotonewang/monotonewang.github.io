@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <!-- 清除浮动 ，元素没有包围浮动元素 -->
+    <div class="news clearfix">
+        <img src="../imgs/girl.jpg" />
+        <p>some text</p>
+    </div>
+
+    <!-- 文字饶图效果 -->
+    <div class="float_image_test">
+        <div class="box_image">
+            <img src="../imgs/bx.jpg" style="width:100px;height:50px" />
+        </div>
+        <div class="box_image2">
+            div+css绝对定位
+
+            使用通常是父级定义position:relative定位
+
+            子级定义position:absolute绝对定位属性，并且子级使用left或right和top或bottom进行绝对定位。
+
+            .divcss5{position:relative} 定义，通常最好再定义CSS宽度和CSS高度.divcss5-a{position:absolute;left:10px;top:10px}
+            这里定义了距离父级左侧距离间距为10px，距离父级上边距离为10px参考资料
+        </div>
+    </div>
+
+    <div class="float_test">
+        <div class="box1">
+
+        </div>
+        <div class="box2">
+
+        </div>
+    </div>
+
+    <!-- ul.menu>(li>a{公司简介})*7 -->
+    <div>
+        <ul class="menu">
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+            <li><a href="">公司简介</a></li>
+        </ul>
+    </div>
+
+</body>
+<!-- 浮动布局 -->
+<style type="text/css">
+    .clearfix:after {
+        content: "020";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
+    .clearfix {
+        /* 触发 hasLayout */
+        zoom: 1;
+    }
+
+    .news img {
+        float: left;
+    }
+
+    .new p {
+        float: right;
+    }
+
+    .news {
+        /* 清除浮动第一种方法 */
+        /* overflow: hidden; */
+        margin-bottom: 50px;
+        border: 1px solid cadetblue;
+    }
+
+    .float_image_test {
+        width: 400px;
+        border: 1px solid #ff00ff;
+        /* margin: 50px auto 0px; */
+    }
+
+    .box_image {
+        margin: 10px;
+        float: left;
+        background-color: green;
+        width: 100px;
+        height: 50px;
+    }
+
+    .box_image2 {
+        margin: 5px;
+        background-color: transparent;
+    }
+
+    .box1 {
+        float: left;
+        width: 50px;
+        height: 50px;
+        background-color: #ff00ff
+    }
+
+    .box2 {
+        float: right;
+        width: 50px;
+        height: 50px;
+        background-color: #2304c7
+    }
+
+    .float_test {
+        margin-bottom: 100px;
+        width: 200px;
+        height: 100px;
+        margin-top: 200px;
+        border: 1px solid #ff00ff;
+    }
+
+    .menu {
+        text-align: center;
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        width: 694px;
+    }
+
+    .menu li {
+        margin-left: -1px;
+        border: 0.1px solid firebrick;
+        width: 98px;
+        height: 48px;
+        margin-bottom: -1px;
+        float: left;
+        text-align: center;
+        line-height: 48px;
+    }
+
+    .menu li a {
+        text-decoration: none;
+        font-size: 19px;
+        color: aqua;
+        font-style: oblique;
+        display: block;
+        line-height: 48px;
+        /* background-color: aqua; */
+        height: 48px;
+        width: 98px;
+    }
+
+    .menu li a:hover {
+        border: 0.1px solid firebrick;
+        color: white;
+        background-color: aqua;
+    }
+</style>
+
+</html>

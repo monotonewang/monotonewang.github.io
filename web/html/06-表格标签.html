@@ -1,9 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
 </head>
+
 <body>
 	<!-- 
 		* 表格标签
@@ -42,7 +44,7 @@
 			* <caption></caption>必须要写在table的中间
 				
 	-->
-	
+
 	<table border="1" width="50%" bgcolor="gray" bordercolor="red">
 		<caption>用户列表</caption>
 		<tr>
@@ -61,7 +63,7 @@
 			<td>女</td>
 		</tr>
 	</table>
-	
+
 	<h3>列合并单元格</h3>
 	<table border="1" width="50%">
 		<tr>
@@ -82,13 +84,13 @@
 			<td>女</td>
 			<td>李亚鹏</td>
 		</tr>
-		<tr align="center">
+		<tr align="top">
 			<td>3</td>
 			<td>李亚鹏</td>
 			<td>男</td>
 			<td>张柏芝</td>
 		</tr>
-		<tr align="center">
+		<tr align="right">
 			<td>4</td>
 			<td>张柏芝</td>
 			<td>女</td>
@@ -100,9 +102,9 @@
 			</td>
 		</tr>
 	</table>
-	
+
 	<h3>行合并单元格</h3>
-	<table border="1" width="50%">
+	<table border="1" width="50%" >
 		<tr>
 			<td rowspan="3">
 				<img src="../imgs/bx.jpg" width="100px" height="150px">
@@ -122,16 +124,42 @@
 			</td>
 		</tr>
 	</table>
+
+	<br></br>
+
+	<!-- cellspacing 表格边界 -->
 	
+	<table border="1" width="50%" bordercolor="red" align="center" cellpadding="20px" cellspacing="1px">
+		<tr align="center">
+			<td colspan="5">基本信息</td>
+		</tr>
+		<tr align="center" >
+			<td width="20%">公司:</td>
+			<td width="20%"></td>
+			<td width="20%">民族:</td>
+			<td width="20%"></td>
+			<td rowspan="5"><img src="../imgs/bx.jpg" width="50px" height="50px"></img></td>
+		</tr>
+		<tr>
+			<td>生日</td>
+			<td></td>
+			<td>常住地</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>年龄</td>
+			<td></td>
+			<td>国籍</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>爱好</td>
+			<td></td>
+			<td align="center">是否已婚</td>
+			<td></td>
+		</tr>
+
+	</table>
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-

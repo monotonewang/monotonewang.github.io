@@ -1,9 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
 </head>
+
 <body>
 	<!-- 
 		* 列表标签
@@ -37,26 +39,56 @@
 					* ul的属性
 						* type=""
 	-->
-	
+
 	<dl>
 		<dt>上层数据</dt>
 		<dd>下层数据</dd>
 		<dd>下层数据</dd>
 	</dl>
-	
+
 	<h3>有序</h3>
 	<ol type="a" start="3">
 		<li>有序列表</li>
 		<li>有序列表</li>
 		<li>有序列表</li>
 	</ol>
-	
+	<ol type="1" start="0">
+		<li id="my_list" onclick="onClickNews(typediv1)">有序列表</li>
+		<li>有序列表</li>
+		<li>有序列表</li>
+	</ol>
+	<div style="display:none" id="typediv1">
+		this is news!
+	</div>
+
+
 	<h3>无序</h3>
+	<!-- 一般用于随机的新闻列表 -->
+	快捷写法
+	<!-- ul>li>a -->
+	<!-- 快捷写法 1次到位 -->
+	<!-- ul>(li>a{this is})*3 -->
+
 	<ul type="square">
-		<li>无序列表</li>
-		<li>无序列表</li>
-		<li>无序列表</li>
+		<li><a href="https://www.baidu.com">first新闻列表</a></li>
+		<li><a href="https://www.baidu.com">second新闻列表</a></li>
+		<li><a href="https://www.baidu.com">third新闻列表</a></li>
 	</ul>
-	
+
 </body>
+<script type="text/javascript">
+
+	function onClickNews(id) {
+		var sbtitle = document.getElementById(id);
+		if (sbtitle) {
+			if (sbtitle.style.display == 'block') {
+				sbtitle.style.display = 'none';
+			} else {
+				sbtitle.style.display = 'block';
+			}
+		}
+	}
+
+</script>
+
 </html>

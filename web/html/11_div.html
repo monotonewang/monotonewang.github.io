@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>div test</title>
+
+</head>
+
+<body>
+    <div class="box">this is first div</div>
+
+    <div class="list">新闻列表</div>
+    <div class="news">新闻列表</div>
+
+
+    <div class="margin_test">
+        <div>外边距合并指的是，当两个垂直边距相遇时，他们讲形成一个外边距，合并后的外边距的高度等于两个合并的外部的高度中的较大者</div>
+        <div>外边距合并指的是，当两个垂直边距相遇时，他们讲形成一个外边距，合并后的外边距的高度等于两个合并的外部的高度中的较大者</div>
+        <div>外边距合并指的是，当两个垂直边距相遇时，他们讲形成一个外边距，合并后的外边距的高度等于两个合并的外部的高度中的较大者</div>
+        <div>外边距合并指的是，当两个垂直边距相遇时，他们讲形成一个外边距，合并后的外边距的高度等于两个合并的外部的高度中的较大者</div>
+        <div>外边距合并指的是，当两个垂直边距相遇时，他们讲形成一个外边距，合并后的外边距的高度等于两个合并的外部的高度中的较大者</div>
+    </div>
+
+    <!-- border解决 overflow:hidden margin 塌陷 -->
+    <div style="width:300px;height:200px;background-color: yellow;margin-top: 20px;border: 1px solid red;">
+        <div style="width:50px;height:50px;background-color: gray;margin-top: 200px;">
+
+        </div>
+    </div>
+
+    <!-- overflow 属性 visible hidden scroll-->
+    <div style="width:300px;height:200px;background-color: yellow; overflow: scroll;">
+        据新京报此前报道，5月1日，一名游客在“孩子的院子”游玩时看到，长滑梯上几个橡皮圈挨在一起，几秒后，几个橡皮圈和人都冲下滑梯掉到了山坡上。记者从视频中看到，有多名小孩及大人躺在山上，消防人员正进行救援。该游乐园随后挂出“闭园通知”。
+
+        昨日凌晨，成都天府新区太平街道办事处就此事发布通称，2019年5月1日17时许，由成都市兰花楹农业开发有限公司开发的“孩子的院子”亲子乐园，发生一起游客冲出滑梯防护设施事故，共造成14名游客受伤（其中成人8名，未成年人6名）。截至5月2日2时，2名成人伤者送医后经抢救无效死亡，12名受伤游客正在医院接受治疗。
+
+        新京报记者昨日到达现场，发现附近已设置警戒线，在游乐场门口挂出“设备检修停止营业”的公示牌。记者从太平街道办事处了解到，12名伤者中3人重伤，9人轻伤，仍有人在ICU病房接受治疗。
+
+    </div>
+</body>
+
+<style type="text/css">
+    .margin_test {
+        width: 400px;
+        border: 1px solid black;
+
+    }
+
+    .margin_test div {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    /* 类选择器 */
+    .box {
+        border: 10px;
+        border-color: aqua;
+        padding: 10px;
+        width: 200px;
+        height: 100px;
+        background-color: red;
+    }
+
+    /* text-indent:20px; 首行缩进 */
+
+    .list {
+        font-weight: normal;
+        font-size: 20px;
+        font-style: italic;
+        color: #333;
+        padding-top: 15px;
+        height: 45px;
+        vertical-align: center;
+        text-align: center;
+        width: 400px;
+        margin-top: 20px;
+        border-top: 1px #666666 solid;
+        border-bottom: 2px #666666 solid;
+    }
+
+    /* 使用auto可以达到居中目的 auto只试用于左右*/
+
+    .news {
+        background-color: red;
+        width: 200px;
+        height: 200px;
+        margin: 100px auto 100px auto;
+        /* margin: auto 100px auto 100px; */
+    }
+</style>
+
+</html>

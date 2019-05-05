@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+
+    <div>
+        <!-- 相对定位 -->
+        <div class="box1">哈哈</div>
+        <div class="box2">哈哈</div>
+    </div>
+
+    <div class="ab_box">
+        <!-- 绝对定位-绝对定位脱离原来的文档流 当前box_a2 absoulute 会找父级，ab_box relative-->
+        <div class="box_a1">哈哈</div>
+        <div class="box_a2">哈哈</div>
+    </div>
+
+    <div class="f_box">
+        <!-- 固定定位-以浏览器为基准-->
+        <div class="box_f1">哈哈</div>
+        <div class="box_f2">哈哈</div>
+    </div>
+
+
+</body>
+<style type="text/css">
+    .f_box {
+        float: right;
+        position: relative;
+    }
+
+    .box_f1 {
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+    }
+
+    .box_f1 {
+        left: 50px;
+        top: 20px;
+        position: fixed;
+        width: 100px;
+        height: 50px;
+        background-color: yellow;
+    }
+
+    .ab_box {
+        position: relative;
+    }
+
+    .box_a1 {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+    }
+
+    .box_a2 {
+        left: 50px;
+        top: 20px;
+        position: absolute;
+        width: 100px;
+        height: 50px;
+        background-color: red;
+    }
+
+    .box1 {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+    }
+
+    .box2 {
+        left: 50px;
+        top: -20px;
+        position: relative;
+        width: 100px;
+        height: 50px;
+        background-color: green;
+    }
+</style>
+
+</html>
