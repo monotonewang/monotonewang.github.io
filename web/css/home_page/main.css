@@ -1,0 +1,161 @@
+
+.user_con{
+    list-style: none;
+}
+.user_con_ul{
+    list-style: none;
+}
+
+.user_con_ul li{
+    display: inline;
+}
+.top_info div{
+    display: inline;
+}
+
+.input_text_fl{
+    width: 400px;
+    height: 60px;
+  border:  1px solid green  
+}
+.input_sub_fl{
+    height: 60px;
+    width: 50px;
+    background-color: green;
+}
+.search_div{
+    margin-top: 10px;
+    justify-content: space-between;
+    display: flex;
+    height: 80px;
+    border-top:1px solid black;
+}
+.search_div a{
+    /* float: left; */
+    /* display: inline_block; */
+}
+.search_div .forms{
+    line-height: 80px;
+}
+
+.search_div div{
+    /* display: inline_block; */
+}
+.search_div .my_cart{
+    width: 100px;
+    margin-right: 0px;
+    background-color: aqua;
+}
+.main_menu_icon{
+    margin: 0px auto;
+    width: 1200px;
+    height: 80px;
+    border-bottom: 1px solid green;
+}
+.main_menu_icon h2{
+    float: left;
+    text-align: center;
+    width: 200px;
+    background-color: green;
+    height: 80px;
+    margin-top: 0px;
+    line-height: 80px;
+    margin-left: 50px;
+    color: white;
+}
+.main_menu_icon ul{
+    margin-top: 0px;
+    /* float: left; */
+    list-style: none;
+}
+
+.main_menu_icon ul li{
+    text-align: center;
+    width:70px;
+    float: left;
+    line-height: 80px;
+}
+
+.main_menu_icon ul li a{
+    text-align: center;
+    width:70px;
+    line-height: 80px;
+}
+.main_menu_icon ul li a:hover{
+    color: white;
+    background-color: green;
+
+}
+.sub_menu_conatiner{ 
+    /* 居中 */
+    margin:  0 auto;
+    width: 1200px;
+    height: 270px;
+}
+
+.sub_menu_icons{
+    float: left;
+    /* margin: 0 auto 0 0; */
+    width: 200px;
+    height: 270px; 
+    margin-left: 50px;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+.cate{
+    margin: 0 auto 0 auto;
+    width: 200px;
+    list-style: none;
+}
+
+.cate li{
+    margin-left: 0px;
+    color: white;
+    line-height: 40px;
+    width: 200px;
+    height: 44px;
+    border-bottom: 1px solid black;
+}
+.cate li a{
+    text-decoration: none;
+    color: white;
+    line-height: 40px;
+    width: 200px;
+    height: 44px;
+}
+.cate li a:hover{
+    color: red;
+}
+.slide{
+    background-color: rebeccapurple;
+    width: 700px;
+    height: 270px;
+}
+.slide img{
+    width: 700px;
+    height: 270px;
+}
+.adv{
+    margin-right: 50px;
+    background-color: red;
+    width: 200px;
+    height: 270px;
+}
+
+.clearfix:after {
+    content: "020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    /* 触发 hasLayout */
+    zoom: 1;
+}
