@@ -16,14 +16,20 @@
 
     <div class="ab_box">
         <!-- 绝对定位-绝对定位脱离原来的文档流 当前box_a2 absoulute 会找父级，ab_box relative-->
-        <div class="box_a1">哈哈</div>
-        <div class="box_a2">哈哈</div>
+        <div class="box_a1">绝对定位1</div>
+        <div class="box_a2">绝对定位2</div>
     </div>
 
     <div class="f_box">
         <!-- 固定定位-以浏览器为基准-->
         <div class="box_f1">哈哈</div>
         <div class="box_f2">哈哈</div>
+    </div>
+
+    <div class="image_box">
+        <!-- 固定定位-以浏览器为基准-->
+        <img class="image_box_f1" src="../imgs/views.jpeg"></img>
+        <img class="image_box_f2" src="../imgs/apple.jpeg" ></img>
     </div>
 
 
@@ -49,7 +55,23 @@
         background-color: yellow;
     }
 
+    .image_box {
+        width: 1000px;
+        height: 500px;
+        background-color: green;
+        position: relative;
+    }
+
+    .image_box_f1 {
+        /* position: absolute; */
+    }
+
+    .image_box_f2 {
+        /* position: absolute; */
+    }
+
     .ab_box {
+        background-color: green;
         position: relative;
     }
 
