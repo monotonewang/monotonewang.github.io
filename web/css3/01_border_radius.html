@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.test">
+<head>
+    <meta charset="UTF-8">
+    <title>cache</title>
+
+    两个方法有区别，第一种会对字体颜色造成影响
+    <!-- 元素透明 兼容ie写法 -->
+    <!-- opacity: 0.3;
+    filter: alpha(opacity=0.3); -->
+
+    <!-- 设置透明度的颜色 -->
+    <!-- rgba(red, green, blue, 15); -->
+    <style type="text/css">
+        .box{
+            width: 300px;
+            height: 300px;
+            margin-top: 500px;
+            background-color: black;
+    
+            background-color:rgba(red, green, blue, 15);
+            margin: 0 auto;
+            border: 1px solid black;
+            border-top-left-radius: 30px 60px;
+            border-top-right-radius: 20px;
+        }
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            margin: 100px auto 0;
+            border: 1px solid black;
+            border-radius:50%;
+        }
+      
+    </style>
+
+</head>
+<body style="background:url(../imgs/girl.jpg) repeat-x">
+
+    <div class="box">
+
+    </div>
+
+    <div class="box1">
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.test">
+
+<head>
+    <meta charset="UTF-8">
+    <title>三维选择</title>
+
+    <style type="text/css">
+        /* 定义动画  */
+        @keyframes moving {
+            from {
+                width: 100px;
+                height: 100px;
+
+            }
+
+            to {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        @keyframes loading_anim1{
+            from{
+                transform: scale(1,1);
+            }
+            to{
+                transform: scale(1,0.5);
+            }
+        }
+
+        .loading {
+            margin: 50px auto 0;
+            width: 300px;
+            height: 150px;
+            border: 1px solid black;
+        }
+
+        .loading div{
+            border-radius: 15px;
+            margin: 15px;
+            width: 30px;
+            height: 100px;
+            background-color: gold;
+            float: left;
+        }
+        /* css3选择器 */
+        .loading div:nth-child(1){
+            background-color: blue;
+            animation: loading_anim1 200ms ease 100ms infinite alternate;
+        }
+
+        .loading div:nth-child(2){
+            background-color: red;
+            animation: loading_anim1 200ms ease 300ms infinite alternate;
+        }
+        .loading div:nth-child(3){
+            background-color: green;
+            animation: loading_anim1 200ms ease 500ms infinite alternate;
+        }
+        .loading div:nth-child(4){
+            background-color: purple;
+            animation: loading_anim1 200ms ease 700ms infinite alternate;
+        }
+        .loading div:nth-child(5){
+            background-color: yellow;
+            animation: loading_anim1 200ms ease 900ms infinite alternate;
+        }
+
+        .loading p{
+            text-align: center;
+        }
+
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            margin: 50px auto 0;
+            border: 1px solid black;
+            /* 动画name 动画完成时间  动画曲线 延迟 次数（infinite） 动画结束后是否反向还原 normal|alternate(一去一来算两次)*/
+            /* aniation-play-state(paused running)*/
+            animation: moving 200ms ease 100ms 22 alternate;
+
+        }
+
+        .box:hover {
+            /* 控制动画的暂停和播放 */
+            animation-play-state: paused;
+        }
+    </style>
+
+</head>
+
+<body>
+
+        <div class="loading">
+                <div class="box1"></div>
+                <div class="box2"></div>
+                <div class="box3"></div>
+                <div class="box4"></div>
+                <div class="box5"></div>
+                <p>loading...</p>
+            </div>
+
+    <div class="box">
+
+    </div>
+
+   
+
+
+</body>
+
+</html>

@@ -83,10 +83,17 @@
 }
 
 .search_div .my_cart{
+    margin-top: 20px;
+    text-align: center;
+    /* top: 20px; */
+    border: 1px solid green;
     width: 100px;
-    height: 80px;
-    line-height:80px; 
-    margin-right: 0px;
+    height: 38px;
+    line-height: 40px;
+    /* background-color: aqua; */
+}
+.search_div .my_cart strong{
+    background-color: yellow;
 }
 
 .main_menu_icon{
@@ -304,10 +311,42 @@
 .common_model .common_title_con ul li a:hover{
     color:green;
 }
-.goods_banner img{
+.goods_banner .banner_img{
     width: 350px;
     height: 357px;
+    backface-visibility: hidden;
+    /* 需要设置初始的transform 否则会出现bug */
+    transform:perspective(800px) rotateY(0deg);
+    transition: all  200ms ease;
 }
+.goods_banner{
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    position: relative;
+}
+
+.goods_banner:hover  .banner_img {
+    transform:perspective(800px)  rotateY(180deg);
+}
+
+.goods_banner:hover  .introduce {
+    transform:perspective(800px)  rotateY(0deg);
+}
+
+.introduce{
+    backface-visibility: hidden;
+    left: 0px;
+    line-height: 357px;
+    text-align: center;
+    width: 350px;
+    height: 357px;
+    top: 0px;
+    transition: all  200ms ease;
+    transform:perspective(800px)  rotateY(-180deg);
+    background-color: #809f9f9f;
+    position: absolute;
+}
+
 .goods_content{
     width: 1200px;
     display: flex;
@@ -328,11 +367,34 @@
     height: 50px;
     line-height: 50px;
 }
+
+.item_content{
+    overflow: hidden;
+    height: 250px;
+    position: relative;
+}
+
+.item_text{
+    left: 5%;
+    top: 250px;
+    height: 50px;
+    width: 90%;
+    background-color: #809f9f9f;
+    /* background-color: black; */
+    position: absolute;
+    transition:  all ease 200ms;
+}
+
+
 .good_list img{
     background-color: aqua;
     margin: 0 auto;
-    width: 88%;
+    width: 90%;
     height: 250px;
+}
+
+.item_content:hover .item_text{
+    top: 200px;
 }
 
 .price{

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.test">
+<head>
+    <meta charset="UTF-8">
+    <title>cache</title>
+
+    <style type="text/css">
+        .box{
+            width: 300px;
+            height: 300px;
+            margin-top: 500px;
+            background-color: yellow;
+            margin: 0 auto;
+            border: 1px solid black;
+            /* 作用的属性 动画动作 延迟  */
+            /* 先执行width动画，再执行高度动画  */
+            transition: width 500ms ease 200ms,height 500ms linear 700ms;
+            
+        }
+        .box:hover{
+                width: 600px;
+                height: 200px;
+        }
+
+        /* 缩放动画 */
+        .box_scale{
+            width: 300px;
+            height: 300px;
+            margin: 50px auto 0;
+            background-color: yellow;
+            border: 1px solid black;
+            /* transform: scale(1,1); */
+            transition: all 500ms ease;
+        }
+        .box_scale:hover{
+            transform: scale(2,2);
+        }
+
+        .box_rotation{
+            width: 300px;
+            height: 300px;
+            margin: 50px auto 0;
+            background-color: yellow;
+            border: 1px solid black;
+            /* transform: scale(1,1); */
+            transition: all 500ms ease;
+        }
+        .box_rotation:hover{
+            transform: rotate(90deg)
+        }
+
+        /* 斜切 */
+        .box_skew{
+            width: 300px;
+            height: 300px;
+            margin: 50px auto 0;
+            background-color: yellow;
+            border: 1px solid black;
+            /* transform: scale(1,1); */
+            transition: all 500ms ease;
+        }
+        .box_skew:hover{
+            /* transform: skew(45deg,0); */
+            transform: skew(0,45deg);
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="box">
+
+    </div>
+    
+    <div class="box_scale">
+
+    </div>
+
+    <div class="box_rotation">
+
+    </div>
+
+    <div class="box_skew">
+
+    </div>
+
+</body>
+</html>
