@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" manifest="demo.test">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cache</title>
+    
 
     <style type="text/css">
-        .box{
+        body{
+            margin: 0;
+        }
+        .box {
             width: 300px;
             height: 300px;
             margin-top: 500px;
@@ -15,26 +20,96 @@
             border: 1px solid black;
             /* 作用的属性 动画动作 延迟  */
             /* 先执行width动画，再执行高度动画  */
-            transition: width 500ms ease 200ms,height 500ms linear 700ms;
-            
-        }
-        .box:hover{
-                width: 600px;
-                height: 200px;
+            transition: width 500ms ease 200ms, height 500ms linear 700ms;
+
         }
 
-       
-      
+        .box:hover {
+            width: 600px;
+            height: 200px;
+        }
+
+        .box_float {
+            width: 100%;
+        }
+
+        .box_float a{
+            width: 25%;
+            /* 这里必须有空格 */
+            /* width: calc(25% - 2px); */
+            height: 100px;
+            /* display: block; */
+            background-color: gold;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+            border: 1px solid green;
+            /* 这是第二种方法 */
+            box-sizing: border-box
+        }
+
+        .box_responsive {
+            width: 100%;
+        }
+
+        .box_responsive a{ 
+            margin-top: 50px;
+            width: 25%;
+            /* 这里必须有空格 */
+            /* width: calc(25% - 2px); */
+            height: 100px;
+            /* display: block; */
+            background-color: gold;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+            border: 1px solid green;
+            /* 这是第二种方法 */
+            box-sizing: border-box
+        }
+
+        /* 实现网页缩放的时候 东西变大 适配移动端*/
+        @media(max-width:800px){
+            .box_responsive a{
+                width: 46%;
+                margin: 2%;
+            }
+        }
+
+        @media(max-width:400px){
+            .box_responsive a{
+                width: 97%;
+                margin: 2%;
+            }
+        }
+
     </style>
 
 </head>
+
 <body>
 
     <div class="box">
         这是div的文字
     </div>
-    
-  
+
+    <!-- 这是div流式布局 -->
+    <div class="box_float">
+        <a>1</a>
+        <a>2</a>
+        <a>3</a>
+        <a>4</a>
+    </div>
+
+    <!-- 响应式布局 -->
+    <div class="box_responsive">
+        <a>1</a>
+        <a>2</a>
+        <a>3</a>
+        <a>4</a>
+    </div>
+
 
 </body>
+
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.test">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cache</title>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .box1 {
+            font-weight: bold;
+            font-size: 10px;
+            width: 20em;
+            height: 10em;
+            background-color: yellow;
+            margin: 50px auto 0;
+            border: 1px solid black;
+            /* 作用的属性 动画动作 延迟  */
+            /* 先执行width动画，再执行高度动画  */
+            transition: width 500ms ease 200ms, height 500ms linear 700ms;
+
+        }
+
+        .box2 {
+            font-size: 20px;
+            width: 20em;
+            height: 10em;
+            background-color: yellow;
+            margin: 50px auto 0;
+            border: 1px solid black;
+            /* 作用的属性 动画动作 延迟  */
+            /* 先执行width动画，再执行高度动画  */
+            transition: width 500ms ease 200ms, height 500ms linear 700ms;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box1">
+        这是div的文字
+    </div>
+
+    <div class="box2">
+        这是div的文字
+    </div>
+
+
+</body>
+
+</html>
