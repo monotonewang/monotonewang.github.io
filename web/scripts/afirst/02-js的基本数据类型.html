@@ -8,6 +8,7 @@
 	
 </body>
 	<script type="text/javascript">
+		//js区分大小
 		/* 
 			* 5种基本数据类型
 				* Undefined、Null、Boolean、Number 和 String 
@@ -20,6 +21,8 @@
 				* Null			空，给引用赋值的
 				* Undefined		未定义（声明变量，没有赋值）
 				
+			* object 是复合类型
+
 			* 声明变量，使用var关键字	
 			* typeof() 判断当前变量是什么类型的数据
 		
@@ -30,7 +33,8 @@
 		var date = null;	// null，date就是引用类型
 		var un;				// 未定义
 		*/
-		
+		//性能会好一些
+		var iNumber=12,ODiv="12";
 		var num = 14;
 		// alert(num);
 		//alert(typeof(num));
@@ -47,6 +51,8 @@
 		// 标准
 		var num2 = 18;
 		alert(num2);
+		// 没有声明的变量 chrome没有报错
+		// alert(num3);
 		
 	</script>
 	
