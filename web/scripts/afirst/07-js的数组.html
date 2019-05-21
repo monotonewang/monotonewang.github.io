@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<ul id="ul_list">
+
+	</ul>
+
+</body>
+<script type="text/javascript">
+	/* 
+		* js的数组
+			* java	String [] str = {};
+			* 声明数组
+				* var arr = [12,34,55];
+				* var arr = new Array(5);		声明数组，长度是5
+				* var arr = new Array(2,3,4);	声明数组，元素是2 3 4
+			* 数组的属性
+				* 长度：length
+				* 数组的长度是可变的。
+					* 方法：
+				* concat(元素，数组);	返回新的数组
+				* join(s)			通过s标识（-），进行分隔，返回字符串
+				* pop()				删除末尾的元素，返回最后一个元素
+				* push()			向末尾添加元素，返回新数组的长度
+				* sort()				
+	*/
+	// 声明是数组，中间有三个元素
+	var arr = [12, 34, 44];
+	// alert(arr.length);
+
+	document.write(arr + "<br/>");
+	arr[3] = "abc";
+	arr[4] = 99;
+	document.write(arr);
+
+	// 定义数组
+	var arr = ["NBA", "CBA", "WNBA", "WCBA", "MBA", "DBA"];
+	document.write("<br/> array english=" + arr);
+
+	//println(arr.concat("WWE"));
+
+	var arr2 = ["ABC"];
+	// println(arr.concat(arr2));
+	document.write("<br/> concat arr2=" + arr2);
+
+	document.write("<br/> array join=" + arr.join("-"));
+
+	// println(arr.pop());
+	//println(arr);
+
+	arr.push("CUBA");
+
+	document.write("<br/> pop push=" + arr);
+	arr.pop();
+	document.write("<br/> pop join=" + arr);
+	arr.shift();//从前面删除成员
+	document.write("<br/> pop shift=" + arr);
+	arr.unshift(12);//从前面添加成员
+	document.write("<br/> pop unshift=" + arr);
+	// println(arr);
+
+	//下面介绍的是多维数组
+	var aList = [1, [1, 2, 3], "121"];
+	document.write("<br/>  unshift aList=" + aList);
+	document.write("<br/>  unshift aList=" + aList[1, 2]);
+	document.write("<br/>  unshift aList=" + aList[0, 1]);
+	document.write("<br/>  unshift aList=" + aList[0, 0]);
+	document.write("<br/>  unshift aList=" + aList[1, 0]);
+	document.write("<br/>  unshift aList=" + aList[1, 1]);
+	document.write("<br/>  unshift aList=" + aList[1, 1].length);
+
+	getUlList();
+	removeRepeat();
+
+	function getUlList() {
+		//将数组的数据写入到ul里面
+		var oUlList = document.getElementById("ul_list");
+		var list = ['美人鱼', '疯狂的加菲猫', '湄公河行动'];
+		var str = '';
+		for (var i = 0; i < list.length; i++) {
+			str = str + "<li>" + list[i] + "</li>";
+		}
+
+		oUlList.innerHTML = str;
+	}
+
+	//js数组去重
+	function removeRepeat(){
+		var aList=[2,3,4,2,1,10,9,8,3];
+		var iLen=aList.length;
+		var aList2=[];
+		for(var i=0;i<iLen;i++){
+			//indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置
+			if(aList.indexOf(aList[i])==i){
+				aList2.push(aList[i]);
+			}else{
+			}
+		}
+		document.write("<br/>  aList2 =" + aList2);
+	}
+
+</script>
+
+</html>
