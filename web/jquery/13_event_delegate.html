@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery 事件代理
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    </script>
+    <style type="text/css">
+        .list{
+            background-color: gold;
+        }
+        .list li{
+            height: 30px;
+            background-color: green;
+            margin: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            var $ul_list=$(".list");
+
+
+            //这种点击事件对于新增的无效
+            // $(".list li").click(function(){
+                // $(this).css("backgroundColor","red");
+            // });
+           
+        //    $ul_list.append("<li>6</li>");
+            //事件代理
+            $('.list').delegate("li","click",function(){
+                $(this).css("backgroundColor","red");
+            });
+
+           $ul_list.append("<li>6</li>");
+         
+        })
+
+    </script>
+
+</head>
+
+<body>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+
+</html>

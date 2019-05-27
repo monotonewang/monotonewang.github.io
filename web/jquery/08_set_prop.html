@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery index
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+    </script>
+
+    <!-- 切换选项卡动画功能 -->
+
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+
+            var $a1 = $('.a1');
+
+            $a1.prop("href","http://www.baidu.com",'title','baidu');
+
+            console.log($a1.prop('title'));  
+            console.log($a1.html()); //读取属性
+         
+        })
+
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <a class="a1">
+            test
+        </a>
+
+
+    </div>
+</body>
+
+</html>

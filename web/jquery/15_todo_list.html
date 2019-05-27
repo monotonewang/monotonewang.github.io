@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery todo-list
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    </script>
+
+    <style type="text/css">
+        .container,
+        .row,
+        .col-md-5 {
+            width: 100%p;
+            height: 100%p;
+        }
+
+        #todoCount {
+            width: 100%;
+            height: 50px;
+        }
+
+        #todoList {
+            width: 100%;
+            height: 500px;
+            /* background-color: red; */
+        }
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            var $todoForm = $('#todoForm');
+            var $todoInput = $('#todoInput');
+            var $todoList = $('#todoList');
+            var $todoCount = $('#todoCount');
+
+            function count() {
+                var len = $todoList.children().length;
+                $todoCount.html(len > 0 ? '现有' + len + '项todo list' : '');
+            }
+
+            $todoForm.submit(function (e) {
+                console.log("submitssss");
+                var input_value = $todoInput.val();
+                $todoList.append('<li><a a href="javascript:;" class="up">⏫</a><a href="javascript:;" class="down">⏬</a>' + input_value + '&nbsp;<a href="#" class="todoDelete">X</a></li>');
+                $todoInput.val('');
+                count();
+                return false;
+            });
+
+            $todoList.on('click', '.todoDelete', function (e) {
+                $(this).parent().remove();
+                count();
+            });
+
+            $todoList.on('click', '.up', function (e) {
+                if($(this).parent().prev().length==0){
+                    alert("到顶了");
+                    return;
+                }
+                $(this).parent().insertBefore($(this).parent().prev());
+                count();
+            });
+
+            $todoList.on('click', '.down', function (e) {
+                if($(this).parent().next().length==0){
+                    alert("到底了");
+                    return;
+                }
+                $(this).parent().insertAfter($(this).parent().next());
+                count();
+            });
+
+        })
+
+    </script>
+
+</head>
+
+<body>
+    <button>按钮</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <form action="" id="todoForm">
+                    <label for="">将下面输入的文字放入todo list中！</label>
+                    <input type="text" id="todoInput" class="form-control">
+                </form>
+                <p id="todoCount"></p>
+                <ol id="todoList"></ol>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

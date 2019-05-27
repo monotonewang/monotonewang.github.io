@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery 整屏滚动
+        <!-- https://www.lanrenzhijia.com/jquery/2892.html -->
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+    </script>
+
+    <style type="text/css">
+        @charset "utf-8";
+
+        /* 代码整理：懒人之家 www.lanrenzhijia.com */
+        html {
+            overflow: hidden;
+        }
+
+        html,
+        body,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        pre,
+        form,
+        fieldset,
+        input,
+        textarea,
+        p,
+        blockquote,
+        th,
+        td {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "微软雅黑";
+            font-size: 12px;
+            color: #000000;
+            word-wrap: break-word;
+            behavior: url("csshover.htc");
+            overflow: hidden;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: 12px/1.5 Arial, "宋体", Helvetica, Verdana, sans-serif;
+            word-wrap: break-word;
+            color: #565756;
+        }
+
+        ul,
+        li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+            font-size: 100%;
+        }
+
+        img {
+            border: none;
+            border: 0;
+            vertical-align: middle;
+        }
+
+        a {
+            text-decoration: none;
+            outline: none;
+        }
+
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        input,
+        select,
+        textarea {
+            vertical-align: middle;
+            *font-size: 100%;
+        }
+
+        input {
+            margin: 0;
+            outline: none;
+            padding: 0;
+        }
+
+        input::-ms-clear {
+            display: none;
+        }
+
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+
+        }
+
+        .clearfix {
+            *zoom: 1
+        }
+
+        .ddw {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #000;
+            font-size: 16px;
+            z-index: 9999;
+        }
+
+        .ddw2 {
+            position: absolute;
+            left: 20px;
+            top: 0;
+            color: #000;
+            font-size: 16px;
+            z-index: 9999;
+        }
+
+        .num_box {
+            position: relative;
+        }
+
+        .num {
+            color: #90C;
+            font-size: 50px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .num p {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -66px;
+        }
+
+        .num ul {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+        }
+
+        .num ul li {
+            float: left;
+            height: 100%;
+            position: relative;
+        }
+
+        #num_0 {
+            background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558945030098&di=8c1721de4e0ed78271598129d871522e&imgtype=0&src=http%3A%2F%2Ffile106.mafengwo.net%2Fs8%2FM00%2FCC%2F03%2FwKgBpVYpKhOANiD_AADk-5Wefwc41.jpeg%3FimageMogr2%2Fthumbnail%2F%25211070x804r%2Fgravity%2FCenter%2Fcrop%2F%25211070x804%2Fquality%2F90") no-repeat center #03F;
+            background-size: 100% 100%;
+        }
+
+        #num_1 {
+            background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558945030098&di=1a69edf1514ebefbe51c9705f0f9a31c&imgtype=0&src=http%3A%2F%2Fq-xx.bstatic.com%2Fxdata%2Fimages%2Fhotel%2Fmax1024x768%2F157471709.jpg%3Fk%3Da43fff336aeceff9bd2fd8095f4a9a9ef54ec97bbedb525301eb4dede8893041%26amp%3Bo%3D") no-repeat center #03F;
+            background-size: 100% 100%;
+        }
+
+        #num_2 {
+            background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558945030098&di=66bd299f85fb35653e68c88a9cde580e&imgtype=0&src=http%3A%2F%2Fpix10.agoda.net%2FhotelImages%2F985079%2F-1%2Fbac7bac0703c2da31a18ae59d4bb286d.jpg") no-repeat center #03F;
+            background-size: 100% 100%;
+        }
+
+        #num_3 {
+            background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558945030098&di=8c1721de4e0ed78271598129d871522e&imgtype=0&src=http%3A%2F%2Ffile106.mafengwo.net%2Fs8%2FM00%2FCC%2F03%2FwKgBpVYpKhOANiD_AADk-5Wefwc41.jpeg%3FimageMogr2%2Fthumbnail%2F%25211070x804r%2Fgravity%2FCenter%2Fcrop%2F%25211070x804%2Fquality%2F90") no-repeat center #03F;
+            background-size: 100% 100%;
+        }
+
+        #num_4 {
+            background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558945030098&di=1a69edf1514ebefbe51c9705f0f9a31c&imgtype=0&src=http%3A%2F%2Fq-xx.bstatic.com%2Fxdata%2Fimages%2Fhotel%2Fmax1024x768%2F157471709.jpg%3Fk%3Da43fff336aeceff9bd2fd8095f4a9a9ef54ec97bbedb525301eb4dede8893041%26amp%3Bo%3D") no-repeat center #03F;
+            background-size: 100% 100%;
+        }
+
+        #num_5 {
+            background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558945030098&di=66bd299f85fb35653e68c88a9cde580e&imgtype=0&src=http%3A%2F%2Fpix10.agoda.net%2FhotelImages%2F985079%2F-1%2Fbac7bac0703c2da31a18ae59d4bb286d.jpg") no-repeat center #03F;
+            background-size: 100% 100%;
+        }
+
+        #num_6 {
+            background: #0F0;
+        }
+
+        #num_7 {
+            background: #00F;
+        }
+
+        #num_8 {
+            background: #FF0;
+        }
+
+        #num_9 {
+            background: #F0F;
+        }
+
+        .fixed_r {
+            position: absolute;
+            right: 10px;
+            top: 200px;
+            z-index: 999;
+        }
+
+        .fixed_r li {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+            line-height: 40px;
+            color: #333;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .fixed_r li.on {
+            background: #0FF;
+        }
+
+        /* 代码整理：懒人之家 www.lanrenzhijia.com */
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            /* 代码整理：懒人之家 www.lanrenzhijia.com */
+            $('.ddw').val(0);
+            $('.ddw2').val(0);
+            setTimeout(function () {
+                $('.num').eq(0).find('p').stop().animate({ 'top': '50%' }, 500)
+            }, 500);
+
+            $(function () {
+                $('.num_box').mousewheel(function (event, delta) {
+                    var aaaa = $('.ddw2').val();
+                    if (aaaa == 1) {
+                        return;
+                    }
+                    qpgd(delta);
+                });
+            });
+            function qpgd(a) {
+                var z = $('.ddw').val();
+                b = parseInt(z);
+                c = $('.num').length;
+                if (a < 0) {
+                    if (-b == c - 1) {
+                        return;
+                    }
+                    b -= 1;
+                    $('.ddw2').val(1);
+                } else if (a > 0) {
+                    if (-b == 0) {
+                        return;
+                    }
+                    b += 1;
+                    $('.ddw2').val(1);
+                }
+                if (-b == 0) {
+                    $('.num').eq(1).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(0).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                } else if (-b == 1) {
+                    $('.num').eq(0).find('p').animate({ 'top': '0' }, 500);
+                    $('.num').eq(2).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(1).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                } else if (-b == 2) {
+                    $('.num').eq(1).find('p').animate({ 'top': '0' }, 500);
+                    $('.num').eq(3).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(2).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                } else if (-b == 3) {
+                    $('.num').eq(2).find('p').animate({ 'top': '0' }, 500);
+                    $('.num').eq(4).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(3).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                }
+                else if (-b == 4) {
+                    $('.num').eq(3).find('p').animate({ 'top': '0' }, 500);
+                    $('.num').eq(5).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(4).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                }
+                else if (-b == 5) {
+                    $('.num').eq(4).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(5).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                }
+
+                $('.ddw').val(b);
+                $('.fixed_r li').eq(-b).addClass('on').siblings('li').removeClass('on');
+                var single_hh = $(window).height();
+                click_hh = -single_hh * b;
+                $('.num_box').animate({ 'bottom': click_hh }, 1000);
+                setTimeout(function () {
+                    $('.ddw2').val(0);
+                }, 1400);
+            }
+            $('.fixed_r li').eq(0).addClass('on');
+            $('.fixed_r li').click(function () {
+                var b = $(this).index();
+                $(this).addClass('on').siblings('li').removeClass('on');
+                $('.ddw').val(-b);
+
+
+                /*---------------------*/
+                if (b == 0) {
+                    $('.num').eq(1).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(0).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                } else if (b == 1) {
+                    $('.num').eq(0).find('p').animate({ 'top': '0' }, 500);
+                    $('.num').eq(2).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(1).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                } else if (b == 2) {
+                    $('.num').eq(1).find('p').animate({ 'top': '0' }, 500);
+                    $('.num').eq(3).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(2).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                } else if (b == 3) {
+                    $('.num').eq(2).find('p').animate({ 'top': '0' }, 500);
+                    $('.num').eq(4).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(3).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                }
+                else if (b == 4) {
+                    $('.num').eq(3).find('p').animate({ 'top': '0' }, 500);
+                    $('.num').eq(5).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(4).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                }
+                else if (-b == 5) {
+                    $('.num').eq(4).find('p').animate({ 'top': '0' }, 500);
+                    setTimeout(function () {
+                        $('.num').eq(5).find('p').animate({ 'top': '50%' }, 500);
+                    }, 1600);
+                }
+                /*---------------------*/
+
+                var single_hh = $(window).height();
+                click_hh = single_hh * b;
+                $('.num_box').animate({ 'bottom': click_hh }, 1000);
+            })
+            function quanp() {
+                var single_hh = $(window).height();
+                var single_ww = $(window).width();
+                $('.num').height(single_hh);
+                $('.num li').width(single_ww);
+            }
+            quanp();
+            $(window).resize(function () {
+                if (typeof indexSlides != 'undefined' && indexSlides.reformat)
+                    indexSlides.reformat();
+                quanp();
+            });
+
+        })
+
+    </script>
+
+</head>
+
+<body>
+    <div class="fixed_r">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+    <div class="num_box">
+        <div class="num" id="num_0">
+            <p>第1屏</p>
+        </div>
+        <div class="num" id="num_1">
+            <p>第2屏</p>
+        </div>
+        <div class="num" id="num_2">
+            <p>第3屏</p>
+        </div>
+        <div class="num" id="num_3">
+            <p>第4屏</p>
+        </div>
+        <div class="num" id="num_4">
+            <p>第5屏</p>
+        </div>
+        <div class="num" id="num_5">
+            <p>第6屏</p>
+        </div>
+    </div>
+    <input type="hidden" value="0" class="ddw" />
+    <input type="hidden" value="0" class="ddw2" />
+
+
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery index
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+    </script>
+
+    <!-- 切换选项卡动画功能 -->
+
+    <style type="text/css">
+        .box {
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 5px;
+            background-color: gold;
+        }
+
+        .cart {
+            padding: 10px;
+            float: right;
+            border: 1px solid black;
+        }
+
+        .cart em {
+            color: red;
+
+        }
+
+        .add_cart {
+            margin-top: 40px;
+            text-align: center;
+            line-height: 40px;
+            width: 100px;
+            position: relative;
+            height: 40px;
+            background-color: green;
+        }
+
+        .point {
+            left: 0;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background-color: red;
+            position: absolute;
+            border-radius: 50%;
+        }
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            var $div = $('.box');
+
+            console.log("width=" + $div.width());
+            console.log("height=" + $div.height());
+            // box +padding
+            console.log("innerWidth=" + $div.innerWidth());
+            console.log("innerHeight=" + $div.innerHeight());
+            //box +padding +border
+            console.log($div.outerWidth());
+            console.log($div.outerHeight());
+
+            //box 真实宽度
+            console.log($div.outerWidth(true));
+            console.log($div.outerHeight(true));
+
+            //加入购物车动画
+            var $cart_num = $('.cart em');
+            var $add_cart = $('.add_cart');
+            var $cart = $('.cart');
+             $point = $('.point');
+
+             var $w01=$add_cart.outerWidth();
+             var $h01=$add_cart.outerHeight();
+
+            var $w02=$cart.outerWidth();
+            var $h02=$cart.outerHeight();
+
+            //  alert("xxxx"+$w01+"xxx="+$h01);
+
+            $('.add_cart').click(function () {
+                var oPos1 = $('.add_cart').offset();
+
+                //  alert("xxxx"+oPos1.top+"xxx="+oPos1.left);
+
+                var oPos2 = $cart_num.offset();
+
+                $point.css('left', oPos1.left+parseInt($w01/2)-parseInt($point.outerWidth()/2), 'top', oPos1.top+parseInt($h01/2));
+
+                // $point.hide(500);
+                console.log("$w02="+$w02+"$cart.left="+$cart.left+"oPos2.top="+oPos2.top);
+
+                $point.animate({'left':oPos2.left-parseInt($w02/2),'top':parseInt($h02)+0},1000,function(){
+                    $(this).hide();
+                });
+
+                //先读后写
+                var hHtml=$cart_num.html();
+                
+                $cart_num.html(parseInt(hHtml)+1);
+
+            });
+        })
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+    </div>
+
+    <div>
+        <div class="add_cart">
+            加入购物车
+            <div class="point">
+
+            </div>
+        </div>
+        <div class="cart">
+            购物车<em>0</em>
+        </div>
+
+    </div>
+</body>
+
+</html>

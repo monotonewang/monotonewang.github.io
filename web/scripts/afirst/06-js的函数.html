@@ -9,7 +9,10 @@
 <body>
 
 	<div id="div1">div1</div>
-
+	<ul id="myList">
+		<li>Coffee</li>
+		<li>Tea</li>
+	</ul>
 </body>
 <script type="text/javascript">
 
@@ -70,39 +73,45 @@
 	var sum2 = sum();
 	alert(sum2);
 
-		/* 
-			* js的动态函数和匿名函数
-				* 动态函数
-					function getSum(){
-						return 50;
-					}
-					js提供了内置对象	Function
-					
-				* 匿名函数
-					* 没有名称的函数
-		*/
-		
-		var param1 = "x,y";
-		var param2 = "var sum;sum=x+y;return sum;";
-		var param3 = "var sum;sum=x*y;return sum;";
-		
-		var add = new Function(param1,param3);
-		var sum = add(4,5);
-		// alert(sum);
-		
-		function add2(x,y){
-			var sum;
-			sum = x*y;
-			return sum;
-		}
-		// add2(5,6);
-		
-		
-		var getSum = function (){
-		 	return 100;
-		};
-		// alert(getSum());
-		
+	/* 
+		* js的动态函数和匿名函数
+			* 动态函数
+				function getSum(){
+					return 50;
+				}
+				js提供了内置对象	Function
+				
+			* 匿名函数
+				* 没有名称的函数
+	*/
+
+	var param1 = "x,y";
+	var param2 = "var sum;sum=x+y;return sum;";
+	var param3 = "var sum;sum=x*y;return sum;";
+
+	var add = new Function(param1, param3);
+	var sum = add(4, 5);
+	// alert(sum);
+
+	function add2(x, y) {
+		var sum;
+		sum = x * y;
+		return sum;
+	}
+	// add2(5,6);
+
+
+	var getSum = function () {
+		return 100;
+	};
+	// alert(getSum());
+	(function () {
+		var node = document.createElement("LI");
+		var textnode = document.createTextNode("Water");
+		node.appendChild(textnode);
+		document.getElementById("myList").appendChild(node);
+
+	})();
 </script>
 
 </html>

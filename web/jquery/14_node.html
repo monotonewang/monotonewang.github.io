@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery 节点操作
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    </script>
+
+    <style type="text/css">
+        .div01 {
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+            //添加节点操作，通过html性能最高
+            let $div01=$('.div01');
+            // $div01.html($div01.html()+"<a href='#'>链接</a>");
+            
+            //append方法
+            let $a="<a href='https://www.baidu.com'>链接</a>"
+            // $div01.append($a);
+            //3.4.1写法 -无法使用变量直接appendTo
+            $("<a href='https://www.baidu.com'>链接</a>").appendTo(".div01" );
+            $( "<p>Test</p>" ).appendTo( ".div01" ); 
+
+
+            //prepend方法    加到前面 无法使用变量直接prependTo
+            $( "<p>Test prepend</p>" ).prependTo( ".div01" );  
+
+            $div01.prepend($a);
+
+            //after 方法，现有元素顺序移动
+            // $( ".p1" ).after( $div01 ); 
+            // $( ".p1" ).before( $div01 ); 
+            // $( ".p1" ).insertAfter( $div01 ); 
+            $( ".p1" ).insertBefore( $div01 ); 
+
+
+            $('button').click(function(){
+                $('.h2').remove();
+
+            });
+            
+        })
+
+    </script>
+
+</head>
+
+<body>
+   <button>按钮</button>
+    <div class="div01">
+        <h1>这是一个h1元素</h1>
+        <h2 class="h2">删除元素节点</h2>
+    </div>
+
+    <p class="p1">测试after</p>
+</body>
+
+</html>

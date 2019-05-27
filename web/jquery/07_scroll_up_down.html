@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery index
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+    </script>
+
+    <!-- 切换选项卡动画功能 -->
+
+    <style type="text/css">
+        .div1 {
+            background-color: chartreuse;
+            width: 500px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .menu {
+            margin: 0 auto;
+            background-color: red;
+            width: 500px;
+            height: 100px;
+        }
+
+        .menu_back {
+            margin: 0 auto;
+            width: 500px;
+            height: 100px;
+            display: none;
+        }
+
+        .to_top {
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            font-size: 40px;
+            line-height: 60px;
+            text-align: center;
+            background-color: #000;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            border-radius: 50%;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+
+            var $div = $('.box');
+
+            //窗口
+            console.log("width=" + $(window).width());
+            console.log("height=" + $(window).height());
+            //文档
+            console.log("width=" + $(document).width());
+            console.log("height=" + $(document).height());
+
+            // box +padding
+            $menu = $('.menu');
+            $menu_back = $('.menu_back');
+            $to_top = $('.to_top');
+
+            $(window).scroll(function () {
+                var width=parseInt($(window).width()/2)-250;
+                console.log("width="+width);
+
+                var iNum=$(document).scrollTop();
+                var iNum2=$(document).scrollLeft();
+                if(iNum>200){
+                    $menu.css({
+                        'position':'fixed',
+                        'top':'0',
+                        'left':width+"px",
+                        // 'left':'50%',
+                        'marginLeft':'125'
+                    })
+                    $to_top.show();
+                    $menu_back.show();
+                }else{
+                    $menu.css({
+                        'position':'static',
+                        'marginLeft':'auto'
+                    })
+                    $to_top.hide();
+                    $menu_back.hide();
+                }
+            });
+            //滑动到顶部
+            $to_top.click(function(){
+                $('html,body').animate({
+                    scrollTop:0
+                },200);
+            });
+
+        })
+
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <div class="div1">
+            test
+        </div>
+        <div class="menu">
+            menu
+        </div>
+        <div class="menu_back">
+        </div>
+        <div class="to_top">
+            ⬆️
+        </div>
+        <p>
+            页面内容
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p>
+            页面内容
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <p>
+            页面内容
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <p>
+            页面内容
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <p>
+            页面内容
+        </p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+
+
+    </div>
+</body>
+
+</html>

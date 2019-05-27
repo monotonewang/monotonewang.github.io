@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery index
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    </script>
+
+    <!-- 切换选项卡动画功能 -->
+
+    <style type="text/css">
+    </style>
+    <script type="text/javascript">
+
+        $(function () {
+
+            var $li = $('.ul_list li');
+
+            
+            $li.each(function(i){
+                //i $(this).index()可以拿到当前下标
+                if(i%2==0){
+                    $(this).css({'backgroundColor':'gold','color':'green'});
+                }
+            })
+
+        })
+
+    </script>
+
+</head>
+
+<body>
+    <ul class="ul_list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+
+</html>

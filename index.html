@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>My test Page</title>
@@ -35,31 +36,58 @@
         }
     </style>
 </head>
+
 <body>
-<div>
-    <p>Email、Twitter、FaceBook:zgjxfuqingwang@gmail.com</p>
-    <p>WeChat:monotonewang</p>
-</div>
-<a href="web/css/home_page/10_homepage.html">home_page</a>
-<a href="web/mobile/03_home_page_mobile.html">mobile_home_page</a>
-<h1>Baidu is cool</h1>
-<img src="web/imgs/girl.jpg" alt="xx">
-<p class="editor-note">At Mozilla<strong>we're a gobal community of</strong></p>
-<ul>
-    <li>technologists</li>
-    <li>thinkers</li>
-    <li>builders</li>
-</ul>
+    <a id="time"></a>
+    <div>
+        <p>Email、Twitter、FaceBook:zgjxfuqingwang@gmail.com</p>
+        <p>WeChat:monotonewang</p>
+    </div>
+    <a href="web/css/home_page/10_homepage.html">home_page</a>
+    <br />
+    <a href="web/mobile/03_home_page_mobile.html">mobile_home_page</a>
+    <h1>Baidu is cool</h1>
+    <p class="editor-note">At Mozilla<strong>we're a gobal community of</strong></p>
+    <ul>
+        <li>technologists</li>
+        <li>thinkers</li>
+        <li>builders</li>
+    </ul>
 
-<p class="editor-note">test<strong>very</strong></p>
+    <p class="editor-note">testStrong---><strong>StrongVery</strong></p>
 
-<p>Read the <a href="https://www.baidu.com">baidu</a> to learn even more about the values and principles that guide the
-    pursuit of our mission.</p>
-<button>Change user</button>
-<button id="changeColor">Change color</button>
-<button id="GuessGame">Guess Game</button>
-<button onclick="createParagraph()">Click me</button>
-<button onclick="TestJson()">Test Json</button>
+    <p>Read the <a href="https://www.baidu.com">baidu</a> to learn even more about the values and principles that guide
+        the
+        pursuit of our mission.</p>
+    <button>Change user</button>
+    <button id="changeColor">Change color</button>
+    <button id="GuessGame">Guess Game</button>
+    <button onclick="createParagraph()">Click me</button>
+    <button onclick="TestJson()">Test Json</button>
 </body>
 <script src="web/scripts/OfficeStart.js"></script>
+
+<script type="text/javascript">
+    
+    getFormatTime();
+
+    var sInter = setInterval(getFormatTime, 1000);
+
+    function getFormatTime() {
+        var sNow = new Date();
+        var iYear = sNow.getFullYear();
+        var iMonth = sNow.getMonth() + 1;
+        var iDate = sNow.getDate();
+        var iDay = sNow.getDay();
+        var iHours = sNow.getHours();
+        var iMinutes = sNow.getMinutes();
+        var iTime = sNow.getTime();
+        var iSeoconds = sNow.getSeconds();
+
+        var str = "CurrentTime=" + iYear + "-" + iMonth + "-" + iDate + " " + iHours + ":" + iMinutes + ":" + iSeoconds;
+        // document.write(str);
+        document.getElementById("time").innerHTML = str;
+    }
+</script>
+
 </html>

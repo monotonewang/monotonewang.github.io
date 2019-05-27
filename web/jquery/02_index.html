@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        jquery index
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+    </script>
+    <style type="text/css">
+        .cons div {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            display: none;
+        }
+
+        .cons .active {
+            display: block;
+        }
+
+        .btns button {
+            background-color: gray;
+        }
+
+        .gray {
+            background-color: gray;
+        }
+
+        .btns .current {
+            background-color: gold;
+        }
+
+        .current {
+            background-color: gold;
+        }
+    </style>
+    <script type="text/javascript">
+
+        // 切换选项卡功能
+        $(function () {
+            var $li = $('.list li');
+            var $div = $('.cons div');
+            // alert($li.eq(3).index());//获取到的第三个
+
+            var $index = $('.btns').index();
+            // alert($index);
+            $('.btns button').click(function () {
+                // $(this) 指的是当前的div
+                // this.$index;
+                $(this).addClass('current').siblings().removeClass('current');
+                // alert($(this).index());//获取到当前点击的下标
+                $div.eq($(this).index()).addClass('active').siblings().removeClass('active');
+            })
+        });
+
+    </script>
+
+</head>
+<body>
+    <!-- ul.list>li{$}*4 -->
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <!-- 切换选项卡功能 -->
+    <div class=btns>
+        <button class='current'>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+    </div>
+    <div class="cons">
+        <div class='active'>选项卡1内容</div>
+        <div>选项卡2内容</div>
+        <div>选项卡3内容</div>
+    </div>
+</body>
+</html>

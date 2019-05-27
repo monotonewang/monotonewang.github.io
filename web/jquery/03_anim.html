@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery基本使用
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+    </script>
+    <script type="text/javascript">
+        // 淡入淡出
+        $(function () {
+            $("#btn2").click(function () {
+                $("p").fadeOut();
+            });
+            $("#btn1").click(function () {
+                $("p").fadeIn();
+            });
+
+            $("#btn3").click(function () {
+                //多个动画执行
+                $(this).animate({
+                    width: "+=100px",
+                    height: "+=100px",
+                }, 3000);
+                $(this).animate({
+                    width: "-=100px",
+                    height: "-=100px",
+                }, 3000);
+                // $(this).animate({
+                //     width: "-=100px",
+                //     height: "-=100px",
+                // }, 3000,'swing',function(){
+                //     alert("finish");
+                // });
+            });
+
+            $('.btnSlideUp').click(function () {
+                $('.div1').slideUp();
+                $('.div2').slideUp();
+            })
+            $('.btnSlideDown').click(function () {
+                $('.div1').slideDown();
+                $('.div2').slideDown();
+            })
+
+            $('.btnShow').click(function () {
+                // $('.divShow').show();
+                $('.divShow').show('slow');
+                // $(".divShow").show("normal");   //元素将在400毫秒内慢慢地显示出来
+                // $(".divShow").show("fast");     //元素将在200毫秒内慢慢地显示出来
+                // $(".divShow").show("1000");
+            })
+            $('.btnHide').click(function () {
+                // $('.divShow').hide();
+                $('.divShow').hide('hide');
+            })
+            $('.btnSlideToggle').click(function () {
+                // $('.divShow').hide();
+                $('.SlideToggle').slideToggle();
+            })
+
+        });
+
+    </script>
+</head>
+
+<body>
+    <button id="btn2">
+        click2
+    </button>
+    <button id="btn1">
+        click1
+    </button>
+    <button id="btn3">
+        click3
+    </button>
+
+    <button class="btnSlideUp">
+        btnSlideUp
+    </button>
+    <button class="btnSlideDown">
+        btnSlideDown
+    </button>
+
+    <button class="btnShow">
+        show
+    </button>
+    <button class="btnHide">
+        hide
+    </button>
+    <button class="btnSlideToggle">
+        SlideToggle
+    </button>
+
+    <p>
+        这是 p标签
+    </p>
+
+    <div style="width:100px;height:100px;background-color: green;" class="div1">
+        这是一个div1
+    </div>
+
+    <div style="width:100px;height:100px;background-color: gold;" class="div2">
+        这是一个div2
+    </div>
+
+    <div style="width:100px;height:100px;background-color: green;" class="divShow">
+        这是一个div1
+    </div>
+
+    <div style="width:100px;height:100px;background-color: red;" class="SlideToggle">
+        这是一个div1
+    </div>
+
+
+</body>
+
+</html>

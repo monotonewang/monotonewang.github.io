@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        jquery index
+    </title>
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"> -->
+    </script>
+    <!-- 切换选项卡动画功能 -->
+    <style type="text/css">
+
+        .btns button {
+            background-color: gray;
+        }
+
+        .gray {
+            background-color: gray;
+        }
+        
+        .slides div{
+            line-height: 100px;
+            text-align: center;
+            width: 500px;
+            height: 100px;
+            background-color: green;
+            float: left;
+            /* display: none; */
+            /* position: absolute; */
+        }
+
+       .cons .active {
+            display: block;
+        }
+
+        .cons{
+            overflow: hidden;
+            width: 500px;
+            height: 100px;
+            position: relative;
+        }
+        .slides {
+            position: absolute;
+            left: 0px;
+            width: 1500px;
+            height: 100px;
+        }
+
+        .btns .current {
+            background-color: gold;
+        }
+
+        .current {
+            background-color: gold;
+        }
+    </style>
+    <script type="text/javascript">
+
+        // 切换选项卡功能
+        $(function () {
+
+            var $div = $('.cons div');
+            var $slides = $('.cons .slides');
+            var currentIndex = 0;
+
+            $('.btns button').click(function () {
+                // $(this) 指的是当前的div
+                // this.$index;
+                $(this).addClass('current').siblings().removeClass('current');
+                // alert($(this).index());//获取到当前点击的下标
+
+                // document.title=-500*$(this).index()+"px";
+
+                // $slides.eq($(this).index()).addClass('.cons .active').siblings().remove('.cons .active')
+
+                // $slides.css('left',-500*$(this).index()+"px");
+                $slides.stop().animate({'left':-500*$(this).index()},500);
+            })
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- 切换选项卡功能 -->
+    <div class=btns>
+        <button class='current'>按钮1</button>
+        <button>按钮2</button>
+        <button>按钮3</button>
+    </div>
+    <div class="cons">
+        <div class="slides">
+            <div class='active'>选项卡1内容bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
+            <div>选项卡2内容aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            <div>选项卡3内容ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc</div>
+        </div>
+
+    </div>
+</body>
+
+</html>
