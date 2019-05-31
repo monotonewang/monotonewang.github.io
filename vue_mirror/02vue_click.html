@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+
+<body>
+    <button id="btn4click" v-on:click="greet">clickAlert</button>
+    <button id="btninner" v-on:click="say('hello vue')">内联处理</button>
+
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+
+
+        var btninner = new Vue({
+            el: '#btninner',
+            methods: {
+                say: function (message) {
+                    alert(message);
+                }
+            }
+        })
+        var btn4click = new Vue({
+            el: '#btn4click',
+            methods: {
+                greet: function (event) {
+                    alert('Hello !')
+                }
+            }
+        })
+        // 也可以用 JavaScript 直接调用方法
+        // example2.greet() // => 'Hello Vue.js!
+
+    </script>
+</body>
+
+</html>

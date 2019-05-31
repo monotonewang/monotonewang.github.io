@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <!-- 创建一个 todo-item 组件的实例 -->
+            <todo-item
+                v-for="item in list"
+                v-bind:todo="item"
+                v-bind:key="item.id"
+            ></todo-item>
+        </ol>
+    </div>
+
+    <div id="freeze_app">
+        <p>{{ message }}</p>
+        <!-- 这里的 `foo` 不会更新！ -->
+        <button v-on:click="message = 'baz'">Change it</button>
+      </div>
+
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+        Vue.component('todo-item', {
+            props:['todo'],
+            template: '<li>{{todo.text}}</li>'
+        })
+
+        var app =new Vue({
+            el:'#app',
+            data:{
+                list:[
+                    {id:0,text:'蔬菜'},
+                    {id:1,text:'奶酪'},
+                    {id:2,text:'苹果'},
+                ]
+            },
+            created:function(){
+                console.log('created list is: ' + this.list)
+            },
+            mo
+            
+    
+            
+        })
+
+        var str={
+            message:'test_freeze'
+        }
+
+        Object.freeze(str)
+
+        var freeze_app=new Vue({
+            el:'#freeze_app',
+            data:str
+        })
+
+    </script>
+</body>
+
+</html>
