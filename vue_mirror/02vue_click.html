@@ -9,12 +9,14 @@
 </head>
 
 <body>
+    <!-- v-on mouseover hover -->
     <button id="btn4click" v-on:click="greet">clickAlert</button>
     <button id="btninner" v-on:click="say('hello vue')">内联处理</button>
-
+    
+    <!-- 只有在 keyCode 是 13 时调用 vm.submit() -->
+    <input v-on:keyup.13="submit">
     <!-- <script src="index.js"></script> -->
     <script type="text/javascript">
-
 
         var btninner = new Vue({
             el: '#btninner',
@@ -26,9 +28,16 @@
         })
         var btn4click = new Vue({
             el: '#btn4click',
+            data: {
+                name: 'Vue.js'
+            },
             methods: {
                 greet: function (event) {
-                    alert('Hello !')
+                    alert('Hello !' + this.name)
+                    // `event` 是原生 DOM 事件
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
                 }
             }
         })

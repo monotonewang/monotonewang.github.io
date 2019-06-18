@@ -1,18 +1,30 @@
 <html>
 
 <head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <!-- 这是开发环境 -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- 这是生产环境 -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 
 </head>
 
+<style>
+    /* 解决差值表达式闪烁 */
+    [v-cloak] {
+        display: none;
+    }
+</style>
+
 <body>
     <button id="btn4click" v-on:click="changeMessage">app4PushMessage</button>
-    <div id="app">
-        {{message}}
+    <div id="app" v-cloak>
+        <p>{{message}}</p>
+        <h4 v-text="message">=========</h4>
+        <!-- 能够解析html -->
+        <h1 v-html="html"></h1>
+
     </div>
+
     <div id="app-2">
         <span v-bind:title="message">
             鼠标悬停几秒钟查看此处动态绑定的提示信息！
@@ -32,12 +44,15 @@
         </ol>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
     <!-- <script src="index.js"></script> -->
     <script type="text/javascript">
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'Hello Vue!'
+                message: 'Hello Vue!',
+                html:"<h1>当年范</h1>"
             }
         })
         var app2 = new Vue({
@@ -50,11 +65,11 @@
             el: '#app-3',
             data: {
                 seen: true,
-                message:"现在你看到我了"
-            } ,
-            methods:{
-                reverseMessage:function(event){
-                    this.message=this.message.split('').reverse().join('')
+                message: "现在你看到我了"
+            },
+            methods: {
+                reverseMessage: function (event) {
+                    this.message = this.message.split('').reverse().join('')
                     // this.message="yes"
                 }
             }
@@ -76,7 +91,7 @@
             methods: {
                 changeMessage: function (event) {
                     alert('Hello !')
-                    app4.message="New Message";
+                    app4.message = "New Message";
                 }
             }
         })

@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="app">
+        <button v-on:click="run">跑起来</button>
+        <button v-on:click="stop">停止</button>
+        <br />
+        <p style="with:40px"> {{msg}}</p>
+
+    </div>
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                my_title: "这是一个自定义的title",
+                msg: "这是一条新闻 走起来"
+            },
+            methods: {
+                run: function () {
+
+                    // var _this = this;
+                    // setInterval(function () {
+                    //     var first_text = _this.msg.substring(0, 1);
+                    //     var text = _this.msg.substring(1, _this.msg.length);
+
+                    //     _this.msg = text + first_text;
+                    // }, 400)
+                    setInterval(() => {
+                        var first_text = this.msg.substring(0, 1);
+                        var text = this.msg.substring(1, this.msg.length);
+
+                        this.msg = text + first_text;
+                    }, 400)
+                    setInterval(cut_text(), 20);
+                },
+
+                stop: function () {
+
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+
+<body>
+    <div id="app">
+        <p style="font-size: 25px;">计数器{{counter}}</p>
+        <button @click="counter++" style="font-size: 25px;">点击我</button>
+        <p style="font-size: 25px;">{{msg}}</p>
+    </div>
+
+    <div id="computed_props">
+        千米：<input type="text" v-model='kilometers'/>
+        米：<input type="text" v-model='meters'/>
+    </div>
+    <script type="text/javascript">
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                counter: 1,
+                msg: ""
+            },
+        })
+        new Vue({
+            el:'#computed_props',
+            data:{
+                kilometers:0,
+                meters:0
+            },
+            watch:{
+                kilometers:function(val){
+                    this.kilometers=val;
+                    this.meters=this.kilometers*1000
+                },
+                meters:function(val){
+                    this.meters=val;
+                    this.kilometers=val/1000
+                },
+            }
+        })
+
+        // 监听属性
+        app.$watch('counter', function (nval, oval) {
+            app.msg = 'oval: ' + oval + "nval=" + nval;
+        });
+
+    </script>
+</body>
+
+</html>

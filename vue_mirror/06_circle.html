@@ -1,0 +1,79 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="site in sites">
+                {{site.name}}
+            </li>
+
+        </ol>
+        <lable>test</lable>
+        <ol>
+            <!-- <li v-for="site in sites">
+                {{site.name}}
+            </li> -->
+            <template v-for="site in sites">
+                <li>{{ site.name }}</li>
+                <li>--------------</li>
+            </template>
+        </ol>
+        <!-- v-for 可以通过一个对象的属性来迭代数据： -->
+        <ul>
+            <li v-for="value in object">
+                {{ value }}
+            </li>
+        </ul>
+        <!-- 你也可以提供第二个的参数为键名： -->
+        <ul>
+            <li v-for="(value, key) in object">
+                {{ key }} : {{ value }}
+            </li>
+        </ul>
+        <!-- 第三个参数为索引： -->
+        <ul>
+            <li v-for="(value, key, index) in object">
+                {{ index }}. {{ key }} : {{ value }}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="n in 3">
+                {{ n }}
+            </li>
+        </ul>
+    </div>
+
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                sites: [
+                    { name: 'Runoob' },
+                    { name: 'Google' },
+                    { name: 'Taobao' }
+                ],
+                object: {
+                    name: '菜鸟教程',
+                    url: 'http://www.runoob.com',
+                    slogan: '学的不仅是技术，更是梦想！'
+                }
+            },
+
+        })
+
+
+    </script>
+</body>
+
+</html>

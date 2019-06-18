@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+
+<body>
+
+    <!-- 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。 -->
+    <div id="app">
+        <span>Message: {{ msg }}</span>
+        <span v-once>这个将不会改变: {{ msg }}</span>
+        <input type="text" v-model="msg" />
+    </div>
+
+    <p id="app2">Using mustaches: {{ rawHtml }}</p>
+    <p id="app2">Using v-html directive: <span v-html="rawHtml"></span></p>
+
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello Vue!',
+                rawHtml: "<h1>菜鸟教程</h1>"
+            }
+        })
+
+        var app2 = new Vue({
+            el: '#app2',
+            data: {
+                rawHtml: '<span>hello vue</span>'
+            }
+        })
+    </script>
+</body>
+
+</html>

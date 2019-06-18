@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+
+<body>
+    <div id="app">
+        <p>input 元素：</p>
+        <input v-model="message" placeholder="编辑我……">
+        <p>消息是: {{ message }}</p>
+
+        <p>单个复选框：</p>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+        <p>多个复选框</p>
+        <input type="checkbox" id="google" value="Google" v-model="checkedNames">
+        <label for="google">Google</label>
+        <input type="checkbox" id="runoob" value="Runoob" v-model="checkedNames">
+        <label for="runboob">Runoob</label>
+        <input type="checkbox" id="taobao" value="Taobao" v-model="checkedNames">
+        <label for="taobao">Taobao</label>
+        <span>选择的值为: {{ checkedNames }}</span>
+        <p>单选框</p>
+        <input type="radio" id="runoob" value="Runoob" v-model="picked">
+        <label for="runoob">Runoob</label>
+        <br>
+        <input type="radio" id="google" value="Google" v-model="picked">
+        <label for="google">Google</label>
+        <br>
+        <span>选中值为: {{ picked }}</span>
+        <select v-model="selected" name="fruit">
+            <option value="">选择一个网站</option>
+            <option value="http://www.baidu.com">baidu</option>
+            <option value="http://www.google.com">google</option>
+        </select>
+        <div id="output">
+            选择的网站是：{{selected}}
+        </div>
+        <p>.lazy修饰符--也就是在失去焦点 或者 按下回车键时才更新**</p>
+        <input type="text" v-model.lazy="val">
+        <p>{{ val }}</p>
+
+        请输入数字类型:<input v-model.number="age" type="number">
+        自动过滤用户输入的首尾空格:<input v-model.trim="msg">
+    </div>
+
+
+    <script type="text/javascript">
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Runoob',
+                checked: false,
+                checkedNames: [],
+                picked: "Runoob",
+                selected: "",
+                val:''
+            },
+        })
+
+    </script>
+</body>
+
+</html>

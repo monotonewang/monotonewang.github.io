@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+<style>
+    .class1 {
+        background: #444;
+        color: #eee;
+    }
+
+    .active {
+        width: 100px;
+        height: 100px;
+        background: green;
+    }
+
+    .text-danger {
+        background: red;
+    }
+</style>
+
+<body>
+    <div id="app">
+        {{5+5}}<br>
+        {{ ok ? 'x' : 'y' }}<br>
+        <label for="r1">修改颜色</label>
+        <input type="checkbox" v-mode="use" id="r1" />
+        <!-- vue里面绑定属性的指令 v-bind -->
+        <input type="button" value="按钮" v-bind:title="my_title +'==124'">
+        <!-- 这是上面的简写方式 -->
+        <input type="button" value="按钮2" :title="my_title +'==123'">
+
+        <br />
+        <div v-bind:class="{'class1':use}">
+            v-bind:class 指令
+        </div>
+        <div v-bind:class="classObject">
+            v-bind:classObject 指令
+        </div>
+        <div v-bind:class="[activeClass,errorClass]">
+            v-bind:array 指令
+        </div>
+
+        <div id="app">
+            <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+                Vue.js style(内联样式) ---?菜鸟教程</div>
+        </div>
+
+        <div v-bind:style="[baseStyles, overridingStyles]">菜鸟教程</div>
+
+        <pre><a v-bind:href="url">菜鸟教程</a></pre>
+
+        <!-- event.preventDefault()： -->
+        <form v-on:submit.prevent="onSubmit"></form>
+        <p v-if="use">这个p标签是否可见</p>
+
+        <!-- {{#if ok}}
+            <h1>Yes</h1>
+        {{/if}} -->
+
+        <div v-if="Math.random() > 0.5">
+            Sorry
+        </div>
+        <div v-else>
+            Not sorry
+        </div>
+
+        <div v-if="type === 'A'">
+            A
+        </div>
+        <div v-else-if="type === 'B'">
+            B
+        </div>
+        <div v-else-if="type === 'C'">
+            C
+        </div>
+        <div v-else>
+            Not A/B/C
+        </div>
+
+        <h1 v-show="ok">Hello!</h1>
+        <h1 v-show="use">Hello Use!</h1>
+
+    </div>
+
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                my_title:"这是一个自定义的title",
+                ok: true,
+                use: false,
+                url: 'http://www.runoob.com',
+                type: 'CD',
+                classObject: {
+                    active: true,
+                    'text-danger': true
+                },
+                activeClass: 'active',
+                errorClass: 'text-danger',
+                activeColor: 'green',
+                fontSize: '25',
+                baseStyles: {
+                    color: 'green',
+                    fontSize: '30px'
+                },
+                overridingStyles: {
+                    'font-weight': 'bold'
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+
+<body>
+    <div id="app">
+        <input v-model="parentMsg">
+        <runoob message="hello vue"></runoob>
+        <child_temp></child_temp>
+        <!-- 也可以用 v-bind 动态绑定 props 的值到父组件的数据中。每当父组件的数据变化时，该变化也会传导给子组件 -->
+        <runoob v-bind:message="parentMsg"></runoob>
+        <ol>
+            <todo-item v-for="item in sites" v-bind:todo="item"></todo-item>
+        </ol>
+
+    </div>
+    <div id="counter_child_event_example">
+        <p>总数：{{total}}</p>
+        <button-count v-on:add="add_father"></button-count>
+        <button-count v-on:add="add_father"></button-count>
+
+    </div>
+
+    <script type="text/javascript">
+        // prop 是父组件用来传递数据的一个自定义属性。
+        Vue.component('runoob', {
+            props: ['message'],
+            template: '<h1>自定义组件！{{message}}</h1>'
+        })
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        })
+        Vue.component('button-count', {
+            template: '<button v-on:click="addHandler">自定义组件！{{counter}}</button>',
+            data: function () {
+                return { counter: 0 }
+            },
+            methods: {
+                addHandler: function () {
+                    this.counter += 1
+                    this.$emit("add")
+                }
+            }
+        })
+        // 局部组件
+        var child = {
+            template: '<h1>child_temp自定义组件！</h1>'
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                parentMsg: '父组件内容',
+                sites: [
+                    { text: 'Runoob' },
+                    { text: 'Google' },
+                    { text: 'Taobao' }
+                ]
+            },
+            components: {
+                child_temp: child
+            }
+        })
+        new Vue({
+            el: '#counter_child_event_example',
+            data: {
+                total: 0
+            },
+            methods: {
+                add_father: function () {
+                    this.total += 1
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
