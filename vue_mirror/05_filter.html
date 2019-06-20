@@ -10,13 +10,18 @@
 
 <body>
     <div id="app">
-        {{message}}
+        <!-- 过滤器可以带上参数 -->
+        {{message | add_string('custome_message')}}
         <br>
         {{message|capitalize}}
     </div>
 
     <!-- <script src="index.js"></script> -->
     <script type="text/javascript">
+
+        Vue.filter("add_string",function(data,arg){
+            return data+"------>test"+arg;
+        });
 
         var app = new Vue({
             el: '#app',
