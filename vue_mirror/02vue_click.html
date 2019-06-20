@@ -12,12 +12,92 @@
     <!-- v-on mouseover hover -->
     <button id="btn4click" v-on:click="greet">clickAlert</button>
     <button id="btninner" v-on:click="say('hello vue')">内联处理</button>
-    
+
     <!-- 只有在 keyCode 是 13 时调用 vm.submit() -->
     <input v-on:keyup.13="submit">
+
+    <br />
+    <div id="cal">
+        <h1>计算器案例</h1><br />
+        1：<input type="text" v-model="a">
+        <select v-model="option_method">
+            <option>+</option>
+            <option>-</option>
+            <option>*</option>
+            <option>/</option>
+        </select>
+        2：<input type="text" v-model="b">
+        <button v-on:click="calc">=</button>
+        <input type="text" v-model="result">
+        <br />
+        <p>{{content}}</p>
+        ----------
+        <p>{{option_method}}</p>
+
+
+    </div>
+    <!-- 默认事件冒泡机制 调用@click.stop阻止冒泡-->
+    <!-- 使用.capture 实现捕获触发 -->
+    <!-- .stop 阻止默认行为 -->
+    <!-- .once 只执行一次 -->
+    <div id="eventClick" style="width:200px;height:200px;background:red" @click.capture="divClick">
+        <button @click.stop="btnClick"> 点击</button>
+        <button @click="btnClick"> 点击</button>
+        <a href="http://www.baidu.com" @click.prevent.stop.once>百度</a>
+    </div>
+
+    <!-- .self 只有点击自己才触发 -->
+    <!-- <div id="eventClick" style="width:200px;height:200px;background:red" @click.self="divClick">
+            <button @click="btnClick"> 点击</button>
+    </div> -->
     <!-- <script src="index.js"></script> -->
     <script type="text/javascript">
 
+        new Vue({
+            el: "#cal",
+            data: {
+                option_method: "+",
+                a: 0,
+                b: 0,
+                result: 0,
+                content: ""
+            },
+            methods: {
+                calc: function () {
+                    // switch (this.option_method) {
+                    //     case "+":
+                    //         this.result = parseInt(this.a) + parseInt(this.b);
+                    //         break;
+                    //     case "-":
+                    //         this.result = this.a - this.b;
+                    //         break
+                    //     case "*":
+                    //         this.result = this.a * this.b;
+                    //         break
+                    //     case "/":
+                    //         this.result = this.a / this.b;
+                    //         break
+                    // }
+                    // this.content = "a=" + this.a + "b=" + this.b + "result=" + this.result
+                    // 第二种方法，真正开发少用
+                    var code = 'parseInt(this.a) ' + this.option_method + ' parseInt(this.b)';
+                    this.result = eval(code);
+
+                }
+            }
+        })
+        new Vue({
+            el: '#eventClick',
+            methods: {
+                divClick: function (message) {
+                    console.log('divClick')
+                },
+                btnClick: function (message) {  
+                    console.log('btnclick')
+                }
+
+            }
+        })
         var btninner = new Vue({
             el: '#btninner',
             methods: {

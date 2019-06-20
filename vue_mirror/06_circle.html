@@ -16,13 +16,24 @@
             </li>
 
         </ol>
+
+        id:<input type="text" v-model="add_id">name:<input type="text" v-model="add_name">
+        <br /><button v-on:click="addSite">添加数据</button>
+
+        <!-- key只能使用number 保证选中顺序-->
+        <div v-for="site in sites" v-bind:key="site.id">
+            <input type="checkbox">
+            {{site.id}} -->{{site.name}}
+        </div>
+        <p>{{sites}}</p>
+
         <lable>test</lable>
         <ol>
             <!-- <li v-for="site in sites">
                 {{site.name}}
             </li> -->
             <template v-for="site in sites">
-                <li>{{ site.name }}</li>
+                <li>{{ site.name }}--{{site.id}}</li>
                 <li>--------------</li>
             </template>
         </ol>
@@ -32,7 +43,7 @@
                 {{ value }}
             </li>
         </ul>
-        <!-- 你也可以提供第二个的参数为键名： -->
+        <!-- 你也可以提供第二个的参数为键名：  遍历对象 -->
         <ul>
             <li v-for="(value, key) in object">
                 {{ key }} : {{ value }}
@@ -58,10 +69,12 @@
         var app = new Vue({
             el: '#app',
             data: {
+                add_id: "",
+                add_name: "",
                 sites: [
-                    { name: 'Runoob' },
-                    { name: 'Google' },
-                    { name: 'Taobao' }
+                    { name: 'Runoob', id: 1 },
+                    { name: 'Google', id: 2 },
+                    { name: 'Taobao', id: 3 }
                 ],
                 object: {
                     name: '菜鸟教程',
@@ -69,6 +82,20 @@
                     slogan: '学的不仅是技术，更是梦想！'
                 }
             },
+            methods: {
+                addSite: function () {
+                    if (this.add_name != "" && this.add_id != "") {
+                        var site_temp = { name: this.add_name, id: this.add_id };
+
+                        // this.sites.push(site_temp)
+                        this.sites.splice(0, 0, site_temp);
+                        this.add_id = ""
+                        this.add_name = ""
+                    } else {
+                        alert("can not be empty")
+                    }
+                }
+            }
 
         })
 

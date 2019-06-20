@@ -28,7 +28,10 @@
     </div>
 
     <script type="text/javascript">
+        //这是全局注册组件
         // prop 是父组件用来传递数据的一个自定义属性。
+        //定义组件有两种命名方式 一中是my-component-name  短横线命名法
+        // 还有一中是驼峰命名法
         Vue.component('runoob', {
             props: ['message'],
             template: '<h1>自定义组件！{{message}}</h1>'
@@ -49,7 +52,7 @@
                 }
             }
         })
-        // 局部组件
+        // 局部注册组件
         var child = {
             template: '<h1>child_temp自定义组件！</h1>'
         }

@@ -14,6 +14,7 @@
     }
 
     .active {
+        margin: 10px;
         width: 100px;
         height: 100px;
         background: green;
@@ -21,6 +22,10 @@
 
     .text-danger {
         background: red;
+    }
+
+    .font_big {
+        font-size: 22px;
     }
 </style>
 
@@ -39,6 +44,12 @@
         <div v-bind:class="{'class1':use}">
             v-bind:class 指令
         </div>
+        <div v-bind:class="[{'class1':use},'font_big']">
+            v-bind:多个数组 class 指令
+        </div>
+        <div v-bind:class="{'class1':ok,'font_big':ok}">
+            v-bind:多个对象 class 指令,需要指定值
+        </div>
         <div v-bind:class="classObject">
             v-bind:classObject 指令
         </div>
@@ -46,12 +57,13 @@
             v-bind:array 指令
         </div>
 
+        <h1>下面是内联样式</h1>
         <div id="app">
             <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
                 Vue.js style(内联样式) ---?菜鸟教程</div>
         </div>
 
-        <div v-bind:style="[baseStyles, overridingStyles]">菜鸟教程</div>
+        <div v-bind:style="[baseStyles, overridingStyles]"> 对象数组引用 菜鸟教程</div>
 
         <pre><a v-bind:href="url">菜鸟教程</a></pre>
 
@@ -94,7 +106,7 @@
         var app = new Vue({
             el: '#app',
             data: {
-                my_title:"这是一个自定义的title",
+                my_title: "这是一个自定义的title",
                 ok: true,
                 use: false,
                 url: 'http://www.runoob.com',
