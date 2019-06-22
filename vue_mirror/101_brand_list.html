@@ -10,7 +10,8 @@
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <style>
 
@@ -19,19 +20,31 @@
 <body>
     <div id="app">
 
+        <div v-show:false>
+            <p id="my_button" @click="getInfo" v-show:false>{{button_text}}</p>
+            <p id="login" @click="login" v-show:false>{{login_text}}</p>
+            <p id="getIndustryList" @click="getIndustryList" v-show:false>{{get_industry_list}}</p>
+        </div>
+
+
         <!-- bt3-primary -->
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">添加品牌</h3>
             </div>
             <div class="panel-body form-inline">
-                <label>id:</label>
+                <label v-color="brand_tilte_color">id:</label>
                 <input type="text" v-model="brand_id" class="form-control">
                 <label>品牌名称:</label>
-                <input type="text" v-model="brand_name" class="form-control">
+                <!-- 当键盘点击enter触发add操作 -->
+                <input type="text" v-model="brand_name" class="form-control" @keyup.enter="add">
+                <!-- <input type="text" v-model="brand_name" class="form-control" @keyup.f2="add"> f2是属于自定义按键 -->
                 <input type="button" v-on:click="add" class="btn btn-primary" value="增加"></input>
-                <label>搜索:</label>
-                <input type="text" v-on:click="search" class="form-control"  v-model="keywords"></input>
+                <label v-on:mouseover="search_text_hover" @mouseleave="search_text_leave"
+                    :style="search_text_css">搜索:</label>
+                <!-- @keyup.enter="search" -->
+                <input id="searchInput" type="text" class="form-control" v-on:click="search" v-model="keywords"
+                    v-focus></input>
 
             </div>
         </div>
@@ -62,13 +75,55 @@
     <!-- <script src="index.js"></script> -->
     <script type="text/javascript">
 
+        var platform = "android";
+        var version = "1.1.5";
+        var token = "";
+        var customer_id = "";
+        // https://www.v2ex.com/p/7v9TEc53
+        var title = "https://test.goingtowin.com";
+        var wx_get_code = title + "/v1/customer/code/get_code";
+        var get = "https://www.v2ex.com/api/nodes/show.json";
+        var gov_login = title + "/v1/customer/auth/gov_login";
+        var industry_list = title + "/v1/common/industry/industry_list";
+
+
+        // js自动聚焦
+        // window.onload=function(){
+        //     document.getElementById("searchInput").focus();
+        // };
+        // vue自定义指令
+        // 注册一个全局自定义指令 `v-focus`
+        Vue.directive('focus', {
+
+            bind: function (el) {//只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。
+
+            },
+            inserted: function (el) {
+                // 当被绑定的元素插入到 DOM 中时……
+                //元素插入到dom的时候
+                // 聚焦元素
+                el.focus()
+            },
+            update: function (el) {
+
+            }
+        })
+
+        // 自定义按键修饰符
+        Vue.config.keyCodes.f2 = 113;
+
         var app = new Vue({
             el: '#app',
             data: {
+                button_text: "get请求",
+                login_text: "登录get请求",
+                get_industry_list: "获取工业列表",
+                search_text_css: "",
+                brand_tilte_color: 'black',
                 brand_id: "",
                 brand_name: "",
                 search_name: "",
-                keywords:"",
+                keywords: "",
                 brand_list: [
                     { id: "2", name: "奔驰", ctime: new Date() },
                     { id: "3", name: "宝马", ctime: new Date() },
@@ -76,19 +131,122 @@
                 ],
                 intervalId: null,
             },
-            filters:{
-                dateFormat:function(value){
-                    var date=new Date(value);
-                    var y=date.getFullYear();
-                    var m=date.getMonth()+1;
-                    var d=date.getDate();
+            filters: {
+                dateFormat: function (value) {
+                    var date = new Date(value);
+                    var y = date.getFullYear();
+                    var m = date.getMonth() + 1;
+                    var d = date.getDate();
                     // return y+"-"+m+"-"+d;
                     // 模板字符串
-                    return `${y}-${m}-${d}:${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+                    // padStart是补0操作 padEnd
+                    return `${y}-${m.toString().padStart(2, "0")}-${d}:${date.getHours().toString().padStart(2, "0")}-${date.getMinutes().toString().padStart(2, "0")}-${date.getSeconds().toString().padStart(2, "0")}`;
                 }
             },
-        
+            created() {
+                this.getList();
+            },
+
             methods: {
+                getList: function () {//获取list数据
+                    this.$http.get(wx_get_code, { params: { "mobile": "13634133426" } }).then(function (res) {
+                        console.log(res.body);
+                        this.$http.get(gov_login, {
+                            params: {
+                                "mobile": "13634133426", "city_id": "330700"
+                                , "code": "1234"
+                            }
+                        }).then(function (res) {
+                            console.log(res.body);
+                            token = res.body.data.token;
+                            var ary = [1, 2, 3, 4]; var a = ary.shift();
+                            console.log(a);
+                            console.log("customer_id=" + res.body.data.customer_list[0].customer_id);
+                            console.log("token=" + res.body.data.token);
+                            customer_id = res.body.data.customer_list[0].customer_id;
+                            this.$http.get(industry_list, {
+                                params: {
+                                    "token": token, "city_id": "330700"
+                                    , "platform": platform, "version": version, "customer_id": customer_id
+                                }
+                            }).then(function (res) {
+                                console.log(res.body.data.industry_list);
+                                var list = res.body.data.industry_list;
+                                for (index in list) {
+                                    console.log(list[index]);
+                                    var industrybean = { id: list[index].industry_id, name: list[index].name, ctime: new Date() }
+                                    this.brand_list.push(industrybean);
+                                }
+                                console.log(this.brand_list);
+                                // industry_id
+                                // level_type
+                                // name
+
+
+                            }, function () {
+                                console.log("error");
+                            })
+                        }, function () {
+                            console.log("error");
+                        })
+                    }, function () {
+                        console.log("error");
+                    })
+                },
+                getInfo: function () {
+                    this.$http.get(wx_get_code, { params: { "mobile": "13634133426" } }).then(function (res) {
+                        console.log(res.body);
+
+                    }, function () {
+                        console.log("error");
+                    })
+                },
+                login: function () {
+                    this.$http.get(gov_login, {
+                        params: {
+                            "mobile": "13634133426", "city_id": "330700"
+                            , "code": "1234"
+                        }
+                    }).then(function (res) {
+                        console.log(res.body);
+                        token = res.body.data.token;
+                        var ary = [1, 2, 3, 4]; var a = ary.shift();
+                        console.log(a);
+                        console.log("customer_id=" + res.body.data.customer_list[0].customer_id);
+                        console.log("token=" + res.body.data.token);
+                        customer_id = res.body.data.customer_list[0].customer_id;
+
+                    }, function () {
+                        console.log("error");
+                    })
+                },
+                getIndustryList: function () {//获取所有工业列表
+                    this.$http.get(industry_list, {
+                        params: {
+                            "token": token, "city_id": "330700"
+                            , "platform": platform, "version": version, "customer_id": customer_id
+                        }
+                    }).then(function (res) {
+                        console.log(res.body.data.industry_list);
+                        var list = res.body.data.industry_list;
+                        for (index in list) {
+                            console.log(list[index]);
+                            var industrybean = { id: list[index].industry_id, name: list[index].name, ctime: new Date() }
+                            this.brand_list.push(industrybean);
+                        }
+                        console.log(this.brand_list);
+                        // industry_id
+                        // level_type
+                        // name
+
+
+                    }, function () {
+                        console.log("error");
+                    })
+                },
+                showColor: function (value) {
+                    value.css("color", red);
+                },
                 add: function () {
                     // if(this.brand_id=""||this.brand_name="")
                     var temp = { id: this.brand_id, name: this.brand_name, ctime: new Date() };
@@ -96,20 +254,25 @@
                     this.brand_id = this.brand_name = "";
                 },
                 search: function (keywords) {
-                        var newList=[]
-                        // this.brand_list.forEach(element => {
-                        //     if(element.name.indexOf(keywords)!=-1){
-                        //         newList.push(element)
-                        //     }
-                        // });
-                        // return newList;
-                        var test_list = this.brand_list.filter(item=>{
+                    var newList = []
+                    // this.brand_list.forEach(element => {
+                    //     if(element.name.indexOf(keywords)!=-1){
+                    //         newList.push(element)
+                    //     }
+                    // });
+                    // return newList;
+                    if (keywords != "") {
+                        var test_list = this.brand_list.filter(item => {
                             //es6 funcation
-                            if(item.name.includes(keywords)){
+                            if (item.name != "" && item.name.includes(keywords)) {
                                 return item;
                             }
                         })
                         return test_list;
+                    } else {
+                        return this.brand_list;
+                    }
+
 
                 }, del: function (id) {
                     //第一种方法
@@ -125,7 +288,18 @@
                         }
                     });
                 }
+                , search_text_hover: function (el) {
+                    this.search_text_css = 'color:red';
+                }
+                , search_text_leave: function () {
+                    this.search_text_css = '';
+                }
 
+            }
+            , directives: {
+                color: function (el, binding) {
+                    el.style.color = binding.value;
+                }
             }
         })
 

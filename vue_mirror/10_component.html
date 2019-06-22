@@ -12,7 +12,7 @@
     <div id="app">
         <input v-model="parentMsg">
         <runoob message="hello vue"></runoob>
-        <child_temp></child_temp>
+        <child_temp v-bind:parentmsg="parentMsg"></child_temp>
         <!-- 也可以用 v-bind 动态绑定 props 的值到父组件的数据中。每当父组件的数据变化时，该变化也会传导给子组件 -->
         <runoob v-bind:message="parentMsg"></runoob>
         <ol>
@@ -24,10 +24,31 @@
         <p>总数：{{total}}</p>
         <button-count v-on:add="add_father"></button-count>
         <button-count v-on:add="add_father"></button-count>
+        <com1> </com1>
+        <temp> </temp>
 
     </div>
 
+    <template id="tmp1">
+        <div>
+            <h1>这是在外面定义的组件</h1>
+            <h1>这种定义方式有智能提示</h1>
+        </div>
+
+    </template>
+
     <script type="text/javascript">
+        // 使用vue.extends创建
+        var com1 = Vue.extend({
+            template: '<h3>这是vue.extend创建的组件{{message}}</h3>',
+            // 组件可以有自己的数据和实例 data 必须是一个函数
+            data:function(){
+                return {
+                    message:0//这是组件的私有数据
+                }
+            }
+        })
+        Vue.component('com1', com1);
         //这是全局注册组件
         // prop 是父组件用来传递数据的一个自定义属性。
         //定义组件有两种命名方式 一中是my-component-name  短横线命名法
@@ -45,16 +66,23 @@
             data: function () {
                 return { counter: 0 }
             },
-            methods: {
+            methods: {//父组件把方法传递给子组件
                 addHandler: function () {
                     this.counter += 1
-                    this.$emit("add")
+                    //可以传递参数
+                    this.$emit("add",123)
                 }
             }
         })
+
+        Vue.component('temp', {
+            template: '#tmp1'
+        })
         // 局部注册组件
+        // 可以通过属性绑定的形式，把 v-bind 方式传递数据
         var child = {
-            template: '<h1>child_temp自定义组件！</h1>'
+            props: ['parentmsg'],//这个数据是只读的，不能写
+            template: '<h1>child_temp自定义组件！{{parentmsg}}</h1>'
         }
         var app = new Vue({
             el: '#app',
@@ -67,6 +95,7 @@
                 ]
             },
             components: {
+                
                 child_temp: child
             }
         })
@@ -76,8 +105,9 @@
                 total: 0
             },
             methods: {
-                add_father: function () {
-                    this.total += 1
+                add_father: function (value) {
+                    console.log(value);
+                    this.total += 1;//这里相当于修改了父组件里面的data 值
                 }
             }
         })
