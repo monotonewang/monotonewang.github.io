@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="app">
+        <button v-on:click="get">获取元素</button>
+        <br />
+        <p style="with:40px" ref=myh3> {{msg}}</p>
+
+        <login ref="my_login"></login>
+    </div>
+    
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+
+        Vue.component('login',{
+            template: '<h3>这是vue.extend创建的组件</h3>',
+            data(){
+                return {
+                    msg:"this is login message"
+                }
+            },
+            methods:{
+                show(){
+                    console.log("this is show method");
+                }
+            }
+        })
+
+       
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                msg: "这是一条新闻 走起来",
+            },
+            methods: {
+                //vue提供的获取innerHtml的方法 refs代表有多个引用
+                get: function () {
+                    console.log(this.$refs.myh3.innerText);
+                    console.log(this.$refs.my_login);
+                    console.log(this.$refs.my_login.msg);
+                    console.log(this.$refs.my_login.show());
+                },
+            }
+        })
+
+    </script>
+</body>
+
+</html>

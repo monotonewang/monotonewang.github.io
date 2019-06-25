@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <p id="my_button" @click="alter">{{button_text}}</p>
+
+    </div>
+
+    <script type="text/javascript">
+        new Vue({
+            el: '#demo',
+            data: {
+                show: true,
+                button_text: "这是一个vue模板"
+            },
+            methods:{
+                alter:function(){
+                    this.button_text="这是改变之后的数据";
+                }
+            },
+            beforeCreate() {
+                // data和mthods没有初始化 无法获取到this.show
+                console.log("beforeCreate value=" + this.show)
+            },
+            created() {
+                // data和mthods已经初始化好
+                console.log("create" + this.show)
+            }
+            , beforeMount() {//模板已经在内存中编译完成，但还没有渲染到页面中
+                var text = document.getElementById("my_button").innerText;
+                // text的value还没有改变
+                console.log("beforeMounted" + this.show + "text=" + text)
+            },
+            mounted() {
+                var text = document.getElementById("my_button").innerText;
+                //数据已经真实挂在页面了 这是创建的最后一个函数
+                // text的value已经改变
+                console.log("mounted" + this.show + "text=" + text)
+            },
+            beforeUpdate() {//当数据发生改变的时候 text还没有改变
+                var text = document.getElementById("my_button").innerText;
+                console.log("beforeUpdate"+this.button_text+"--->"+text);
+            },
+            updated() {//text发生了改变
+                var text = document.getElementById("my_button").innerText;
+                console.log("updated"+this.button_text+"--->"+text);
+            }
+            ,beforeDestory(){
+                //data methods  过滤器 指令 都可用，还没有真正执行销毁步骤
+                var text = document.getElementById("my_button").innerText;
+                console.log("beforeDestory"+this.button_text+"--->"+text);
+            }
+            ,destoryed(){
+                var text = document.getElementById("my_button").innerText;
+                console.log("destoryed"+this.button_text+"--->"+text);
+            }
+        })
+
+    </script>
+</body>
+
+</html>

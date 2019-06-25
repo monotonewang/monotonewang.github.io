@@ -9,6 +9,12 @@
 </head>
 
 <body>
+    <div id="app2">
+        <ol>
+            <!-- 创建一个 todo-item 组件的实例 -->
+            <todo-item v-for="item in list" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+        </ol>
+    </div>
     <div id="app">
         <input v-model="parentMsg">
         <runoob message="hello vue"></runoob>
@@ -38,13 +44,35 @@
     </template>
 
     <script type="text/javascript">
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{todo.text}}</li>'
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    { id: 0, text: '蔬菜' },
+                    { id: 1, text: '奶酪' },
+                    { id: 2, text: '苹果' },
+                ]
+            },
+            created: function () {
+                console.log('created list is: ' + this.list)
+            },
+
+
+
+
+        })
         // 使用vue.extends创建
         var com1 = Vue.extend({
             template: '<h3>这是vue.extend创建的组件{{message}}</h3>',
             // 组件可以有自己的数据和实例 data 必须是一个函数
-            data:function(){
+            data: function () {
                 return {
-                    message:0//这是组件的私有数据
+                    message: 0//这是组件的私有数据
                 }
             }
         })
@@ -70,7 +98,7 @@
                 addHandler: function () {
                     this.counter += 1
                     //可以传递参数
-                    this.$emit("add",123)
+                    this.$emit("add", 123)
                 }
             }
         })
@@ -95,7 +123,7 @@
                 ]
             },
             components: {
-                
+
                 child_temp: child
             }
         })
@@ -111,7 +139,6 @@
                 }
             }
         })
-
     </script>
 </body>
 

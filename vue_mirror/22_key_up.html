@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <title>22key-up</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="firstname" @keyup="getFullName">+
+        <input type="text" v-model="lastname" @keyup="getFullName">=
+        <input type="text" v-model="fullname">
+        <input type="text" v-model="c_fullname">
+        <input type="text" v-model="c_fullname">
+    </div>
+
+    <script type="text/javascript">
+
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                firstname: "",
+                lastname: "",
+                fullname: "",
+            },
+            methods: {
+                getFullName() {
+                    console.log("methods getFullName");
+                    this.fullname = this.lastname + this.firstname;
+                }
+            },
+            watch: {
+                'firstname': function () {
+                    console.log("监听 watch firstName的变化" + this.firstname);
+                }
+            },
+            computed: {//计算属性，只不过把他们的名称当做属性来使用 ,当做方法来使用。该方法有缓存，只有所依赖的数据发生变化，才会发生修改。
+                //主要当做属性来使用，
+                'c_fullname': function () {
+                    console.log("监听 computed firstName的变化" + this.lastname + this.firstname);
+                    return this.lastname + this.firstname;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

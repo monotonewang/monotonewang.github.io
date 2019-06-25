@@ -39,9 +39,9 @@
                     this.kilometers=val;
                     this.meters=this.kilometers*1000
                 },
-                meters:function(val){
-                    this.meters=val;
-                    this.kilometers=val/1000
+                meters:function(newVal,oldVale){
+                    this.meters=newVal;
+                    this.kilometers=newVal/1000
                 },
             }
         })

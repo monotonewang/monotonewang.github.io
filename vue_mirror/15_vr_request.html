@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- 这是vue-resourse的使用 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="demo">
+        <p id="my_button" @click="getInfo">{{button_text}}</p>
+        <p id="login" @click="login">{{login_text}}</p>
+        <p id="getIndustryList" @click="getIndustryList">{{get_industry_list}}</p>
+        <p id="vue-axios-get" @click="getAxiosLogin">{{get_axios_login}}</p>
+
+    </div>
+
+    <script type="text/javascript">
+        var platform = "android";
+        var version = "1.1.5";
+        // https://www.v2ex.com/p/7v9TEc53
+        var title = "https://test.goingtowin.com";
+        var wx_get_code = title + "/v1/customer/code/get_code";
+        var get = "https://www.v2ex.com/api/nodes/show.json";
+        var gov_login = title + "/v1/customer/auth/gov_login";
+        var industry_list = title + "/v1/common/industry/industry_list";
+
+        // https://test.goingtowin.com/v1/common/industry/industry_list?platform=android&version=1.1.5&token=TB6bFXavkuRJUeMcdn&customer_id=658&city_id=330700
+
+        /*使用axios插件*/
+        Vue.prototype.$axios = axios;
+
+        new Vue({
+            el: '#demo',
+            data: {
+                show: true,
+                token: "",
+                customer_id: "",
+                button_text: "get请求",
+                login_text: "登录get请求",
+                get_industry_list: "获取工业列表",
+                get_axios_login: "登录"
+            },
+            methods: {
+                getAxiosLogin: function () {
+                    axios
+                        .get(wx_get_code, {
+                            params: {
+                                mobile: "13634133426"
+                            }
+                        })
+                        .then(function (response) {
+                            console.log(response.data);
+                            console.log( response.status);
+                            console.log(response.statusText);
+                            console.log(response.headers);
+                            console.log( response.config);
+                            console.log(response )
+                        })
+                        .catch(function (error) { // 请求失败处理
+                            console.log(error);
+                        });
+                },
+                getInfo: function () {
+                    this.$http.get(wx_get_code, { params: { "mobile": "13634133426" } }).then(function (res) {
+                        console.log(res.body);
+
+                    }, function () {
+                        console.log("error");
+                    })
+                },
+                login: function () {
+                    this.$http.get(gov_login, {
+                        params: {
+                            "mobile": "13634133426", "city_id": "330700"
+                            , "code": "1234"
+                        }
+                    }).then(function (res) {
+                        console.log(res.body);
+                        this.token = res.body.data.token;
+                        var ary = [1, 2, 3, 4]; var a = ary.shift();
+                        console.log(a);
+                        console.log("customer_id=" + res.body.data.customer_list[0].customer_id);
+                        console.log("token=" + res.body.data.token);
+                        this.customer_id = res.body.data.customer_list[0].customer_id;
+
+                    }, function () {
+                        console.log("error");
+                    })
+                },
+                getIndustryList: function () {//获取所有工业列表
+                    this.$http.get(industry_list, {
+                        params: {
+                            "token": this.token, "city_id": "330700"
+                            , "platform": platform, "version": version
+                        }
+                    }).then(function (res) {
+                        console.log(res.body);
+
+                    }, function () {
+                        console.log("error");
+                    })
+                }
+            },
+            beforeCreate() {
+                // data和mthods没有初始化 无法获取到this.show
+                console.log("beforeCreate value=" + this.show)
+            },
+            created() {
+
+                // data和mthods已经初始化好
+                console.log("create" + this.show)
+            }
+            , beforeMount() {//模板已经在内存中编译完成，但还没有渲染到页面中
+
+                var text = document.getElementById("my_button").innerText;
+                // text的value还没有改变
+                console.log("beforeMounted" + this.show + "text=" + text)
+            },
+            mounted() {
+                var text = document.getElementById("my_button").innerText;
+                //数据已经真实挂在页面了 这是创建的最后一个函数
+                // text的value已经改变
+                console.log("mounted" + this.show + "text=" + text)
+            },
+            beforeUpdate() {//当数据发生改变的时候 text还没有改变
+                var text = document.getElementById("my_button").innerText;
+                console.log("beforeUpdate" + this.button_text + "--->" + text);
+            },
+            updated() {//text发生了改变
+                var text = document.getElementById("my_button").innerText;
+                console.log("updated" + this.button_text + "--->" + text);
+            }
+            , beforeDestory() {
+                //data methods  过滤器 指令 都可用，还没有真正执行销毁步骤
+                var text = document.getElementById("my_button").innerText;
+                console.log("beforeDestory" + this.button_text + "--->" + text);
+            }
+            , destoryed() {
+                var text = document.getElementById("my_button").innerText;
+                console.log("destoryed" + this.button_text + "--->" + text);
+            }
+        })
+
+    </script>
+</body>
+
+</html>

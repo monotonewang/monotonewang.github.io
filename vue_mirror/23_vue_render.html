@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- 这是开发环境 -->
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<style>
+
+</style>
+
+<body>
+    <div id="app" v-cloak>
+        <p>{{message}}</p>
+    </div>
+
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+
+        var temp={
+            template: '<h1>这是登录组件</h1>'
+        }
+       
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                html:"<h1>当年范</h1>"
+            },
+            //render会直接覆盖a标签下所有内容
+            render:function(createElements){
+                return createElements(temp)
+            }
+        })
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <!-- 这是开发环境 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 这是生产环境 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+</head>
+<style>
+    /* Enter and leave animations can use different */
+    /* durations and timing functions.              */
+    .slide-fade-enter-active {
+        transition: all 0.3s ease;
+    }
+
+    .slide-fade-leave-active {
+        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .slide-fade-enter,
+    .slide-fade-leave-to
+
+    /* .slide-fade-leave-active below version 2.1.8 */
+        {
+        transform: translateX(10px);
+        opacity: 0;
+    }
+</style>
+
+<body>
+    <div id="app">
+        <button v-on:click="run">登录</button>
+        <button v-on:click="stop">注册</button>
+        <br />
+        
+        <!-- mode这里是设置先出后进 -->
+        <transition name="slide-fade" mode="out-in">
+            <p v-if="show">hello</p>
+            <login v-if="flag"></login>
+            <register v-else="flag"></register>
+        </transition>
+
+        <!-- 这是一个组件占位符，可以用来指定组件的名称  注意使用规则-->
+        <component :is="'temp'"></component>
+    </div>
+    <script type="text/javascript">
+        Vue.component('temp', {
+            template: '<h3>这是temp</h3>'
+        })
+        Vue.component('login', {
+            template: '<h3>这是登录</h3>'
+        })
+        Vue.component('register', {
+            template: '<h3>这是注册</h3>'
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                flag: true,
+            },
+            methods: {
+                run: function () {
+                    this.flag = true
+                },
+
+                stop: function () {
+                    this.flag = false
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
