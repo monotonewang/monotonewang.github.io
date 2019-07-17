@@ -9,27 +9,35 @@
 </head>
 
 <body>
- 
+
 
     <div id="freeze_app">
         <p>{{ message }}</p>
         <!-- 这里的 `foo` 不会更新！ -->
         <button v-on:click="message = 'baz'">Change it</button>
+        <!-- 这是方法得出的string -->
+        <p>Reversed message: "{{ reversedMessage() }}"</p>
       </div>
 
     <!-- <script src="index.js"></script> -->
     <script type="text/javascript">
-      
+
 
         var str={
             message:'test_freeze'
         }
 
         Object.freeze(str)
+        // 这里唯一的例外是使用 Object.freeze()，这会阻止修改现有的属性，也意味着响应系统无法再追踪变化。
 
         var freeze_app=new Vue({
             el:'#freeze_app',
-            data:str
+            data:str,
+            methods: {
+                reversedMessage: function () {
+                    return this.message.split('').reverse().join('')
+                }
+            }
         })
 
     </script>

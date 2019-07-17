@@ -15,7 +15,7 @@
 
 </body>
 <script type="text/javascript">
-	/* 
+	/*
 		* js的运算符
 			* 算术运算符
 				* 0或者null是false，非0或者非null是true，默认用1表示。
@@ -29,26 +29,33 @@
 				* ===	比较值和类型是否相同
 			* 逻辑运算符
 				* 和java中一样
-			
+
 			* 三元运算符
 				条件?值1:值2
-			
+
 	var num = 3710;
 	// alert(num/1000*1000);	// 3710
 	var str = "12";
 	// alert(str + 1 ); 	//	121
 	// alert(str - 1);		// 11
 	// alert("abc" - 1);		//	NaN
-	
-	// alert(true + 1);	// 2	
-	// alert(0 + 1);	// 1 	
-	
+
+	// alert(true + 1);	// 2
+	// alert(0 + 1);	// 1
+
 	if(num == 15){
 		alert("abc");
 	}else{
 		alert("ab2c");
 	}
 	*/
+	var a = 5;
+	var b = 12;
+	if (a > b) {
+		console.log("big");
+	} else {
+		console.log("small");
+	}
 	document.getElementById('addNumber').onclick = function () {
 		var v1 = document.getElementById('num1').value;
 		var v2 = document.getElementById('num2').value;

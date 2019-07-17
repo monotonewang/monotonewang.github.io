@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <hr />
+    <p class="first">制作首字符特殊效果</p>
+    <p class="first_line">制作首字行特殊效果<br/>这是第二行</p>
+</body>
+<style type="text/css">
+   .first::first-letter{
+        color: red;
+   }
+   .first_line::first-line{
+    color: navy;
+   }
+   .first_line::before{
+       font-size: 44px;
+   }
+
+</style>
+
+</html>

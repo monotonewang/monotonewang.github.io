@@ -3,6 +3,7 @@
 <head>
     <!-- 这是开发环境 -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
     <!-- 这是生产环境 -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 
@@ -11,6 +12,8 @@
 <body>
     <div id="app">
         <p>{{ site }}</p>
+        <input type="text" v-model="name" />
+        <input type="text" v-model="url" />
     </div>
 
     <blog-post postTitle="hello vue!"></blog-post>
@@ -22,15 +25,24 @@
             prop:['postTitle'],
             template:'<h3>{{ postTitle }}</h3>'
         })
+        // 计算属性的 setter
         var app = new Vue({
             el: '#app',
             data: {
                 name: 'google',
                 url: 'http://www.baidu.com'
             },
+            methods:{
+                getAnswer:function(){
+                    setTimeout(function(){
+                        return this.name + " " + this.url
+                    },1000)
+                }
+            },
             computed: {
                 site: {
-                    get: function () {
+                     get: function () {
+                        // _.debounce(this.getAnswer, 500)
                         return this.name + " " + this.url
                     },
                     set: function (newValue) {

@@ -14,7 +14,7 @@
 
 </body>
 <script type="text/javascript">
-	/* 
+	/*
 		* js的数组
 			* java	String [] str = {};
 			* 声明数组
@@ -29,10 +29,14 @@
 				* join(s)			通过s标识（-），进行分隔，返回字符串
 				* pop()				删除末尾的元素，返回最后一个元素
 				* push()			向末尾添加元素，返回新数组的长度
-				* sort()				
+				* sort()
 	*/
 	// 声明是数组，中间有三个元素
+	debugger
 	var arr = [12, 34, 44];
+	var index = arr.indexOf(12);
+	debugger
+
 	// alert(arr.length);
 
 	document.write(arr + "<br/>");
@@ -92,15 +96,15 @@
 	}
 
 	//js数组去重
-	function removeRepeat(){
-		var aList=[2,3,4,2,1,10,9,8,3];
-		var iLen=aList.length;
-		var aList2=[];
-		for(var i=0;i<iLen;i++){
+	function removeRepeat() {
+		var aList = [2, 3, 4, 2, 1, 10, 9, 8, 3];
+		var iLen = aList.length;
+		var aList2 = [];
+		for (var i = 0; i < iLen; i++) {
 			//indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置
-			if(aList.indexOf(aList[i])==i){
+			if (aList.indexOf(aList[i]) == i) {
 				aList2.push(aList[i]);
-			}else{
+			} else {
 			}
 		}
 		document.write("<br/>  aList2 =" + aList2);
