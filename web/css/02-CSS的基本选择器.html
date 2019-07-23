@@ -5,6 +5,17 @@
 <title>Insert title here</title>
 
 	<style type="text/css">
+
+	/* 选择符的权重
+	类型   0001
+	class  0010
+	id  0100
+	属性 0010
+	伪类 0010
+	伪元素  0010
+	包含选择符  取和
+	内联样式 1000
+	继承     0000 */
 		/*
 			* CSS的选择器
 				* 告诉CSS的代码作用在哪个标签上。
@@ -38,6 +49,12 @@
 
 
 		*/
+		/* 群组选择器 */
+		/* 这是通配符选择器 */
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
 		.hehe{
 			font-size: 25px;
 			color: fuchsia;

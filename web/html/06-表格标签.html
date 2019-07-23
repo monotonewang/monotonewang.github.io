@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<!-- 
+	<!--
 		* 表格标签
 			<table>
 				<caption>用户列表</caption>
@@ -20,29 +20,29 @@
 					<td>数据</td>
 				</tr>
 			</table>
-			
+
 			table的属性
 				* border:	边框
 				* width:	宽度
 				* height:	高度
-				
+
 			tr的属性
-				* align:中间的文字的对齐方式	
-				
+				* align:中间的文字的对齐方式
+
 			td获取th
 				区别：th中间的内容粗体显示。
 					th中间的内容默认居中。
 					th一般用来表格的表头
-					
+
 				td的属性
 					* width		宽度
 					* height	高度
 					* 合并单元格（值的写法：合并几个单元格，值就写几）
 						* 行合并	rowspan=""
 						* 列合并	colspan=""
-						
+
 			* <caption></caption>必须要写在table的中间
-				
+
 	-->
 
 	<table border="1" width="50%" bgcolor="gray" bordercolor="red">
@@ -65,7 +65,7 @@
 	</table>
 
 	<h3>列合并单元格</h3>
-	<table border="1" width="50%">
+	<table border="1" width="50%" cellspacing="0px" cellpadding="20px">
 		<tr>
 			<th>序号</th>
 			<th>姓名</th>
@@ -73,8 +73,8 @@
 			<th>爱好</th>
 		</tr>
 		<tr align="center">
-			<td>1</td>
-			<td>谢霆锋</td>
+			<td valign="bottom">1</td>
+			<td valign="center">谢霆锋</td>
 			<td>男</td>
 			<td>王菲</td>
 		</tr>
@@ -128,7 +128,7 @@
 	<br></br>
 
 	<!-- cellspacing 表格边界 -->
-	
+
 	<table border="1" width="50%" bordercolor="red" align="center" cellpadding="20px" cellspacing="1px">
 		<tr align="center">
 			<td colspan="5">基本信息</td>
@@ -147,9 +147,9 @@
 			<td></td>
 		</tr>
 		<tr>
-			<td>年龄</td>
+			<td valign="top">年龄</td>
 			<td></td>
-			<td>国籍</td>
+			<td valign="top">国籍</td>
 			<td></td>
 		</tr>
 		<tr>
