@@ -30,6 +30,33 @@
         <a  >公司简介</a>
     </div>
 
+    <span>北京帅哥有限公司</span>
+    <span>北京帅哥有限公司</span>
+    <a class="company">上海帅哥有限公司</a>
+    <a class="company">上海帅哥有限公司</a>
+
+    <div class="inline">
+        <div class="inline_1">
+            这是inline div
+        </div>
+        <div>
+            这是第二个inline div
+        </div>
+    </div>
+
+    <div class="inline-block">
+        <div class="inline_1">
+            这是inline div
+        </div>
+        <div>
+            这是diergeinline div
+        </div>
+    </div>·
+    <div class="list-item">
+        <span>北京</span>
+        <span>上海</span>
+        <span>南京</span>
+    </div>
 </body>
 
 <!--内联块元素 inline-block 可以将 a显示到 div里面 以一行显示-->
@@ -37,6 +64,37 @@
 <!-- line-height: 48px; 可以垂直居中 -->
 
 <style type="text/css">
+    .list-item span{
+        list-style-position: inside;
+        display: list-item;
+    }
+    /* 行内块元素 效果和float:left很类似*/
+    .inline-block div{
+        /* margin-top: 20px; */
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+    }
+    /* 行内元素 宽和高失效 */
+    .inline div{
+        display: inline;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+    }
+
+    span{
+        /* float: left; */
+    }
+    .company{
+        display: block;
+        width: 150px;
+        height: 80px;
+        background-color: wheat;
+        /* float: left; */
+        color: firebrick;
+    }
     .box{
         margin-left: 10px;
         width: 694px;

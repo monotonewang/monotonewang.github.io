@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.test">
+
+<head>
+    <meta charset="UTF-8">
+    <title>flex order</title>
+</head>
+
+<style type="text/css">
+
+    .left{
+        background: green;
+    }
+    .center{
+        background: red;
+        flex: 1;
+    }
+    .right{
+        background: blue;
+    }
+    #text1{
+        display: flex;
+    }
+    ul li{ list-style: none;}
+    ul{
+        width: 800px;background: #eee;
+        display: flex;
+        height: 100px;
+    }
+    li{
+        width: 100px;
+        background: green;
+        margin-right: 10px;
+        font-size: 24px;
+    }
+    li:nth-child(1){
+        order: 2;
+    }
+    li:nth-child(3), li:nth-child(5){
+        order: 1;
+    }
+
+</style>
+
+<body>
+
+    <div id="text1">
+       <div class="left">left</div>
+       <div  class="center">center</div>
+       <div  class="right">right</div>
+    </div>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+
+</html>

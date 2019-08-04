@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.test">
+
+<head>
+    <meta charset="UTF-8">
+    <title>cache</title>
+</head>
+<!-- 属性选择器 -->
+<style type="text/css">
+    img {
+        width: 70px;
+        height: 70px;
+    }
+
+    img[alt] {
+        border: 2px solid black;
+    }
+
+    img[title] {
+        border: 2px solid green;
+    }
+
+    input[type="text"] {
+        border: 2px dashed yellow;
+    }
+
+    input[type="submit"] {
+        border: 2px solid blue;
+    }
+
+    /* 用于选取属性值中包含指定词汇的元素。 */
+    div[class~="layout"] {
+        width: 50px;
+        height: 50px;
+        background: #f00;
+        margin: 0 auto;
+    }
+
+    /* 伪类选择器 选中第一个孩子 */
+    .city li:first-child {
+        color: #f00;
+    }
+
+    .city li:last-child {
+        color: blue;
+    }
+
+    .city li:nth-child(2) {
+        font-size: 24px;
+    }
+
+    .city li:nth-last-child(3) {
+        background: #f00;
+    }
+
+    ol li:nth-child(odd) {
+        background: #f00;
+    }
+    /* 三倍开始选 */
+    .calc li:nth-child(3n){
+        background: #f00;
+    }
+    /* 只有一个孩子的时候才生效 */
+    .calc li:only-child{
+        background: blueviolet;
+    }
+   /*  ol li:nth-child(even) {
+        background: #0f0;
+    } */
+    /* ol li:nth-of-type(odd) {
+        background: #f00;
+    } */
+
+    /* 会先筛选出来类型 */
+/*
+    ol li:nth-of-type(even) {
+        background: #0f0;
+    } */
+</style>
+
+<body>
+
+    <img src="../imgs/girl.jpg" alt="你好" />
+    <img src="../imgs/girl4.jpg" title="x" />
+
+    <input type="text">
+    <input type="submit">
+    <div class="layout">
+
+    </div>
+    <ul class="calc">
+            <li>北京</li>
+            <li>天津</li>
+            <li>沈阳</li>
+            <li>哈尔滨</li>
+            <li>吉林</li>
+            <li>呼伦贝尔</li>
+            <li>满洲里</li>
+            <li>延边</li>
+        </ul>
+    <ul class="city">
+        <li>北京</li>
+        <li>天津</li>
+        <li>沈阳</li>
+        <li>哈尔滨</li>
+        <li>吉林</li>
+        <li>呼伦贝尔</li>
+        <li>满洲里</li>
+        <li>延边</li>
+    </ul>
+    <ol>
+        <li>北京</li>
+        <h3>你好</h3>
+        <h3>我好</h3>
+        <h3>大家好</h3>
+        <li>天津</li>
+        <li>沈阳</li>
+        <li>哈尔滨</li>
+        <li>吉林</li>
+        <li>呼伦贝尔</li>
+        <li>满洲里</li>
+        <li>延边</li>
+    </ol>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" manifest="demo.test">
+
+<head>
+    <meta charset="UTF-8">
+    <title>cache</title>
+</head>
+<!-- 属性选择器 -->
+<!-- target突出显示当前被激活的锚点 -->
+
+<!-- 层级选择器 -->
+<!-- E>F -->
+
+<style type="text/css">
+   :target{background: #f00fff}
+   .box1{
+    width: 200px;
+    min-width: 100px;
+    border: 1px solid yellow;
+   }
+   /* 会造成选择器都变化 */
+   .box1 span{
+       color: rebeccapurple;
+   }
+   .box1>span{
+       color: green;
+   }
+   /* 相邻元素选择器 */
+   .h1content+h1{
+       background: #f00fff;
+   }
+   .h1content~p{
+       background: #00ffff;
+   }
+
+</style>
+
+<body>
+    <a href="#text1">示例文字1</a>
+    <a href="#text2">示例文字2</a>
+
+    <div id="text1">
+        <h1 class="h1content">文字</h1>
+        <h1>文字2</h1>
+        <p>这是p</p>
+        <p>这是p2</p>
+    </div>
+    <div id="text2">
+        <h1>文字</h1>
+        <p>这是p</p>
+    </div>
+    <div class="box1">
+        我是一个来自北极的熊，那里太热了，全球变暖。抓不到鱼吃了
+        <span>我是一个来自南极的企鹅，那里太热了，全球变暖。抓不到吓吃了</span>
+        <h3>南极冰块减少，大量冰山消融<span>我是一个来自南极的企鹅，那里太热了，全球变暖。抓不到吓吃了</span></h3>
+
+        我是一个来自北极的熊，那里太热了，全球变暖。抓不到鱼吃了
+        我是一个来自南极的企鹅，那里太热了，全球变暖。抓不到吓吃了
+    </div>
+
+</body>
+
+</html>

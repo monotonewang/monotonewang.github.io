@@ -7,7 +7,16 @@
 
 </head>
 
+<!-- 上 右 下 左 padding
+上 左右 下 padding
+上下  左右 padding -->
+
 <body>
+    <div class="float_test">
+        <div class="float_test1"></div>
+        <div class="float_test2"></div>
+        <div class="float_test3"></div>
+    </div>
     <div class="box">this is first div</div>
 
     <div class="list">新闻列表</div>
@@ -41,6 +50,34 @@
 </body>
 
 <style type="text/css">
+    .float_test{
+        margin-bottom: 80px;
+        border: 5px solid saddlebrown;
+        width: 960px;
+        height: 500px;
+    }
+    /* 注意这里的padding border margin*/
+    .float_test1{
+        margin: 0px;
+        border: 0px solid salmon;
+        padding: 0px;
+        float: left;
+        width: 480px;
+        height: 500px;
+        background-color: rebeccapurple;
+    }
+    .float_test2{
+        float: left;
+        width: 240px;
+        height: 500px;
+        background-color: gray;
+    }
+    .float_test3{
+        float: left;
+        width: 240px;
+        height: 500px;
+        background-color: green;
+    }
     .margin_test {
         width: 400px;
         border: 1px solid black;
