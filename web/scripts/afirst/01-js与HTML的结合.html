@@ -9,16 +9,16 @@
 
 <body>
 
-	<!-- 
+	<!--
 		* js和HTML的结合
 			* HTML的文件提供了一个标签	<scripts type="text/javascript">js的代码</scripts>，标签可以放在HTML文件的任意位置上。
-			
+
 			* 引入外部的文件，有一个外部的文件。编写js文件。
 				* <scripts src="引入js文件（相对路径）" >
 				* 如果script通过src的属性引入了外部的文件，里面的js代码就不会执行了。（*****）
-				
+
 			* </scripts>，标签可以放在HTML文件的任意位置上。
-					
+
 	-->
 
 	<!-- <scripts type="text/javascript" src="demo.scripts"></scripts> -->
@@ -36,6 +36,7 @@
 <script type="text/javascript">
 	// window.alert("hehe");
 
+	document.write("&lt;spanId&gt;");
 
 	//改变元素属性
 	var sId = document.getElementById('spanId');
@@ -50,6 +51,7 @@
 	// 编写js代码，操作span的标签，获取中间的文本内容，弹出。
 	function clickspanId() {
 		alert(document.getElementById("spanId").innerHTML);
+		// document.write("&lt;spanId&gt;&lt;");
 	}
 
 	var oA=document.getElementById("link");
@@ -60,7 +62,7 @@
 	function showMsg(){
 		oA.href="http://www.baidu.com";
 	}
-	
+
 	document.getElementById('bodys').style.color='red';
 
 

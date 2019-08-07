@@ -54,8 +54,14 @@
 	var monthDay = date.getDate();
 	// 获取星期几
 	var weekDay = date.getDay();
+	var hours = date.getHours();
+	var time = date.getTime();
+	var seconds = date.getSeconds();
+	var minutes = date.getMinutes();
+	var milliseconds = date.getMilliseconds();
 
-	println(year + "-xx" + month + "-" + monthDay + " " + getWeekDay(weekDay));
+	console.log(year + "-" + month + "-" + monthDay + "-" + getWeekDay(weekDay));
+	console.log(hours + "-" + minutes + "-" + seconds + "-" +milliseconds+"-"+time);
 
 	function getWeekDay(num) {
 		var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
@@ -70,8 +76,8 @@
 	var str=null;
 	debugger
 	var x=isEmptyx(str);
-	println(str)
-	println(x)
+	console.log(str)
+	console.log(x)
 
 	// 1415937050973
 	// println(date.getTime());
@@ -85,9 +91,9 @@
 	println(date3.toLocaleString()); */
 
 	var m = Date.parse("2014,11,14");
-	println(m);
+	console.log(m);
 	var date4 = new Date(m);
-	println(date4.toLocaleString());
+	console.log(date4.toLocaleString());
 
 </script>
 

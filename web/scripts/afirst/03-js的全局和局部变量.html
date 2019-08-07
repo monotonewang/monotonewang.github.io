@@ -5,43 +5,56 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 </body>
 	<script type="text/javascript">
-		/* 
+		/*
 			* 全局变量：在<scripts>标签内部定义的变量，全局变量。
 			* 局部变量：在函数的内部定义的变量，局部变量。
 		*/
-		
+
 		var j = 5;	// 全局变量
-		
+
 		for(var i=0;i<3;i++){
 			document.write(i+"<br />");
 		}
-		
+
+		// num输入的是1.12
+		var num=0.12+true;
+		alert("num="+num)
+		//undefined=>NaN
+		var num2=1+undefined;
+		alert("num2="+num2)
+		// null =0
+		var num3=1+null;
+		alert("num3="+num3);
+		//装换成boolean值
+		// 空字符串 null undefined 装换 boolean 都是false
+		var bx=Boolean(2);
+		alert("bx="+bx);
+
 		document.write("i == "+ i+"<br/>");
-		
+
 		function add(y){
 			y = 5; // 局部变量
 		}
 		// document.write(y);
-		
-		
+
+
 		var x = 4;	// 全局变量
 		function show(x){
 			x = 8;
 		}
 		show(x);
 		alert("x = "+x);		// 4 8
-		
+
 	</script>
-	
+
 	<!-- <scripts type="text/javascript">
 		document.write("i === "+ i+"<br/>");
-	
+
 	</scripts> -->
 </html>
 
-	
-	
-	
+
+
