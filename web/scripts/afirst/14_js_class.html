@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>js引用数据类型</title>
+</head>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+    var person = new Object();
+    person.name="xiaoming";
+    person.age=18;
+    person.show=function(){
+        console.log(person.name);
+    }
+    //调用person里面方法
+    person.show();
+    //删除属性操作
+    delete person.name
+    person.show();
+
+    //第二种方法
+    var student={}
+    student["name"]="lihong";
+    console.log(student["name"]);
+</script>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>js引用数据类型</title>
+</head>
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+
+    var a = 10;
+    function sum(a) {
+        a = 5;
+        console.log(a);
+    }
+    console.log(a);//10
+    sum(a);//5
+    console.log(a);//10
+
+    var arr = [10,20]
+    function show(arr) {
+        arr.push(30,40);
+        console.log(arr);
+    }
+    console.log(arr);//10,20
+    show(arr);//10,20,30,40
+    console.log(arr);//10,20,30,40
+
+</script>
+
+<body>
+
+</body>
+
+</html>

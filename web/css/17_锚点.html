@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>white-space 默认是visible</title>
+
+    <style type="text/css">
+        .box {
+            width: 250px;
+            height: 200px;
+            border: 1px solid gray;
+            position: relative;
+        }
+        .list{
+            overflow: hidden;
+            width: 250px;
+            height: 200px;
+        }
+
+        img {
+            width: 250px;
+            height: 200px;
+        }
+        .number{
+            bottom: 10px;
+            right: 10px;
+            position: absolute;
+        }
+        .number a{
+            line-height: 29px;
+            text-align: center;
+            margin-right: 3px;
+            float: left;
+            display: block;
+            background: gray;
+            width: 29px;
+            height: 29px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <div class="number">
+            <a href="#img1">1</a>
+            <a href="#img2">2</a>
+            <a href="#img3">3</a>
+        </div>
+        <div class="list">
+
+            <img id="img1" src="../imgs/apple.jpeg" />
+            <img id="img2"  src="../imgs/girl.jpg" />
+            <img id="img3" src="../imgs/girl4.jpg" />
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

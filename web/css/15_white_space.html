@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>white-space 默认是visible</title>
+
+    <style type="text/css">
+        .box {
+            width: 100px;
+            height: 200px;
+            border: 1px solid gray;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        .normal {
+            white-space: normal;
+        }
+        .pre{
+            white-space:pre;
+        }
+        .no-wrap {
+            white-space:nowrap
+        }
+        .pre-line {
+            white-space: pre-line;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box ">
+        我是北京人，             哈哈哈哈 一起去石景山公园玩吧，
+         然后去五环玩，然后去清华大学玩，之后来到了故宫
+    </div>
+    <div class="box normal">
+        我是北京人，             哈哈哈哈 一起去石景山公园玩吧，
+          然后去五环玩，然后去清华大学玩，之后来到了故宫
+    </div>
+    <!-- 保留空格和换行符 -->
+    <div class="box pre">
+        我是北京人，             哈哈哈哈 一起去石景山公园玩吧，
+           然后去五环玩，然后去清华大学玩，之后来到了故宫
+    </div>
+    <!-- 文本不会换行直到遇到 br才会换行 -->
+    <div class="box no-wrap">
+        我是北京人，             哈哈哈哈 一起去石景山公园玩吧，
+           然后去五环玩，然后去清华大学玩，之后来到了故宫<br/>nihao
+    </div>
+    <div class="box pre-line">
+        我是北京人，             哈哈哈哈 一起去石景山公园玩吧，
+           然后去五环玩，然后去清华大学玩，之后来到了故宫<br/>nihao
+    </div>
+
+
+
+</body>
+
+</html>
