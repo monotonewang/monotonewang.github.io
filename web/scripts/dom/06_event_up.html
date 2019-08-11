@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	 #outer{
+		 width: 100px;
+		 height: 100px;
+		 background: rebeccapurple;
+	 }
+   #inner{
+    width: 50px;
+		 height: 50px;
+		 background: blue;
+   }
+	</style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner">
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+  //事件委托机制。事件冒泡原理，把事件委托给父类。
+  //ul li新增加的child .可以使用委托的方法触发点击事件
+  window.onload=function(){
+      var inner=document.getElementById("inner");
+      var outer=document.getElementById("outer");
+      outer.onclick=function(){
+        console.log("outer");
+      }
+      inner.onclick=function(e){
+        console.log("inner");
+        //阻止冒泡
+        e.cancelBubble=true;
+        e.stopPropagation=true;
+      }
+  }
+
+</script>
+
+</html>

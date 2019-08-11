@@ -6,7 +6,7 @@
 </head>
 <body>
 	
-	<input type="text" id="nameId" value="zhangsan"/><br/>
+	<input type="text" id="nameId" value="zhangsan" style="background: red"/><br/>
 	<input type="text" name="username" value="zhaosi"/><br/>
 	<input type="text" name="username" value="wangwu"/><br/>
 	<input type="text" name="username" value="ermazi"/><br/>
@@ -21,6 +21,10 @@
 		
 		var input = document.getElementById("nameId");
 		// alert(input.value);
+		console.log(input.id);
+		console.log(input.value);
+		console.log(input.style.background);
+		input.style.background="blue";//为 style赋值
 		
 		var inputs = document.getElementsByName("username");
 		// alert(inputs.length);
@@ -31,6 +35,16 @@
 		
 		var inputs2 = document.getElementsByTagName("input");
 		// alert(inputs2.length);
+
+		window.onload=function(){
+			//ie不支持该方法
+			var input = document.getElementById("nameId");
+			console.log(getComputedStyle(input)["background"]);
+			
+			//ie方法
+			// console.log(getComputedStyle["background"]);
+
+		}
 		
 	</script>
 </html>

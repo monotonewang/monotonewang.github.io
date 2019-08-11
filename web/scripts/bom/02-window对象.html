@@ -15,6 +15,8 @@
 	<input type="button" value="停" onclick="run4()"/> <br/>
 	
 	<input type="button" value="新窗口" onclick="run5()"/> <br/>
+
+	<input type="button" value="prompt" onclick="run6()"/> <br/>
 	
 	<input type="text" id="nameId" name="username" value="zhangsan" />
 	
@@ -54,6 +56,16 @@
 				
 		*/
 		
+		console.log(location);
+		console.log(window.location);
+		console.log(window.document.location);
+		console.log(window.document.location.hash);
+		console.log(window.document.location.host);
+		//location.search 类似 vue router后面的querys
+		// location.assign() 跳转到指定的url
+		// reload 重载当前到的url
+		// replace 是用新的url替换当前的url
+
 		function del(){
 			if(window.confirm("确定删除吗??")){
 				// 点击确定，执行
@@ -86,10 +98,33 @@
 		function run5(){
 			window.open("http://www.baidu.com", "", "width=400,height=200");
 		}
+
+		//带输入功能
+		function run6(){
+			window.prompt("please input a value",9);
+		}
 		
 		var input = document.getElementById("nameId");
 		// alert(input.value);
 		input.value = "zhaosi";
-		
+		var str="?id=5&name=zhangsan";
+		function getValue(str,key){
+				var start = str.indexOf(key);
+				if(start==-1){
+					return "";
+				}else{
+					//第二个参数 是 fromindex
+					var end = str.indexOf("&",start);
+					if(end==-1){
+						end = str.length;
+					}
+					start+=key.length+1;
+					return str.substring(start,end);
+				}
+		}
+
+		console.log(getValue(str,"id"));
+		console.log(getValue(str,"name"));
+
 	</script>
 </html>

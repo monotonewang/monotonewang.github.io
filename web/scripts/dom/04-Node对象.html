@@ -6,6 +6,9 @@
 </head>
 <body>
 
+	<div id="content">
+
+	</div>
 	<input type="text" id="nameId" value="zhangsan" />
 	
 	<span id="spanId">
@@ -28,6 +31,9 @@
 	
 	<button id="btnId">
 		我是按钮
+	</button>
+	<button id="addEl">
+		增加
 	</button>
 	
 	<span id="spanId2"></span>
@@ -69,9 +75,9 @@
 		
 		var span = document.getElementById("spanId");
 		var text = span.firstChild;
-		//alert(text.nodeName);		// #text
-		//alert(text.nodeType);		// 3
-		//alert(text.nodeValue);		// 我是span的区域
+		alert(text.nodeName);		// #text
+		alert(text.nodeType);		// 3
+		alert(text.nodeValue);		// 我是span的区域
 		
 		var ul = document.getElementById("ulId");
 		var li = ul.firstElementChild;
@@ -90,7 +96,9 @@
 			// var ul = sh.parentNode;
 			// ul.replaceChild(xsd2, sh);
 			
-			var ul = this.parentNode;
+			var ul = this.parentNode;//属性放回该节点的父节点
+			// previousSibling //属性返回该节点的前一个同级节点
+			// nextSibling 属性返回该节点的后一个同级节点
 			var xsd2 = document.getElementById("xsd2");
 			ul.replaceChild(xsd2,this);
 		};
@@ -111,5 +119,34 @@
 		var span = document.getElementById("spanId2");
 		span.appendChild(newbtn);
 		
+		window.onload=function(){
+			var span = document.getElementById("spanId");
+			var text = span.firstChild;
+			console.log(text.nodeName);		// #text
+			console.log(text.nodeType);		// 3
+			console.log(text.nodeValue);		// 我是span的区域
+			console.log(span.attributes);
+
+			let addEl = document.getElementById("addEl");
+			let content = document.getElementById("content");
+			addEl.onclick = function(){
+
+				//插入到结尾处
+				var node=document.createElement("span");
+				var oText=document.createTextNode("文本内容");
+				node.appendChild(oText);
+				content.appendChild(node);
+
+				var nodeS=document.createElement("strong");
+				var oTextS=document.createTextNode(" pEl 文本内容");
+				nodeS.appendChild(oTextS);
+				//新需要加入的元素。第二个元素是相对的子元素
+				content.insertBefore(nodeS,node);
+				//replaceChild()
+				// cloneNoe();
+				// removeChild()
+
+			}
+		}
 	</script>
 </html>

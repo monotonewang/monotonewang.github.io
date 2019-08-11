@@ -1,14 +1,23 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	 #my_div{
+		 width: 100px;
+		 height: 100px;
+		 background: rebeccapurple;
+	 }
+	</style>
 </head>
+
 <body>
-	
-	<input type="text" id="nameId" onmousemove="run()" onmouseout="run2()"/><br/>
-	
-	<input type="text" id="nameId2" onkeyup="run3()" style="width: 200px"/>
+
+	<input type="text" id="nameId" onmousemove="run()" onmouseout="run2()" /><br />
+
+	<input type="text" id="nameId2" onkeyup="run3()" style="width: 200px" />
 	<div id="divId" style="width: 200px;display: none">
 		<table>
 			<tr>
@@ -21,22 +30,61 @@
 				<td>jsp</td>
 			</tr>
 		</table>
-	</div>
 	
+	</div>
+	<form>
+		<input type="text" id="my_input" value="请输入自定义内容">
+		
+</form>
+<div id="my_div"></div>
+
 </body>
-	<script type="text/javascript">
-		/* 
-			
-		*/
-		function run(){
+<script type="text/javascript">
+	/* 
+		
+	*/
+	function run() {
 			var input = document.getElementById("nameId");
 			input.style.backgroundColor = "gray";
 		}
 		
-		function run3(){
+		function run2() {
+			var input = document.getElementById("nameId");
+			input.style.backgroundColor = "gray";
+		}
+
+	window.onload = function () {
+
+
+
+		function run3() {
 			var div = document.getElementById("divId");
 			div.style.display = "block";
 		}
-		
-	</script>
+
+		var myInput = document.getElementById("my_input");
+		var mydiv = document.getElementById("my_div");
+		mydiv.onclick=function(e){
+			var evt= e|| event;
+			console.log(evt.clientX)
+			console.log(evt.clientY)
+			//滚动的时候两个参数是有区别的，page是到达页面顶部的距离
+			console.log(evt.pageX)
+			console.log(evt.pageY)
+			//offsetX offsetY
+		}
+		myInput.onfocus = function (e) {
+			console.log("onfocus")
+			console.log(e);
+		}
+		myInput.onblur = function () {
+			console.log("onblur")
+		}
+		myInput.oninput = function () {
+			console.log("oninput")
+		}
+	}
+
+</script>
+
 </html>
