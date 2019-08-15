@@ -31,17 +31,60 @@
   window.onload=function(){
       var inner=document.getElementById("inner");
       var outer=document.getElementById("outer");
-      outer.onclick=function(){
-        console.log("outer");
+      // outer.onclick=function(){
+      //   console.log("outer");
+      // }
+      // inner.onclick=function(e){
+      //   console.log("inner");
+      //   //阻止冒泡
+      //   e.cancelBubble=true;
+      //   e.stopPropagation=true;
+      // }
+      //第二种方式通过addEventListener 方法
+      //outer和上面区别是会多个事件回调
+      outer.addEventListener("click",baz,true);
+      outer.addEventListener("click",foo,true);
+      
+      inner.addEventListener("click",ifoo,true);
+      inner.addEventListener("click",ibaz,true);
+
+      function ibaz(){
+        console.log("ibaz outer");
       }
-      inner.onclick=function(e){
-        console.log("inner");
-        //阻止冒泡
-        e.cancelBubble=true;
-        e.stopPropagation=true;
+
+      function ifoo(){
+        console.log("ifoo outer");
       }
+  
+      function baz(){
+        console.log("baz outer");
+      }
+
+      function foo(){
+        console.log("foo outer");
+      }
+
+      //下面是兼容ie
+      
+      // funcation addEventx(obj,type,fun){
+      //   if(obj.addEventListener){
+      //     obj.addEventListener(type,fun,false);
+      //   }else{
+      //     obj.attachEvent("on"+type,fun);
+      //   }
+      // }
+
+      // funcation removeEventx(obj,type,fun){
+      //   if(obj.removeEventListener){
+      //     obj.removeEventListener(type,fun,false);
+      //   }else{
+      //     obj.detachEvent("on"+type,fun);
+      //   }
+      // }
+        
   }
 
+ 
 </script>
 
 </html>

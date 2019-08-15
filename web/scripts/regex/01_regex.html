@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+	<style type="text/css">
+	
+	</style>
+</head>
+
+<body>
+    
+</body>
+<script type="text/javascript" >
+  
+ var reg=/abc/;
+ var reg=new RegExp("abc");
+ var str="xabcdcabc";
+ var strGi="abcdcABc";
+ var regG=/abc/g;
+ //i 忽略大小写
+ var regGi=/abc/gi;
+
+ //找到了返回 true,找不到 返回false
+ console.log(reg.test(str));
+ console.log(str.match(regG));
+ console.log(strGi.match(regGi));
+ //search 用于找到复合规则的位置
+ console.log(str.search(reg));//index=1
+
+ var regGood=/good/;
+ console.log("good good Good".split(regGood));
+
+ //正则替换 将good替换成go
+ console.log("abc good Good".replace(/good/,"go"));
+//exec 将匹配成功的放到数组中，
+console.log(/good/.exec("abc good Good"));
+console.log(/good/gi.exec("abc good good Good"));
+
+</script>
+
+</html>
