@@ -1,16 +1,16 @@
-var myHeading = document.querySelector('h1');
-myHeading.textContent = 'Hello world!';
-myHeading.textContent = 'Hello Baidu!' + multiply(4, 2);
+// var myHeading = document.querySelector('h1');
+// myHeading.textContent = 'Hello world!';
+// myHeading.textContent = 'Hello Baidu!' + multiply(4, 2);
 
 // alert(testTypeOf())
 // alert(testString())
 
-myHeading.onclick = function () {
-    myHeading.textContent = 'Hello world!';
-    appendChristmas();
-    testArray();
-    createPanel();
-}
+// myHeading.onclick = function () {
+//     myHeading.textContent = 'Hello world!';
+//     appendChristmas();
+//     testArray();
+//     createPanel();
+// }
 
 /**
  * change color
@@ -88,10 +88,8 @@ function changeColor() {
         return Math.floor(Math.random() * (number + 1));
     }
 
-    // btn.onclick = function () {
     let rndCol = 'rgb(' + random(255) + ',' + random(255) + ',' + random(255) + ')';
     document.body.style.backgroundColor = rndCol;
-    // }
 }
 
 var index = 0;
@@ -182,7 +180,7 @@ var myButton = document.querySelector('button');
 function setUserName() {
     var myName = prompt('Please enter your name.')
     localStorage.setItem('name', myName);
-    myButton.textContent = "Mozilla is cool, " + myName;
+    myButton.textContent = "Your name is, " + myName;
 }
 
 myButton.onclick = function () {
@@ -191,7 +189,7 @@ myButton.onclick = function () {
         setUserName()
     } else {
         var storedName = localStorage.getItem('name');
-        myButton.textContent = "Mozilla is cool, " + storedName;
+        myButton.textContent = "Your name is, " + storedName;
     }
 }
 

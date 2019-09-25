@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My test Page</title>
+    <title>https://monotonewang.github.io</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
         body {
@@ -12,22 +12,39 @@
         }
     </style>
     <style type="text/css">
-        html {
-            background-color: #00539F;
-        }
-
+        html {}
         body {
+            padding: 0px;
+            margin: 0px;
+            background-color: #00539F;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+        .baidu {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .content {
+            position: relative;
+            /*脱离文档流*/
+            top: 50%;
+            /*偏移*/
+            transform: translateY(-53%);
             width: 1200px;
             margin: 0 auto;
-            background-color: #FF9500;
+            background-color: #99cc33;
             padding: 0 20px 20px 20px;
-            border: 5px solid black;
+            border-radius: 3px;
+            border: 3px solid black;
         }
 
         h1 {
             text-align: center;
             margin: 0 auto;
-            text-shadow: 3px 3px 1px black;
+            text-shadow: 1px 2px 3px black;
         }
 
         img {
@@ -38,37 +55,44 @@
 </head>
 
 <body>
-    <a id="time"></a>
-    <div>
-        <p>Email、Twitter、FaceBook:zgjxfuqingwang@gmail.com</p>
-        <p>WeChat:monotonewang</p>
+    <div class="content">
+        <h1 class="baidu">Welcome to my studio,this is h1,<a href="https://www.baidu.com"  style="text-decoration:none;">Baidu </a>is cool</h1>
+        <a id="time"></a>
+        <br />
+        <a href="web/css/home_page/10_homepage.html"
+            style="text-decoration:none;margin-top:10px; display:block;">饿了么pc端页面</a>
+        <a href="web/mobile/03_home_page_mobile.html"
+            style="text-decoration:none;margin-top:5px; display:inline-block;">饿了么手机端页面</a>
+        <p class="editor-note">My<strong>Account</strong></p>
+        <ul>
+            <li>
+                <p style="font-size: 18px;">Email:<strong style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong></p>
+            </li>
+            <li>
+                <p style="font-size: 18px;">Twitter:<strong style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong></p>
+            </li>
+            <li>
+                <p style="font-size: 18px;">FaceBook:<strong style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong></p>
+            </li>
+            <li>
+                <p style="font-size: 18px;">WeChat:<strong style="font-size: 24px;">monotonewang</strong></p>
+            </li>
+        </ul>
+        <p>Read the to learn even more about the values and principles that guide
+            the
+            pursuit of our mission.</p>
+        <button>Change user</button>
+        <button id="changeColor">Change color</button>
+        <button id="GuessGame">Guess Game</button>
+        <button onclick="createParagraph()" hidden>Click me</button>
+        <button onclick="TestJson()">Test Json</button>
     </div>
-    <a href="web/css/home_page/10_homepage.html">home_page</a>
-    <br />
-    <a href="web/mobile/03_home_page_mobile.html">mobile_home_page</a>
-    <h1>Baidu is cool</h1>
-    <p class="editor-note">At Mozilla<strong>we're a gobal community of</strong></p>
-    <ul>
-        <li>technologists</li>
-        <li>thinkers</li>
-        <li>builders</li>
-    </ul>
 
-    <p class="editor-note">testStrong---><strong>StrongVery</strong></p>
-
-    <p>Read the <a href="https://www.baidu.com">baidu</a> to learn even more about the values and principles that guide
-        the
-        pursuit of our mission.</p>
-    <button>Change user</button>
-    <button id="changeColor">Change color</button>
-    <button id="GuessGame">Guess Game</button>
-    <button onclick="createParagraph()">Click me</button>
-    <button onclick="TestJson()">Test Json</button>
 </body>
 <script src="web/scripts/OfficeStart.js"></script>
 
 <script type="text/javascript">
-    
+
     getFormatTime();
 
     var sInter = setInterval(getFormatTime, 1000);
@@ -84,10 +108,14 @@
         var iTime = sNow.getTime();
         var iSeoconds = sNow.getSeconds();
 
-        var str = "CurrentTime=" + iYear + "-" + iMonth + "-" + iDate + " " + iHours + ":" + iMinutes + ":" + iSeoconds;
-        // document.write(str);
+        var str = "CurrentTime=" + iYear + "-" + appendzero(iMonth) + "-" + appendzero(iDate) + " " + appendzero(iHours) + ":" + appendzero(iMinutes) + ":" + appendzero(iSeoconds);
         document.getElementById("time").innerHTML = str;
     }
+    function appendzero(obj) {
+        if (obj < 10) return "0" + "" + obj;
+        else return obj;
+    }
+    func
 </script>
 
 </html>
