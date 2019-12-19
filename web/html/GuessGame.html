@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Guess Game</title>
@@ -35,19 +36,21 @@
         }
     </style>
 </head>
+
 <body>
 
-<form>
-    Enter Game number(0-100):<input id="number" type="number" onkeyup="this.value=this.value.replace(/[^\d]/g,'') "
-                             onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " name="f_order" />
-</form>
-<button id="generate">Generate random number</button>
-<button id="noGuess">Please tell me the right answer</button>
+    <form>
+        Enter Game number(0-100):<input id="number" type="number" onkeyup="this.value=this.value.replace(/[^\d]/g,'') "
+            onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " name="f_order" />
+    </form>
+    <button id="generate">Generate random number</button>
+    <button id="noGuess">Please tell me the right answer</button>
 
-<p id="content"></p>
-<p id="trueValue"></p>
+    <p id="content"></p>
+    <p id="trueValue"></p>
 
 
 </body>
 <script src="../scripts/GuessGame.js"></script>
+
 </html>

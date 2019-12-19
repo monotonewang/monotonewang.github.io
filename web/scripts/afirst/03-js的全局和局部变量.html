@@ -1,60 +1,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
 </head>
+
 <body>
-
+	18258402824
 </body>
-	<script type="text/javascript">
-		/*
-			* 全局变量：在<scripts>标签内部定义的变量，全局变量。
-			* 局部变量：在函数的内部定义的变量，局部变量。
-		*/
+<script type="text/javascript">
+	/*
+		* 全局变量：在<scripts>标签内部定义的变量，全局变量。
+		* 局部变量：在函数的内部定义的变量，局部变量。
+	*/
 
-		var j = 5;	// 全局变量
+	var j = 5, name = "zhangsan";	// 全局变量 可以一次声明多个变量
 
-		for(var i=0;i<3;i++){
-			document.write(i+"<br />");
-		}
+	j = "test"; //js可以随时改变数据类型，但是不建议
+	for (var i = 0; i < 3; i++) {
+		document.write(i + "<br />");
+	}
 
-		// num输入的是1.12
-		var num=0.12+true;
-		alert("num="+num)
-		//undefined=>NaN
-		var num2=1+undefined;
-		alert("num2="+num2)
-		// null =0
-		var num3=1+null;
-		alert("num3="+num3);
-		//装换成boolean值
-		// 空字符串 null undefined 装换 boolean 都是false
-		var bx=Boolean(2);
-		alert("bx="+bx);
+	// num输入的是1.12
+	var num = 0.12 + true;
+	alert("num=" + num)
+	//undefined=>NaN
+	var num2 = 1 + undefined;
+	alert("num2=" + num2)
+	// null =0
+	var num3 = 1 + null;
+	alert("num3=" + num3);
+	//装换成boolean值
+	// 空字符串 null undefined 装换 boolean 都是false
+	var bx = Boolean(2);
+	alert("bx=" + bx);
 
-		document.write("i == "+ i+"<br/>");
+	document.write("i == " + i + "<br/>");
 
-		function add(y){
-			y = 5; // 局部变量
-		}
-		// document.write(y);
+	function add(y) {
+		y = 5; // 局部变量
+	}
+	// document.write(y);
 
 
-		var x = 4;	// 全局变量
-		function show(x){
-			x = 8;
-		}
-		show(x);
-		alert("x = "+x);		// 4 8
+	var x = 4;	// 全局变量
+	function show(x) {
+		x = 8;
+	}
+	show(x);
+	alert("x = " + x);		// 4 8
 
-	</script>
+</script>
 
-	<!-- <scripts type="text/javascript">
+<!-- <scripts type="text/javascript">
 		document.write("i === "+ i+"<br/>");
 
 	</scripts> -->
+
 </html>
-
-
-

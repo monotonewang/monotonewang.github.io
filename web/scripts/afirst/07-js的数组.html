@@ -34,7 +34,7 @@
 	// 声明是数组，中间有三个元素
 	// debugger
 	var arr = [12, 34, 44];
-	var res=arr.push("hello");
+	var res = arr.push("hello");
 	console.log(res);//返回长度
 	// var respop=arr.pop();
 	// var respop=arr.pop(12);
@@ -43,7 +43,7 @@
 	console.log(arr.shift());
 	console.log(arr);
 	var index = arr.indexOf(12);
-	var test=arr.concat([2123]);
+	var test = arr.concat([2123]);
 	//concat生成的是新数组
 	console.log("test");
 	console.log(arr)
@@ -51,17 +51,17 @@
 	// slice 生成新数组
 	console.log("slice");
 	console.log(arr)
-	var sliceT=arr.slice(0,1);
+	var sliceT = arr.slice(0, 1);
 	console.log(sliceT)
 	console.log(arr)
 	// splice 从下标1开始操作，删除一个元素，添加若干个元素
 	console.log("splice");
-	var splices=arr.splice(1,1,"test");
+	var splices = arr.splice(1, 1, "test");
 	console.log(splices);
 	console.log(arr);
 	//join -->34+test+hello
 	console.log("arrjoin");
-	var arrjoin=arr.join("+")
+	var arrjoin = arr.join("+")
 	console.log(arrjoin);
 
 	// debugger
@@ -109,9 +109,9 @@
 	document.write("<br/>  unshift aList=" + aList[1, 1]);
 	document.write("<br/>  unshift aList=" + aList[1, 1].length);
 
-	var array=new Array(1,"hello",true);
+	var array = new Array(1, "hello", true);
 	console.log(array);
-	array.length=2;
+	array.length = 2;
 	console.log(array);//这里只输出两个元素
 	getUlList();
 	removeRepeat();
@@ -144,11 +144,11 @@
 	}
 
 	console.log("二维数组");
-	var count=0;
-	var arrTwo=[];
-	for(var i=0;i<5;i++){
-		var newArr=[];
-		for(var j=0;j<5;j++){
+	var count = 0;
+	var arrTwo = [];
+	for (var i = 0; i < 5; i++) {
+		var newArr = [];
+		for (var j = 0; j < 5; j++) {
 			newArr.push(++count);
 		}
 		arrTwo.push(newArr);
@@ -159,68 +159,68 @@
 	arrTwo.reverse();
 	console.log(arrTwo);
 	console.log("数组排序sort");
-	var myArr=[11,12,32,1];
+	var myArr = [11, 12, 32, 1];
 	console.log(myArr.sort());
 	console.log(myArr);
 	console.log("数组排序冒泡");
-	var myArrBubble=[11,12,32,1,5,7];
-	for(var i=0;i<myArrBubble.length;i++){
-		for(var j=0;j<myArrBubble.length-i-1;j++){
-			if(myArrBubble[j]>myArrBubble[j+1]){
-				var tmp=myArrBubble[j+1];
-				myArrBubble[j+1]=myArrBubble[j];
-				myArrBubble[j]=tmp;
+	var myArrBubble = [11, 12, 32, 1, 5, 7];
+	for (var i = 0; i < myArrBubble.length; i++) {
+		for (var j = 0; j < myArrBubble.length - i - 1; j++) {
+			if (myArrBubble[j] > myArrBubble[j + 1]) {
+				var tmp = myArrBubble[j + 1];
+				myArrBubble[j + 1] = myArrBubble[j];
+				myArrBubble[j] = tmp;
 			}
 		}
 	}
 	console.log(myArrBubble);
 	console.log("选择排序");
-	var myArrChoose=[11,12,32,1,5,7];
-	for(var i=0;i<myArrChoose.length-1;i++){
-		for(var j=i+1;j<myArrChoose.length;j++){
-			if(myArrChoose[i]>myArrChoose[j]){
-				var tmp=myArrChoose[i];
-				myArrChoose[j]=myArrChoose[i];
-				myArrChoose[j]=tmp;
+	var myArrChoose = [11, 12, 32, 1, 5, 7];
+	for (var i = 0; i < myArrChoose.length - 1; i++) {
+		for (var j = i + 1; j < myArrChoose.length; j++) {
+			if (myArrChoose[i] > myArrChoose[j]) {
+				var tmp = myArrChoose[i];
+				myArrChoose[j] = myArrChoose[i];
+				myArrChoose[j] = tmp;
 			}
 		}
 	}
 	console.log(myArrBubble);
 
 	//判断数组是否存在
-	var myLengthArr=[];
-	var length=myLengthArr&&myLengthArr.length;
+	var myLengthArr = [];
+	var length = myLengthArr && myLengthArr.length;
 
-	if(length){
+	if (length) {
 		console.log("lenth yes")
-	}else{
+	} else {
 		console.log("lenth error")
 	}
 	// ecma 5 下面返回的是下标
-	console.log([10,20,30].indexOf(30));
-	[10,20,30].forEach(function (value, index, array) {
-		console.log("value="+value+"index="+index+"array="+array);
+	console.log([10, 20, 30].indexOf(30));
+	[10, 20, 30].forEach(function (value, index, array) {
+		console.log("value=" + value + "index=" + index + "array=" + array);
 	})
-	var mapArr=[10,20,30];
+	var mapArr = [10, 20, 30];
 	// 会返回一个新的数组
-	var mapArrAfter=mapArr.map(function (pre,next, index, array) {
-		console.log("map pre="+pre+"next="+next+"index="+index+"array="+array);
-		return pre+next;
+	var mapArrAfter = mapArr.map(function (pre, next, index, array) {
+		console.log("map pre=" + pre + "next=" + next + "index=" + index + "array=" + array);
+		return pre + next;
 	})
 	console.log(mapArrAfter);
 
 	// some 是否有一个元素 return是一个boolean值
-	var someArrAfter=mapArr.some(function (item, index, array) {
-		console.log("some item="+item+"index="+index+"array="+array);
-		if(item==30){
+	var someArrAfter = mapArr.some(function (item, index, array) {
+		console.log("some item=" + item + "index=" + index + "array=" + array);
+		if (item == 30) {
 			return true;
 		}
 	})
 	console.log(someArrAfter);
 	// every 检查每一个元素 return是一个boolean值
-	var everyArrAfter=mapArr.some(function (item, index, array) {
-		console.log("every item="+item+"index="+index+"array="+array);
-		if(item>=30){
+	var everyArrAfter = mapArr.some(function (item, index, array) {
+		console.log("every item=" + item + "index=" + index + "array=" + array);
+		if (item >= 30) {
 			return true;
 		}
 	})

@@ -1,98 +1,96 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>js循环语句</title>
 </head>
+
 <body>
-	
+
 </body>
-	<script type="text/javascript">
-		/* 
-			* js的语句
-				* 判断语句	
-					if(){
-						
-					}else if(){
-						
-					}else{
+<script type="text/javascript">
+	/* 
+		* js的语句
+			* 判断语句	
+				if(){
+					
+				}else if(){
+					
+				}else{
+					
+				}
+			* 循环语句
+				java:
+					for(int i=0;i<3;i++){
+						内容
+					}
+				scripts：
+					for(var i=0;i<3;i++){
 						
 					}
-				* 循环语句
-					java:
-						for(int i=0;i<3;i++){
-							内容
-						}
-					scripts：
-						for(var i=0;i<3;i++){
-							
-						}
-					
-				* 向页面输出文本的内容	
-				document.write("文本内容");	
-					* 文本的内容可以是HTML的代码
-					
-					while(true){
-						alert("弹呗");
-					}
-					
-			* 编写99乘法表
-				* 把内容输出到页面上，边上表格。
-					
-					
-		
-		var num = 4;
-		if(5 == num){		// 把常量放在前面
-			alert("abc");
-		}
-		
-		for(var i=0;i<3;i++){
-			// alert("弹呗");
-			window.document.write("i = "+i+"<br/>");
-		}
-		*/
-		
-		document.write("<div>下面是一个table:</div><br/>")
+				
+			* 向页面输出文本的内容	
+			document.write("文本内容");	
+				* 文本的内容可以是HTML的代码
+				
+				while(true){
+					alert("弹呗");
+				}
+				
+		* 编写99乘法表
+			* 把内容输出到页面上，边上表格。
+	var num = 4;
+	if(5 == num){		// 把常量放在前面
+		alert("abc");
+	}
+	for(var i=0;i<3;i++){
+		// alert("弹呗");
+		window.document.write("i = "+i+"<br/>");
+	}
+	*/
+	let num1 = 20;
+	let num2 = 10;
+	console.log((num1 > num2) ? num1 : num2);
 
-		document.write("<table border='1' width='50%' cellpadding='10'>");
-		// 99乘法表
-		for(var i=1;i<=9;i++){
-			document.write("<tr>");
-			// 循环列
-			for(var j=1;j<=i;j++){
-				document.write("<td>"+j+"*"+i+"="+i*j+"</td>");
-			}
-			// 换行的操作
-			// document.write("<br/>");
-			document.write("</tr>");
-		}
-		document.write("</table>");
-		
+	document.write("<div>下面是一个table:</div><br/>")
 
-		/**
-		 * 把文本内容写入到浏览器端，换行的。
-		 * @param str
-		 */
-		function println(str){
-			document.write(str+"<br/>");
+	document.write("<table border='1' width='50%' cellpadding='10'>");
+	// 99乘法表
+	for (var i = 1; i <= 9; i++) {
+		document.write("<tr>");
+		// 循环列
+		for (var j = 1; j <= i; j++) {
+			document.write("<td>" + j + "*" + i + "=" + i * j + "</td>");
 		}
+		// 换行的操作
+		// document.write("<br/>");
+		document.write("</tr>");
+	}
+	document.write("</table>");
 
-	</script>
+
+	/**
+	 * 把文本内容写入到浏览器端，换行的。
+	 * @param str
+	 */
+	function println(str) {
+		document.write(str + "<br/>");
+	}
+	//100以内能被7整除的数
+	for (var i = 0; i < 100; i++) {
+		if (i % 7 == 0) {
+			console.log(i);
+		}
+	}
+	//do while循环至少执行一次
+	do{
+		console.log("i am do while");
+	}while(false)
+
+	while(false){
+		console.log("i am while");
+	}
+</script>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

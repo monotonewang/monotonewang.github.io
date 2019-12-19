@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>https://monotonewang.github.io</title>
+    <title>monotonewang</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
         body {
@@ -13,20 +13,22 @@
     </style>
     <style type="text/css">
         html {}
+
         body {
             padding: 0px;
             margin: 0px;
-            background-color: #00539F;
             position: absolute;
             top: 0;
             left: 0;
             bottom: 0;
             right: 0;
         }
+
         .baidu {
             margin-top: 10px;
             margin-bottom: 10px;
         }
+
         .content {
             position: relative;
             /*脱离文档流*/
@@ -47,45 +49,72 @@
             text-shadow: 1px 2px 3px black;
         }
 
-        img {
-            display: block;
-            margin: 0 auto;
+        .img-content {
+            margin-top: 20px;
+            display: flex;
+        }
+
+        .desc {
+            margin-top: 0px;
+            margin-left: 5px;
+        }
+
+        .avatar {
+            margin-bottom: 3px;
+            width: 200px;
+            height: 200px;
+            border-radius: 5px;
+            border: 1px solid black;
         }
     </style>
 </head>
 
 <body>
     <div class="content">
-        <h1 class="baidu">Welcome to my studio,this is h1,<a href="https://www.baidu.com"  style="text-decoration:none;">Baidu </a>is cool</h1>
+
+        <h1 class="baidu">Welcome to my studio</h1>
         <a id="time"></a>
+        <div class="img-content">
+            <img class="avatar" src="web/imgs/8A9882CA99FBB639F69614ED6F108828.jpg" />
+            <div class="desc">
+                <ul>
+                    <li>
+                        <p style="font-size: 18px;">Email:<strong
+                                style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong></p>
+                    </li>
+                    <li>
+                        <p style="font-size: 18px;">Twitter:<strong
+                                style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p style="font-size: 18px;">FaceBook:<strong
+                                style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong>
+                        </p>
+                    </li>
+                    <li>
+                        <p style="font-size: 18px;">WeChat:<strong style="font-size: 24px;">monotonewang</strong></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <h1 hidden>,this is h1,<a href="https://www.baidu.com" style="text-decoration:none;">Baidu </a>is cool</h1>
+
         <br />
-        <a href="web/css/home_page/10_homepage.html"
-            style="text-decoration:none;margin-top:10px; display:block;">饿了么pc端页面</a>
-        <a href="web/mobile/03_home_page_mobile.html"
-            style="text-decoration:none;margin-top:5px; display:inline-block;">饿了么手机端页面</a>
-        <p class="editor-note">My<strong>Account</strong></p>
-        <ul>
-            <li>
-                <p style="font-size: 18px;">Email:<strong style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong></p>
-            </li>
-            <li>
-                <p style="font-size: 18px;">Twitter:<strong style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong></p>
-            </li>
-            <li>
-                <p style="font-size: 18px;">FaceBook:<strong style="font-size: 24px;">zgjxfuqingwang@gmail.com</strong></p>
-            </li>
-            <li>
-                <p style="font-size: 18px;">WeChat:<strong style="font-size: 24px;">monotonewang</strong></p>
-            </li>
-        </ul>
+        <div hidden>
+            <a href="web/css/home_page/10_homepage.html" style="text-decoration:none;margin-top:10px; display:block;"
+                hidden>饿了么pc端页面</a>
+            <a href="web/mobile/03_home_page_mobile.html"
+                style="text-decoration:none;margin-top:5px; display:inline-block;" hidden>饿了么手机端页面</a>
+        </div>
         <p>Read the to learn even more about the values and principles that guide
             the
             pursuit of our mission.</p>
-        <button>Change user</button>
+        <button hidden>Change user</button>
         <button id="changeColor">Change color</button>
-        <button id="GuessGame">Guess Game</button>
+        <button id="GuessGame" hidden>Guess Game</button>
         <button onclick="createParagraph()" hidden>Click me</button>
-        <button onclick="TestJson()">Test Json</button>
+        <button onclick="TestJson()" hidden>Test Json</button>
     </div>
 
 </body>
@@ -93,6 +122,7 @@
 
 <script type="text/javascript">
 
+    changeColor();
     getFormatTime();
 
     var sInter = setInterval(getFormatTime, 1000);
@@ -108,7 +138,7 @@
         var iTime = sNow.getTime();
         var iSeoconds = sNow.getSeconds();
 
-        var str = "CurrentTime=" + iYear + "-" + appendzero(iMonth) + "-" + appendzero(iDate) + " " + appendzero(iHours) + ":" + appendzero(iMinutes) + ":" + appendzero(iSeoconds);
+        var str = "CurrentTime:" + iYear + "-" + appendzero(iMonth) + "-" + appendzero(iDate) + " " + appendzero(iHours) + ":" + appendzero(iMinutes) + ":" + appendzero(iSeoconds);
         document.getElementById("time").innerHTML = str;
     }
     function appendzero(obj) {

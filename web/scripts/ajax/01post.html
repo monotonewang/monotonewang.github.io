@@ -2,8 +2,8 @@
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>ajax get</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>ajax get</title>
 </head>
 
 <body>
@@ -12,26 +12,26 @@
 
 </body>
 <script type="text/javascript">
-//1.创建ajax对象
-//2。监听请求
-//3、打开这个对象
-//4,发送对象
+  //1.创建ajax对象
+  //2。监听请求
+  //3、打开这个对象
+  //4,发送对象
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function(){
+  xhr.onreadystatechange = function () {
     //0 对象已经创建，但是还没有进行初始化操作
     //1 已经调用了open
     //2 xhr已经发出ajax的请求
     //3 xhr已经返回了部分数据
     //4 数据以及全部返回
-    if(xhr.readyState != 4){
+    if (xhr.readyState != 4) {
       return;
     }
-    if(xhr.status==200){
+    if (xhr.status == 200) {
       console.log(xhr.responseText);
     }
   }
-  xhr.open('post','https://www.baidu.com',true);
-  xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+  xhr.open('post', 'https://www.baidu.com', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   xhr.send('use=a&password=123');
 
 </script>

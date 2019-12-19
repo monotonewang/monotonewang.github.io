@@ -1,132 +1,127 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 
-<script type="text/javascript" src="out.js"></script>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Insert title here</title>
+
+	<script type="text/javascript" src="out.js"></script>
 
 </head>
+
 <body>
 
 </body>
-	<script type="text/javascript">
-		/*
-			* String 对象
-				* 声明
-					var str = "abc";
-					var str = new String("abc");
+<script type="text/javascript">
+	/*
+		* String 对象
+			* 声明
+				var str = "abc";
+				var str = new String("abc");
 
-				* 属性：length：字符串的长度
-				* 方法：
-					* 和HTML相关的方法（书写没有提示的）
-						* bold()			使用粗体显示显示字符串
-						* fontcolor(color)		参数是必须的，设置字体的颜色
-						* fontsize(size)		设置字体的大小（1-7）
-						* italics()				斜体
-						* link(url)				设置链接
-						* sub()					下标
-						* sup()					上标
+			* 属性：length：字符串的长度
+			* 方法：
+				* 和HTML相关的方法（书写没有提示的）
+					* bold()			使用粗体显示显示字符串
+					* fontcolor(color)		参数是必须的，设置字体的颜色
+					* fontsize(size)		设置字体的大小（1-7）
+					* italics()				斜体
+					* link(url)				设置链接
+					* sub()					下标
+					* sup()					上标
 
-					* 和java中String对象类似的
-						* charAt(index)				返回指定位置的字符
-						* indexOf(str,fromIndex)	检索字符串，没有返回-1
-						* lastIndexOf(str,fromIndex)	从后向前检索字符串
-						* replace(要替换的字符串,替换成啥)
+				* 和java中String对象类似的
+					* charAt(index)				返回指定位置的字符
+					* indexOf(str,fromIndex)	检索字符串，没有返回-1
+					* lastIndexOf(str,fromIndex)	从后向前检索字符串
+					* replace(要替换的字符串,替换成啥)
 
-						* substring(start,stop)				截取字符串
-						* substr(start,length)				截取字符串，从哪开始，截取多长
+					* substring(start,stop)				截取字符串
+					* substr(start,length)				截取字符串，从哪开始，截取多长
 
-		*/
-		var str = "abcdc";
-		console.log(str.charAt(2));
-		console.log(str.charCodeAt(2));//99
-		console.log(String.fromCharCode(97,98,99));//out put a b c
-		console.log(str.indexOf("c",1));
-		console.log("lastIndexOf="+str.lastIndexOf("c"));
-		//search 也是正则表达式 查找字符串
-		console.log(str.search("^ca"));
-		//i 忽略大小写
-		console.log(str.search("^/abc/i"));
-		console.log(str.replace("bc", "ef"));
-		// 拼接字符串-对原字符串没有影响
-		console.log(str.concat("bc", "ef"));
-		// 不包括结尾
-		console.log(str.substring(1, 3));
-		let time=["2019-07"];
-		console.log(time.indexOf("2019-07"));
-		console.log("2019-07-31 13:46:53".substring(0, 7));
-		console.log(str.substr(1,3));
-		var splitStr="This  is a box";
-		console.log(splitStr.split("  "));
-		console.log(splitStr.split(" "));
-		console.log(splitStr.split(""));
+	*/
+	var str = "abcdc";
+	console.log(str.charAt(2));
+	console.log(str.charCodeAt(2));//99
+	console.log(String.fromCharCode(97, 98, 99));//out put a b c
+	console.log(str.indexOf("c", 1));
+	console.log("lastIndexOf=" + str.lastIndexOf("c"));
+	//search 也是正则表达式 查找字符串
+	console.log(str.search("^ca"));
+	//i 忽略大小写
+	console.log(str.search("^/abc/i"));
+	console.log(str.replace("bc", "ef"));
+	// 拼接字符串-对原字符串没有影响
+	console.log(str.concat("bc", "ef"));
+	// 不包括结尾
+	console.log(str.substring(1, 3));
+	let time = ["2019-07"];
+	console.log(time.indexOf("2019-07"));
+	console.log("2019-07-31 13:46:53".substring(0, 7));
+	console.log(str.substr(1, 3));
+	var splitStr = "This  is a box";
+	console.log(splitStr.split("  "));
+	console.log(splitStr.split(" "));
+	console.log(splitStr.split(""));
 
-		// ==========================================================================
+	// ==========================================================================
 
-		// alert(str.length);
-		console.log(str);
-		// document.write(str.bold());
-		console.log(str.bold());
+	// alert(str.length);
+	console.log(str);
+	// document.write(str.bold());
+	console.log(str.bold());
 
-		console.log(mybold(str));
+	console.log(mybold(str));
 
-		function mybold(str){
-			var result = "<b>"+str+"</b>";
-			return result;
+	function mybold(str) {
+		var result = "<b>" + str + "</b>";
+		return result;
+	}
+
+	// 上标和下标
+	// document.write("hello".sub()+"world".sup())
+
+	console.log(str.fontcolor("red"));
+
+	console.log(str.link("http://www.baidu.com"));
+
+	console.log("3" + "2".sup());
+
+
+	// =================================================================================
+	// 去掉字符串两边的空格
+	function mytrim(str) {
+		// 0位置的下标
+		var start = 0;
+		// 最后位置的下标值
+		var end = str.length - 1;
+		// start和end一直变化，查找我下标值位置的字符是否是空格
+		while (start <= end && str.charAt(start) == " ") {
+			// 满足条件
+			start++;
+		}
+		while (start <= end && str.charAt(end) == " ") {
+			end--;
+		}
+		var result = str.substring(start, end + 1);
+		return result;
+	}
+
+	var str2 = "  abc     ";
+	console.log("-" + str2 + "-");
+
+	console.log("-" + mytrim(str2) + "-");
+	var type = '2';
+	if (type.length) {
+		if (type == 1) {
+			console.log("right");
+		} else {
+			console.log("who right");
 		}
 
-		// 上标和下标
-		// document.write("hello".sub()+"world".sup())
+	} else {
+		console.log("right no");
+	}
+</script>
 
-		console.log(str.fontcolor("red"));
-
-		console.log(str.link("http://www.baidu.com"));
-
-		console.log("3"+"2".sup());
-
-
-		// =================================================================================
-		// 去掉字符串两边的空格
-		function mytrim(str){
-			// 0位置的下标
-			var start = 0;
-			// 最后位置的下标值
-			var end = str.length - 1;
-			// start和end一直变化，查找我下标值位置的字符是否是空格
-			while(start <= end && str.charAt(start) == " "){
-				// 满足条件
-				start++;
-			}
-			while(start <= end && str.charAt(end) == " "){
-				end--;
-			}
-			var result = str.substring(start,end+1);
-			return result;
-		}
-
-		var str2 = "  abc     ";
-		console.log("-"+str2+"-");
-
-		console.log("-"+mytrim(str2)+"-");
-		var type='2';
-		if(type.length){
-			if(type==1){
-				console.log("right");
-			}else{
-				console.log("who right");
-			}
-
-		}else{
-			console.log("right no");
-		}
-	</script>
 </html>
-
-
-
-
-
-
-
-

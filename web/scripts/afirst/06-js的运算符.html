@@ -50,6 +50,22 @@
 	}
 	*/
 	var a = 5;
+	console.log("a");
+	a=a++; 5
+	a=++a; 6
+	console.log(a);
+	console.log("a end");
+	console.log("a end="+true);
+
+	let headTitle = encodeURI("%s");
+	console.log(headTitle)
+	console.log(1-"2");//2会自动转为number
+	console.log(1=="true");//2会自动转为number
+	console.log(1==true);//2会自动转为number
+	console.log(0==false);//2会自动转为number
+	console.log(NaN=!NaN);//
+	console.log(1!=NaN);//
+
 	var c = 5;
 	var b = 12;
 	console.log(a++)//先取a的值，然后再执行+1操作
@@ -57,8 +73,15 @@
 	console.log(++c)//先取+1操作，然后再取a的值
 	console.log(c);
 	console.log("=== ==");
-	console.log(20==="20");
-	console.log(20=="20");
+	console.log(20 === "20");
+	console.log(20 == "20");
+	console.log("!Infinity");
+	console.log(!Infinity);
+	console.log(!0);
+	console.log(!1);
+	console.log(!undefined);
+	console.log(Infinity);
+
 
 	if (a > b) {
 		console.log("big");
