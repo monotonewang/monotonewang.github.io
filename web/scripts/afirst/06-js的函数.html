@@ -112,6 +112,17 @@
 		document.getElementById("myList").appendChild(node);
 
 	})();
+
+	//容易导致stack 溢出
+	function get100(n) {
+		if(n==1){
+			return 1;
+		}else{
+			return get100(n-1)+n;
+		}
+	}
+	console.log("get100()");
+	console.log(get100(10));
 </script>
 
 </html>

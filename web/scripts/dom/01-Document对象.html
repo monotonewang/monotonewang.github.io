@@ -21,9 +21,13 @@
 		
 		var input = document.getElementById("nameId");
 		// alert(input.value);
+		console.log(input.tagName);
 		console.log(input.id);
 		console.log(input.value);
+		console.log(input.style);
+		console.log(typeof(input.style));
 		console.log(input.style.background);
+		console.log(input.style.backgroundColor);
 		input.style.background="blue";//为 style赋值
 		
 		var inputs = document.getElementsByName("username");
@@ -39,6 +43,13 @@
 		window.onload=function(){
 			//ie不支持该方法
 			var input = document.getElementById("nameId");
+			console.log("input");
+			//可以获取到value数值
+			console.log(input.value);
+			var timeOut=setTimeout(function(){
+			  input.value="我是新的文本";
+			},1000)
+			clearTimeout(timeOut);
 			console.log(getComputedStyle(input)["background"]);
 			
 			//ie方法

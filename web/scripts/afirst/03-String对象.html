@@ -18,10 +18,12 @@
 			* 声明
 				var str = "abc";
 				var str = new String("abc");
+				var str = String("abc");
 
 			* 属性：length：字符串的长度
 			* 方法：
 				* 和HTML相关的方法（书写没有提示的）
+					* big()			big标签
 					* bold()			使用粗体显示显示字符串
 					* fontcolor(color)		参数是必须的，设置字体的颜色
 					* fontsize(size)		设置字体的大小（1-7）
@@ -41,6 +43,7 @@
 
 	*/
 	var str = "abcdc";
+	console.log(str.big());
 	console.log(str.charAt(2));
 	console.log(str.charCodeAt(2));//99
 	console.log(String.fromCharCode(97, 98, 99));//out put a b c
@@ -106,7 +109,6 @@
 		var result = str.substring(start, end + 1);
 		return result;
 	}
-
 	var str2 = "  abc     ";
 	console.log("-" + str2 + "-");
 
@@ -122,6 +124,9 @@
 	} else {
 		console.log("right no");
 	}
+	var str = "       Runoob        ";
+	console.log(str.trim());
+	
 </script>
 
 </html>

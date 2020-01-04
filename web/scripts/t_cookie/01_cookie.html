@@ -1,29 +1,33 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cookies</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Cookies</title>
 </head>
+
 <body>
-	
+
 </body>
-	<script type="text/javascript">
+<script type="text/javascript">
       // document.cookie("usename","zhangsan");
-      document.cookie="usename=lisi";
+      document.cookie = "usename = lisi";
       document.cookie = "usernamex=Bill Gates";
-	</script>
+      let oDate = new Date();
+      oDate.setDate(oDate.getDate()+3);
+      document.cookie = "usernamex=Bill Gates;expires=" + oDate;
+
+      document.cookie="username=John Doe";
+      document.cookie="username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT";
+      
+      //将cooike设置失效
+      let oDateExpires = new Date();
+      oDateExpires.setDate(oDate.getDate()-3);
+      document.cookie = "username2x=Bill Gates;expires=" + oDateExpires;
+
+      console.log(typeof(document.cookie));
+      console.log(document.cookie);
+      // console.log(document.cookie("usename"));
+</script>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

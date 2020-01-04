@@ -6,6 +6,22 @@
 
 let evens=[1,2,3,4,5,6]
 
+// 解构赋值
+let [a1,b1,c1] = [1,2,3];
+let [a2=3,b2] = [1];
+
+console.log("a1=");
+console.log("a1=",a1,b1,c1);
+console.log("a2=",a2,b2);
+
+let {ao1,ao2}={ao1:111,ao2:"232"}
+console.log("ao1=",ao1,ao2);
+
+
+let {ao3:ao4}={ao3:1113}
+console.log("ao4=",ao4);
+
+
 let a="this is a";
 
 var odds = evens.map(function(v){

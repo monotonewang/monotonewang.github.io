@@ -42,6 +42,8 @@
       // }
       //第二种方式通过addEventListener 方法
       //outer和上面区别是会多个事件回调
+      //第三个参数 false 先 inner再outer
+      //第三个参数 true 先 outer再 inner
       outer.addEventListener("click",baz,true);
       outer.addEventListener("click",foo,true);
       

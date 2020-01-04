@@ -33,7 +33,35 @@
 	*/
 	// 声明是数组，中间有三个元素
 	// debugger
+	
 	var arr = [12, 34, 44];
+
+
+	var arr2 = [12,34];
+
+
+	let files = [];
+	arr.forEach((item,index,array)=>{
+				let count=0;
+        arr2.forEach((item2,index,array)=>{
+          console.log(item);
+          console.log(item2);
+          if(item ==  item2){
+						count++;
+					}
+					if(index==arr2.length-1){
+					if(count==0){
+						files.push(item);
+					}
+				}
+      })
+	})
+
+	console.log("files");//返回长度		
+	console.log(files);//返回长度		
+	console.log(arr);//返回长度		
+	console.log(arr2);//返回长度		
+
 	var res = arr.push("hello");
 	console.log(res);//返回长度
 	// var respop=arr.pop();
@@ -42,6 +70,8 @@
 	console.log("shift");
 	console.log(arr.shift());
 	console.log(arr);
+	console.log("arr.length");
+	console.log(arr.length);
 	var index = arr.indexOf(12);
 	var test = arr.concat([2123]);
 	//concat生成的是新数组
@@ -108,7 +138,8 @@
 	document.write("<br/>  unshift aList=" + aList[1, 0]);
 	document.write("<br/>  unshift aList=" + aList[1, 1]);
 	document.write("<br/>  unshift aList=" + aList[1, 1].length);
-
+	console.log("arr.sort()")
+	console.log(arr.sort())
 	var array = new Array(1, "hello", true);
 	console.log(array);
 	array.length = 2;
@@ -216,6 +247,7 @@
 			return true;
 		}
 	})
+	console.log("someArrAfter");
 	console.log(someArrAfter);
 	// every 检查每一个元素 return是一个boolean值
 	var everyArrAfter = mapArr.some(function (item, index, array) {
@@ -225,6 +257,88 @@
 		}
 	})
 	console.log(everyArrAfter);
+
+	let reduceArray = [1, 20, 12, 18, 8];
+	console.log("reduceArray");
+	console.log(reduceArray);
+	// reduce 归并
+	var reduceArrAfter = reduceArray.reduce(function (pre, next, index, array) {
+		console.log("every pre=" + pre + "next=" + next + "index=" + index + "array=" + array);
+		return pre + next;
+	})
+	console.log(reduceArray);
+	console.log(reduceArrAfter);//相加 59
+
+	let filterArray = [1, 20, 12, 28, 8];
+	console.log("filterArray");
+	console.log(filterArray);
+	// filter 过滤产生新数组
+	var filterArrAfter = filterArray.filter(function (item, index, array) {
+		console.log("filter item=" +item + "--index=" + index + "--array=" + array);
+		return item>20;
+	})
+	console.log(filterArray);
+	console.log(filterArrAfter);//相加 59
+
+	//concat不会改变原数组
+	let array1 = [1, "2好"];
+	let array2 = [3, true];
+	let resArray = array1.concat(array2);
+
+	console.log("array1");
+	console.log(array1);
+	console.log(array2);
+	console.log(resArray);
+	let sliceArray = resArray.slice(1, 3);//截取数组
+	console.log(sliceArray);
+	let spliceArray = resArray.splice(2, 0, "William");//从第二个元素开始，删除0个元素。添加一个William元素
+	console.log(resArray);
+	console.log(spliceArray);
+	let joinArray = resArray.join(",");//返回数组连接成的字符串
+	console.log(joinArray);
+	console.log(resArray);
+
+	getTwoArray();
+
+	function getTwoArray() {
+		console.log("二维数组");
+		let twoArray = [];
+		let countArray = 0;
+		for (let i = 0; i < 5; i++) {
+			var newArray = [];
+			for (let j = 0; j < 5; j++) {
+				newArray.push(j);
+				countArray++;
+			}
+			twoArray.push(newArray);
+		}
+		console.log(twoArray);
+	}
+
+	//js数组打乱的方法
+	function shuffle(a) {
+		var len = a.length;
+		for (var i = 0; i < len; i++) {
+			var end = len - 1;
+			var index = (Math.random() * (end + 1)) >> 0;
+			var t = a[end];
+			a[end] = a[index];
+			a[index] = t;
+		}
+		return a;
+	};
+
+	console.log("js array 引用传参");
+	let showArr = [1, 2];
+	function showArray(showArr) {
+		showArr.push(3);
+		console.log(showArr);//1 2 3
+	}
+	console.log(showArr);//1 2
+	showArray(showArr);
+	console.log(showArr);//1 2 3
+
+	
 
 </script>
 

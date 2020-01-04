@@ -46,6 +46,7 @@
 	println(date.toLocaleTimeString());
 	 */
 
+	 console.log(date);
 	// 获取年份
 	var year = date.getFullYear();
 	// 获取月份
@@ -63,6 +64,9 @@
 	console.log(year + "-" + month + "-" + monthDay + "-" + getWeekDay(weekDay));
 	console.log(hours + "-" + minutes + "-" + seconds + "-" + milliseconds + "-" + time);
 
+	var time2 = new Date().pattern("yyyy-MM-dd");  
+	console.log("time2");
+	console.log(time2);
 	function getWeekDay(num) {
 		var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
 		return arr[num];
@@ -74,7 +78,7 @@
 		else return false;
 	}
 	var str = null;
-	debugger
+	// debugger
 	var x = isEmptyx(str);
 	console.log(str)
 	console.log(x)
@@ -92,8 +96,16 @@
 
 	var m = Date.parse("2014,11,14");
 	console.log(m);
+	var date5 = new Date(100);
+	console.log(date5);//1970开始的秒数
+
 	var date4 = new Date(m);
 	console.log(date4.toLocaleString());
+	console.log(date4.toDateString());
+	console.log(date4.toISOString());
+	console.log(date4.toUTCString());
+	console.log(date4.toLocaleTimeString());
+	console.log(date4.toTimeString());
 
 </script>
 

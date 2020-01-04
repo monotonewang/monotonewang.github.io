@@ -112,6 +112,18 @@
 			ul.removeChild(sh);
 		};
 		*/
+
+		function insertAfter(newNode,oldNode){
+			var parent = oldNode.parentNode;
+			//判断是否是最后一个节点
+			if(oldNode == parent.lastChild){
+				//最后一个节点，直接插入到子节点的末尾
+				parent.appendChild(newNode);
+			}else{
+				//插入到oldNode的下一个节点之前
+				parent.insertBefore(newNode,oldNode.nextSilbing);
+			}
+		}
 		
 		// 复制button的按钮，添加到span标签的中间
 		var btn = document.getElementById("btnId");
@@ -147,6 +159,9 @@
 				// removeChild()
 
 			}
+			
 		}
+
+		
 	</script>
 </html>

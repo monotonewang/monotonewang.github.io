@@ -13,30 +13,65 @@
     
 </body>
 <script type="text/javascript" >
-  
+	
+	//定义方式 字面量方式
  var reg=/abc/;
+ //构造方法
  var reg=new RegExp("abc");
  var str="xabcdcabc";
  var strGi="abcdcABc";
  var regG=/abc/g;
- //i 忽略大小写
+ //g 表示全局匹配 i 忽略大小写
  var regGi=/abc/gi;
 
  //找到了返回 true,找不到 返回false
  console.log(reg.test(str));
+ console.log("str.match(regG)");
+ console.log(str.match(reg));
  console.log(str.match(regG));
+ console.log(str.match(regGi));
  console.log(strGi.match(regGi));
  //search 用于找到复合规则的位置
+ console.log("search str.search(reg)");//index=1
  console.log(str.search(reg));//index=1
 
  var regGood=/good/;
+ console.log("split");
  console.log("good good Good".split(regGood));
 
  //正则替换 将good替换成go
  console.log("abc good Good".replace(/good/,"go"));
 //exec 将匹配成功的放到数组中，
-console.log(/good/.exec("abc good Good"));
+let strexec="abc good good Good";
+var regGoodg=/good/g;
+//exec regGoodg以g结尾 会递增顺序
+console.log(regGoodg.exec(strexec));
+console.log(regGoodg.exec(strexec));
+console.log(regGoodg.exec(strexec));
 console.log(/good/gi.exec("abc good good Good"));
+console.log(/g..gle/gi.test("googleg--gle"))//一个.代表一个字符
+console.log(/g*gle/gi.test("googleg--gle"))//一个.代表一个字符
+console.log(/g?gle/gi.test("googleg--gle"))//一个? 进行0次或者1次匹配
+console.log(/g+gle/gi.test("gleg--gle"))//一个? 至少1次匹配
+console.log(/[0-9]/gi.test("000abc"))//
+console.log(/\w+/gi.test("000ab_c"));//[0-9a-zA-Z_] 0-9a-zA-Z下划线 \W 非数字字母下划线
+// \d 表示数字 \D表示非数字 \s表示匹配空格
+let strKongge=/\s/gi;
+console.log("good study".replace(strKongge,""));
+//{m,n}最少匹配m次，最多匹配n次
+console.log(/go{3,6}gle/gi.test("gooogleg--gle"))//一个.代表一个字符
+//  /^ $ d匹配
+console.log(/^go{3,6}gle$/gi.test("goookkkgle"));
+// | 或者
+console.log(/Google|Baidu/gi.test("Google"));
+console.log("()");
+console.log(/(google){3,4}/gi.test("googlegooglegoogle"));
+//需要google三个或者四个连在一起
+console.log(/(google){3,4}/gi.test("googleaaagooglegooglegoogle"));
+
+console.log("taobao baidu".replace(/(.*)\s(.*)/,"$2 $1"));//输出 baidu taobao
+
+console.log((/^[a-zA-Z_]\w{5,14}$/).test("a111111"));//数字 字母 下划线 6-15 不能以数字开头
 
 </script>
 
