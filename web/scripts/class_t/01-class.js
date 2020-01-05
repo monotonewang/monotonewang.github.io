@@ -40,5 +40,15 @@ function Animal(name,age){
     console.log("Animal sayHello");
   }
 }
+Animal.prototype.run=function(){
+  console.log("Animal run");
+}
+
+function Cat(name,age,id){
+  //实现构造方法的继承
+  Animal.apply(this,[name,age]);
+  // Animal.call(this,name,age);
+  this.id=id;
+}
 
 new Animal().sayHello();
