@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>属性处理</title>
+	<style type="text/css">
+	 #my_div{
+		 width: 500px;
+		 height: 500px;
+		 background: rebeccapurple;
+	 }
+	</style>
+</head>
+
+<body>
+
+<div id="my_div" class="test" title="s">
+	<em>nihao</em>
+	回家了吗
+	<h1>真的</h1>
+</div>
+
+</body>
+<script type="text/javascript">
+
+	window.onload = function () {
+		var mydiv = document.getElementById("my_div");
+    console.log(mydiv.title);
+    console.log(mydiv.className);
+    mydiv.title="china";//修改属性的值
+    console.log(mydiv.getAttribute('title'));
+		mydiv.setAttribute("xxxx","aa");
+    console.log(mydiv.xxxx);//这种方法无法获取自定义属性的值
+    console.log(mydiv.getAttribute('xxxx'));
+    mydiv.removeAttribute('xxxx');//删除属性
+    console.log(mydiv.getAttribute('xxxx'));
+    //下面介绍一下节点属性
+    // 节点 分为 元素节点 属性节点 文本节点 nodeName nodeType nodeValue
+    console.log('-------------------------');
+    console.log(mydiv.nodeName);
+    console.log(mydiv.nodeType);
+    console.log(mydiv.nodeValue);
+    console.log(mydiv.firstChild);
+    console.log(mydiv.lastChild);
+    console.log(mydiv.lastChild.nodeName);//#text
+    console.log(mydiv.lastChild.nodeType);//3
+	}
+
+</script>
+
+</html>

@@ -129,6 +129,23 @@
 	document.write("<br/> pop unshift=" + arr);
 	// println(arr);
 
+	var sortArray = new Array();
+	sortArray[0]="121212";
+	sortArray[1]="ffffdd";
+	sortArray[2]="ffffd";
+	sortArray[3]="fd1212121";
+	sortArray[4]="fd1";
+
+	sortArray.sort(function(x,y){
+		console.log(x.length);
+		console.log(y.length);
+		return x.length-y.length;
+	})
+
+	console.log("sortArray");
+	console.log(sortArray);//fd1 ffffd 
+
+	
 	//下面介绍的是多维数组
 	var aList = [1, [1, 2, 3], "121"];
 	document.write("<br/>  unshift aList=" + aList);
@@ -338,7 +355,6 @@
 	showArray(showArr);
 	console.log(showArr);//1 2 3
 
-	
 
 </script>
 

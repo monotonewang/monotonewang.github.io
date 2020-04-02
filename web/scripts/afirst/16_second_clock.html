@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Insert title here</title>
+
+</head>
+
+<body>
+  <div>
+    <span id="time">00:00:00</span>
+    <button id="start">
+      开始
+    </button>
+    <button id="pause">
+      暂停
+    </button>
+    <button id="stop">
+      停止
+    </button>
+    <span class="times">00:00:00</span>
+  </div>
+</body>
+<script type="text/javascript">
+    window.onload=function(){
+       let time=document.getElementById("time");
+       let times=document.getElementsByClassName("times");//返回的是一个数组
+      //  times[0].innerHTML="xxxxxx"
+       
+       let start=document.getElementById("start");
+       let pause=document.getElementById("pause");
+       let stop=document.getElementById("stop");
+
+       console.log(start);
+       let timeTask;
+       start.onclick=function(){
+          let count=0;
+          timeTask=setInterval(function(){
+            console.log("setInterval");
+            count++;
+            time.innerHTML=count;
+          },1000);
+       }
+       pause.onclick=function(){//暂停
+        clearInterval(timeTask);
+       }
+       stop.onclick=function(){
+       clearInterval(timeTask);
+          time.innerHTML="00:00:00"
+       }
+      
+     
+    }
+ 
+</script>
+
+</html>

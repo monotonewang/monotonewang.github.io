@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>抓住会飞的小球</title>
+    <div id="box">
+      <div id="ball">
+
+      </div>
+    </div>
+</head>
+<style type="text/css">
+body{
+  margin: 0;
+}
+    #box{
+      width: 400px;
+      height: 200px;
+      border: 1px black solid;
+    }
+    #ball{
+      width: 30px;
+      height: 30px;
+      background-color: aqua;
+      border-radius: 15px;
+      position: absolute;
+    }
+</style>
+<script type="text/javascript">
+    var ball =document.getElementById("ball");
+
+    var speedX=1;
+    var speedY=1;
+    var time;
+    go();
+    function go(){
+       time=setInterval(function(){
+        var diff=ball.offsetTop+speedY;
+        ball.style.top=ball.offsetTop+speedY+"px";
+        ball.style.left=ball.offsetLeft+speedX+"px";
+        //ball.style.top 20px
+        if(parseInt(ball.style.top)>200-30||parseInt(ball.style.top)<1){
+          speedY=speedY*-1;
+        }
+        if(parseInt(ball.style.left)>400-30||parseInt(ball.style.left)<1){
+          speedX=speedX*-1;
+        }
+        
+      },20/2)
+    }
+   
+    ball.addEventListener("mouseenter",function(x){
+       clearInterval(time);
+    },false);
+    ball.addEventListener("mouseout",function(x){
+       go();
+    },false);
+</script>
+
+<body>
+
+</body>
+
+</html>

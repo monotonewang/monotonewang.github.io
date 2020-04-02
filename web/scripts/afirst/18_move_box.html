@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>18 move box</title>
+  <div id="box">
+    <div id="ball">
+
+    </div>
+  </div>
+</head>
+<style type="text/css">
+  body {
+    margin: 0;
+  }
+
+  #box {
+    width: 400px;
+    height: 200px;
+    border: 1px black solid;
+  }
+
+  #ball {
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+    border-radius: 15px;
+    position: absolute;
+  }
+</style>
+<script type="text/javascript">
+  var ball = document.getElementById("ball");
+
+  ball.addEventListener("mousedown", function (e) {
+    var ev = e || window.event;
+    basex = ev.pageX;
+    basey = ev.pageY;
+
+
+    document.onmousemove = function (e) {
+
+      console.log("onmousemove");
+      var ee = e || window.event;
+      movex = ee.pageX - basex;
+      basex = ee.pageX;
+
+      movey = ee.pageY - basey;
+      basey = ee.pageY;
+      ball.style.left = ball.offsetLeft + movex + "px";
+      ball.style.top = ball.offsetTop + movey + "px";
+
+    }
+  }, false);
+
+  ball.addEventListener("mouseout", function (x) {
+    document.onmousemove = null
+  }, false);
+  // ball.addEventListener("mouseout", function (x) {
+  // }, false);
+</script>
+
+<body>
+
+</body>
+
+</html>

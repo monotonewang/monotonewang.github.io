@@ -7,7 +7,7 @@ class Message {
   }
 
   attach(hero) {
-    this._list.push(hero)
+    this._list.puxsh(hero)
   }
 
   notify() {
