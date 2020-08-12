@@ -20,6 +20,11 @@ let letGuessGame = document.getElementById('GuessGame');
 let changeColorLet = document.getElementById('changeColor');
 changeColorLet.addEventListener('click', changeColor)
 
+let album = document.getElementById('album');
+
+album.onclick = function(){
+    window.location.href = 'album/myalbum/dist/index.html';
+}
 letGuessGame.onclick = function () {
     window.location.href = 'web/html/GuessGame.html';
 }
