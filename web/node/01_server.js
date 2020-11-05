@@ -27,3 +27,8 @@ if (!(/(^[1-9]\d*$)/.test(num))) {
 } else {
   console.log("输入的是正整数");
 } 
+
+let x=1;
+let y=+x;
+console.log(y);
+console.log(typeof(y));

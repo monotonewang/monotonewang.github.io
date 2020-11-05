@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>fullscreen</title>
+
+</head>
+
+
+
+<body>
+  <span>canvas</span>
+  <canvas id="squre" width="10" height="10"></canvas>
+  <canvas id="circle" width="10" height="10"></canvas>
+</body>
+
+<script type="text/javascript">
+  window.onload=function(){
+    console.log("window onload")
+    // let canvas=document.getElementById("squre");
+    // let context=canvas.getContext("2d");
+    // context.fillStyle='#f00'
+    // context.fillRect(0,0,10,10);
+
+    canvas=document.getElementById("circle");
+    context=canvas.getContext("2d");
+    context.beginPath();
+    context.arc(50,50,0,2*Math.PI,true);
+    context.fillStyle='#0f0'
+    context.fill();
+
+
+  }
+</script>
+<style type="text/css">
+  
+</style>
+
+</html>

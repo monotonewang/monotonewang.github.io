@@ -1,0 +1,41 @@
+<html>
+
+<head>
+ <!-- development version, includes helpful console warnings -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+<!-- production version, optimized for size and speed -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+</head>
+
+<style>
+   
+</style>
+
+<body>
+    <button id="btn4click" v-on:click="changeMessage">app4PushMessage</button>
+    <div id="app" v-cloak>
+        <p>{{message}}</p>
+        <h4 v-text="message">=========</h4>
+        <!-- 能够解析html -->
+        <h1 v-html="html"></h1>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- <script src="index.js"></script> -->
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                html:"<h1>当年范</h1>"
+            }
+        })
+      
+
+    </script>
+</body>
+
+</html>
