@@ -1,0 +1,88 @@
+{
+    "code": 0,
+    "msg": "success",
+    "data": [
+        {
+            "label": "因为在此系统上禁止运行脚本”解决办法",
+            "url": "https://zhuanlan.zhihu.com/p/493496089"
+        },
+        {
+            "label": "苹果一键恢复系统",
+            "url": "https://support.apple.com/zh-cn/102655"
+        },
+        {
+            "label": "修改MySQL密码的四种方法",
+            "url": "https://mvnrepository.com/"
+        },
+        {
+            "label": "idea中@Data注解不生效的解决方法",
+            "url": "https://blog.csdn.net/qq_34626671/article/details/102830793"
+        },
+        {
+            "label": "mvnrepository",
+            "url": "https://zhuanlan.zhihu.com/p/616953225"
+        },
+        {
+            "label": "base64-image",
+            "url": "https://www.lddgo.net/convert/base64-to-image"
+        },
+        {
+            "label": "vant3",
+            "url": "https://vant-contrib.gitee.io/vant/v3/#/zh-CN/tree-select"
+        },
+        {
+            "label": "npm-vue-cli",
+            "url": "https://www.npmjs.com/package/@vue/cli?activeTab=versions"
+        },
+        {
+            "label": "TinkpadT480设置U盘启动",
+            "url": "https://zhuanlan.zhihu.com/p/431306011"
+        },
+        {
+            "label": "vue3 string qrcode",
+            "url": "https://github.com/scopewu/qrcode.vue"
+        },
+        {
+            "label": "create-vite",
+            "url": "https://www.npmjs.com/package/create-vite?activeTab=versions"
+        },
+        {
+            "label": "create-vite-example",
+            "url": "npm create vite@4.0.0 my-vue-app -- --template vue"
+        },
+        {
+            "label": "vite-plugin-singlefile",
+            "url": "https://www.npmjs.com/package/vite-plugin-singlefile?activeTab=versions"
+        },
+        {
+            "label": "uni-app",
+            "url": "https://github.com/dcloudio/uni-app"
+        },
+        {
+            "label": "nodejs",
+            "url": "https://nodejs.org/dist"
+        },
+        {
+            "label": "androidstudio",
+            "url": "https://developer.android.google.cn/studio/archive"
+        },
+        {
+            "label": "script 标签中 async 和 defer",
+            "url": "https://zhuanlan.zhihu.com/p/292953374"
+        },
+        {
+            "label": "前端发版后浏览器缓存问题",
+            "url": "https://blog.csdn.net/zz00008888/article/details/127384635"
+        },
+        {
+            "label": "vite304",
+            "url": "https://blog.csdn.net/qq_35393869/article/details/88907735#:~:text=304%20%E7%9A%84%E6%A0%87%E5%87%86%E8%A7%A3%E9%87%8A%E6%98%AF%EF%BC%9ANot,Modified%20%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%9C%89%E7%BC%93%E5%86%B2%E7%9A%84%E6%96%87%E6%A1%A3%E5%B9%B6%E5%8F%91%E5%87%BA%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9D%A1%E4%BB%B6%E6%80%A7%E7%9A%84%E8%AF%B7%E6%B1%82%EF%BC%88%E4%B8%80%E8%88%AC%E6%98%AF%E6%8F%90%E4%BE%9BIf-Modified-Since%E5%A4%B4%E8%A1%A8%E7%A4%BA%E5%AE%A2%E6%88%B7%E5%8F%AA%E6%83%B3%E6%AF%94%E6%8C%87%E5%AE%9A%E6%97%A5%E6%9C%9F%E6%9B%B4%E6%96%B0%E7%9A%84%E6%96%87%E6%A1%A3%EF%BC%89%E3%80%82"
+        },
+        {
+            "label": "解决vite项目发版后浏览器缓存问题",
+            "url": "https://blog.csdn.net/weixin_44545357/article/details/135541079"
+        }
+
+       
+    ]
+}
